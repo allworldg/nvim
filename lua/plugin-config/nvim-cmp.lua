@@ -5,14 +5,22 @@
 local status, cmp = pcall(require, "cmp")
 if not status then
   vim.notify("cmp not found")
+  return
 end
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
+  vim.notify("luasnip not found")
   return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+local ok, from_vscode = pcall(require, "luasnip/loaders/from_vscode")
+if not ok then
+  vim.notify("luasnip/loaders/from_vscode not found")
+  return
+end
+from_vscode.lazy_load()
+-- require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1

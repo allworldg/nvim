@@ -1,6 +1,6 @@
 require("plugins")
 require("keybindings")
-require("colorscheme.github-nvim-theme")
+require("colorscheme")
 require("basic")
 
 -- lsp
