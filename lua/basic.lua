@@ -86,7 +86,9 @@ vim.cmd [[
  augroup END
 ]]
 
-
+vim.cmd [[
+  let g:nord_underline = 1
+]]
 
 -- remember the last edit cursor
 vim.cmd([[

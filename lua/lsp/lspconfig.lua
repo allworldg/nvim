@@ -1,29 +1,45 @@
-local signs = {
-  { name = "DiagnosticSignError", text = "" },
-  { name = "DiagnosticSignWarn", text = "" },
-  { name = "DiagnosticSignHint", text = "" },
-  { name = "DiagnosticSignInfo", text = "" },
-}
+-- local signs = {
+--   { name = "DiagnosticSignError", text = "" },
+--   { name = "DiagnosticSignWarn", text = "" },
+--   { name = "DiagnosticSignHint", text = "" },
+--   { name = "DiagnosticSignInfo", text = "" },
+-- }
+
+vim.cmd [[
+  highlight DiagnosticSignInfo  guifg = Black
+  highlight DiagnosticSignWarn  guifg = #C4A65E 
+  highlight DiagnosticSignError guifg = Red
+
+  highlight DiagnosticUnderlineWarn cterm = underline gui = underline guifg = Grey guibg = White
+  highlight DiagnosticUnderlineHint cterm = underline gui = underline guifg = Grey guibg = White
+  highlight DiagnosticUnderlineInfo cterm = underline gui = underline guifg = Grey guibg = White
+  highlight DiagnosticUnderlineError cterm = underline gui = underline guifg = Red guibg = White
+
+  highlight DiagnosticFloatingHint guifg = Black guibg = #F7F7F7 ctermfg = Black ctermbg = White
+  highlight DiagnosticFloatingWarn guifg = Black guibg = White ctermfg = Black ctermbg = White
+  highlight DiagnosticFloatingError guifg = Red guibg = white ctermfg = Red ctermbg = Black
+  highlight diagnosticfloatingInfo guifg = Black guibg = white ctermfg = Black ctermbg = White
 
 
-for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-end
+
+]]
+
+-- for _, sign in ipairs(signs) do
+--   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+-- end
 
 local config = {
   -- disable virtual text
   virtual_text = false,
   -- show signs
-  signs = {
-    active = signs,
-  },
+  signs = true,
   update_in_insert = true,
   underline = true,
   severity_sort = true,
   float = {
     focusable = false,
     style = "minimal",
-    border = "rounded",
+    border = "single",
     source = "always",
     header = "",
     prefix = "",
@@ -33,13 +49,12 @@ local config = {
 vim.diagnostic.config(config)
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
+  border = "border",
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
+  border = "border",
 })
-
 -- keymappings
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }

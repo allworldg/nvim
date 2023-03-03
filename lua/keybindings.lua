@@ -106,7 +106,7 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = { "<tab>" }, action = "preview" },
   { key = "<cr>", action = "edit" },
   -- v分屏打开文件
-  { key = "v", action = "vsplit" },
+  { key = "s", action = "vsplit" },
   -- h分屏打开文件
   -- ignore (node_modules)
   -- hide (dotfiles)

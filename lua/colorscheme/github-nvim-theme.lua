@@ -8,12 +8,9 @@ githubTheme.setup({
   keyword_style = "none",
   comment_style = "none",
   dev = true,
-  sidebars = { "qf", "vista_kind", "terminal", "packer" },
+  -- sidebars = { "qf", "vista_kind", "terminal", "packer" },
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
   -- Overwrite the highlight groups
 }
 )
 
-vim.cmd [[
-  highlight @tag.html guifg=#1647c4 
-]]
