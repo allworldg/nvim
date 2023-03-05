@@ -93,6 +93,11 @@ return packer.startup({ function()
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
   })
+
+
+-- using packer.nvim
+use {'akinsho/bufferline.nvim', tag = "v3.*"}
+
 end,
   config = {
     -- snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshot")

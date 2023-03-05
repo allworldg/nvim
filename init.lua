@@ -1,10 +1,10 @@
-require("plugins")
-require("keybindings")
-require("colorscheme")
 require("basic")
+require("keybindings")
+require("plugins")
+require("colorscheme")
 
 -- lsp
-require("lsp.lspconfig")
+--require("lsp.lspconfig")
 
 -- mason
 require("plugin-config.mason")
@@ -21,4 +21,5 @@ require("plugin-config.nvim-autopairs")
 require("plugin-config.comment")
 require("plugin-config.nvim-lualine")
 require("plugin-config.nvim-ts-autotag")
+require("plugin-config.bufferline")
 

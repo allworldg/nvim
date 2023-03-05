@@ -4,4 +4,4 @@ if not ok then
 end
 
 require "lsp.lspconfig"
-require "lsp.handlers"
+require ("lsp.handlers").setup()
