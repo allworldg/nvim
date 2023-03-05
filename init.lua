@@ -4,7 +4,7 @@ require("plugins")
 require("colorscheme")
 
 -- lsp
---require("lsp.lspconfig")
+require("lsp")
 
 -- mason
 require("plugin-config.mason")

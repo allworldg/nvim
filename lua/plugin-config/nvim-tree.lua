@@ -44,7 +44,7 @@ nvim_tree.setup {
       -- 首次打开大小适配
       resize_window = true,
       -- 打开文件时关闭 tree
-      quit_on_open = false,
+      quit_on_open = true,
     },
   },
 }
