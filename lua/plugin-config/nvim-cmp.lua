@@ -101,6 +101,8 @@ cmp.setup({
     { name = 'luasnip' },
     { name = "buffer" },
     { name = "path" },
+    {name = "nvim_lua"},
+
   }),
 
   -- set cmp-window max width

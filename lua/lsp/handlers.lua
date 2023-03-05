@@ -38,6 +38,9 @@ M.setup = function()
   })
 end
 
+
+
+
 local function lsp_keymap(bufnr)
   local opts = { noremap = true, silent = true }
   vim.keymap.set('n', '<space>se', vim.diagnostic.open_float, opts)
