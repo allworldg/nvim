@@ -4,4 +4,12 @@ if not status then
 end
 
 
-mason_lspconfig.setup()
+local servers = {
+  "lua_ls",
+  "tsserver",
+}
+
+mason_lspconfig.setup({
+  ensure_installed = servers,
+})
+
