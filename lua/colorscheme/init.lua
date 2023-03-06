@@ -17,15 +17,15 @@ vim.cmd[[
 vim.cmd [[
   highlight DiagnosticSignInfo  guifg = Black
   highlight DiagnosticSignWarn  guifg = #C4A65E 
-  highlight DiagnosticSignError guifg = #F50000
+  " highlight DiagnosticSignError guifg = #F03D22
 
   highlight DiagnosticUnderlineWarn cterm = underline gui = underline guifg = Grey guibg = White
   highlight DiagnosticUnderlineHint cterm = underline gui = underline guifg = Grey guibg = White
   highlight DiagnosticUnderlineInfo cterm = underline gui = underline guifg = Grey guibg = White
-  highlight DiagnosticUnderlineError cterm = underline gui = underline guifg = #F50000 guibg = White
+  highlight DiagnosticUnderlineError cterm = underline gui = underline guifg = none guibg = White
 
   highlight DiagnosticFloatingHint guifg = Black guibg = #F7F7F7 ctermfg = Black ctermbg = White
   highlight DiagnosticFloatingWarn guifg = Black guibg = White ctermfg = Black ctermbg = White
-  highlight DiagnosticFloatingError guifg = #F50000 guibg = white ctermfg = Red ctermbg = Black
+  highlight DiagnosticFloatingError guifg = #F03D22 guibg = white ctermfg = Red ctermbg = Black
   highlight diagnosticfloatingInfo guifg = Black guibg = white ctermfg = Black ctermbg = White
 ]]

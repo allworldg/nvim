@@ -6,12 +6,14 @@ end
 local servers = {
   "lua_ls",
   "tsserver",
+  "pyright",
 }
 
 local isOk, handler = pcall(require, "lsp.handlers")
 if not isOk then
   return
 end
+
 
 local opts = {}
 for key, serverName in pairs(servers) do
