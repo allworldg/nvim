@@ -9,6 +9,10 @@ vim.cmd [[
   highlight @tag.html guifg=#1647c4 
 ]]
 
+vim.cmd[[
+ " highlight NormalFloat  guibg = #F7F7F7
+]]
+
 --------------- diagnostic
 vim.cmd [[
   highlight DiagnosticSignInfo  guifg = Black
