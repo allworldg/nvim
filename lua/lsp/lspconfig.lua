@@ -5,7 +5,7 @@ end
 
 local servers = {
   "lua_ls",
-  -- "tsserver",
+  "tsserver",
 }
 
 local isOk, handler = pcall(require, "lsp.handlers")
