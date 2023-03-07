@@ -7,8 +7,12 @@ end
 --------------- treesitter
 vim.cmd [[
   highlight @tag.html guifg=#1647c4 
+  highlight @variable guifg = Black
+  highlight @parameter.python guifg = DarkCyan
+  highlight @include.python guifg = DarkBlue
+  highlight @keyword.function.python guifg = DarkBlue
 ]]
-
+vim.api.nvim_set_hl(0,"@method.call.python",{fg=Black})
 vim.cmd[[
  " highlight NormalFloat  guibg = #F7F7F7
 ]]
