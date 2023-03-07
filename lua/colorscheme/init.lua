@@ -6,11 +6,12 @@ end
 
 --------------- treesitter
 vim.cmd [[
-  highlight @tag.html guifg=#1647c4 
+  highlight @tag.html guifg=#1647c4 ctermfg = DarkBlue
   highlight @variable guifg = Black
   highlight @parameter.python guifg = DarkCyan
   highlight @include.python guifg = DarkBlue
-  highlight @keyword.function.python guifg = DarkBlue
+  highlight @keyword.function.python guifg = Blue ctermfg=DarkBlue
+  highlight @repeat.python guifg = #0033B3 ctermfg = DarkBlue 
 ]]
 vim.api.nvim_set_hl(0,"@method.call.python",{fg=Black})
 vim.cmd[[
