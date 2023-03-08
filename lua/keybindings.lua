@@ -94,8 +94,9 @@ map("t", "<leader>l", [[ <c-\><c-n><c-w>l ]], opt)
 
 -- telescope
 map("n", "<C-p>", ":Telescope find_files<cr>", opt)
-map("n", "<C-f>", ":Telescope live_grep<cr>", opt)
-
+-- map("n", "<C-f>", ":Telescope live_grep<cr>", opt)
+local builtin = require('telescope.builtin')
+vim.keymap.set("n","<C-f>",builtin.live_grep,opt)
 
 local pluginKeys = {}
 -- nvimtree
@@ -103,30 +104,30 @@ map('n', '<A-m>', ':NvimTreeToggle<CR>', opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = { "o", "<2-leftmouse>" }, action = "edit" },
-  { key = { "<tab>" }, action = "preview" },
-  { key = "<cr>", action = "edit" },
+  { key = { "<tab>" },              action = "preview" },
+  { key = "<cr>",                   action = "edit" },
   -- v分屏打开文件
-  { key = "s", action = "vsplit" },
+  { key = "s",                      action = "vsplit" },
   -- h分屏打开文件
   -- ignore (node_modules)
   -- hide (dotfiles)
-  { key = ".", action = "toggle_dotfiles" },
+  { key = ".",                      action = "toggle_dotfiles" },
   -- { key = "r", action = "refresh" },
   -- 文件操作
-  { key = "a", action = "create" },
-  { key = "d", action = "remove" },
-  { key = "r", action = "rename" },
-  { key = "x", action = "cut" },
-  { key = "c", action = "copy" },
-  { key = "p", action = "paste" },
-  { key = "y", action = "copy_name" },
-  { key = "y", action = "copy_path" },
-  { key = "gy", action = "copy_absolute_path" },
-  { key = "i", action = "toggle_file_info" },
+  { key = "a",                      action = "create" },
+  { key = "d",                      action = "remove" },
+  { key = "r",                      action = "rename" },
+  { key = "x",                      action = "cut" },
+  { key = "c",                      action = "copy" },
+  { key = "p",                      action = "paste" },
+  { key = "y",                      action = "copy_name" },
+  { key = "y",                      action = "copy_path" },
+  { key = "gy",                     action = "copy_absolute_path" },
+  { key = "i",                      action = "toggle_file_info" },
   -- 进入下一级
-  { key = { "]" }, action = "cd" },
+  { key = { "]" },                  action = "cd" },
   -- 进入上一级
-  { key = { "[" }, action = "dir_up" },
+  { key = { "[" },                  action = "dir_up" },
 }
 
 --comment
@@ -134,7 +135,7 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
 pluginKeys.comment = {
   -- normal 模式快捷键
   toggler = {
-    line = "gcc", -- 行注释
+    line = "gcc",  -- 行注释
     block = "gbc", -- 块注释
   },
   -- visual 模式

@@ -4,6 +4,9 @@ if not status then
   return
 end
 
+local builtin = require("telescope.builtin") 
+vim.keymap.set('n','gr',builtin.lsp_references,{})
+
 telescope.setup({
   defaults = {
     results_title = '',
@@ -43,6 +46,9 @@ telescope.setup({
       shorten_path = true,
       layout_config = { preview_cutoff = 10 }, -- 放大界面也不会让preview界面消失,
     },
+    lsp_references = {
+      layout_config = { preview_cutoff = 10 }, -- 放大界面也不会让preview界面消失,
+    }
   },
   extensions = {
   },

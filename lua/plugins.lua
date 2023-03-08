@@ -94,7 +94,7 @@ return packer.startup({
 
     use({
       "kylechui/nvim-surround",
-      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      tag = "main", -- Use for stability; omit to use `main` branch for the latest features
     })
 
 
