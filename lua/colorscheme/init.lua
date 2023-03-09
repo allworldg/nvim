@@ -1,8 +1,12 @@
-
+local status, colorscheme = pcall(require, "colorscheme.github-nvim-theme")
+if not status then
+  vim.notify("point colorscheme not found")
+  return
+end
 -------------
-vim.cmd [[
- highlight Normal guibg = #F9F9F9
-]]
+-- vim.cmd [[
+--  highlight Normal guibg = #F9F9F9
+-- ]]
 --------------- treesitter
 vim.cmd [[
   highlight @tag.html guifg=#1647c4 ctermfg = DarkBlue
@@ -16,6 +20,7 @@ vim.cmd [[
 
 vim.cmd [[
  highlight NormalFloat  guibg = #F9F9F9
+ highlight CusorLine guibg = #FCFAED
 ]]
 
 --------------- diagnostic
@@ -36,8 +41,3 @@ vim.cmd [[
 ]]
 
 
-local status, colorscheme = pcall(require, "colorscheme.github-nvim-theme")
-if not status then
-  vim.notify("point colorscheme not found")
-  return
-end
