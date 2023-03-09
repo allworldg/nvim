@@ -76,11 +76,11 @@ M.on_attach = function(client, bufnr)
   -- if client.name == "" then
   -- 	client.server_capabilities.documentFormattingProvider = false
   -- end
-
   lsp_keymap(bufnr)
-  -- local status_ok, illuminate = pcall(require, "illuminate")
-  -- if not status_ok then
-  -- 	return
+  -- local ok, illuminate = pcall(require, "illuminate")
+  --
+  -- if not ok then
+  --   return
   -- end
   -- illuminate.on_attach(client)
 end

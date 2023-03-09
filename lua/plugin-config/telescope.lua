@@ -4,8 +4,8 @@ if not status then
   return
 end
 
-local builtin = require("telescope.builtin") 
-vim.keymap.set('n','gr',builtin.lsp_references,{})
+local builtin = require("telescope.builtin")
+vim.keymap.set('n', 'gr', builtin.lsp_references, {})
 
 telescope.setup({
   defaults = {
@@ -15,24 +15,24 @@ telescope.setup({
     -- vertical , center , cursor,horizontal
     layout_strategy = "vertical", -- 可以写入局部picker来改变具体的picker界面
     layout_config = {
-      width = 0.8, -- （猜测） 小于1时是按照百分比，大于的话是按照某个单位
+      width = 0.8,                -- （猜测） 小于1时是按照百分比，大于的话是按照某个单位
     },
     path_display = { "smart" },
     -- 窗口内快捷键
     mappings = {
       i = {
         -- 上下移动
-        ["<c-n>"] = "move_selection_next",
-        ["<c-p>"] = "move_selection_previous",
+            ["<c-n>"] = "move_selection_next",
+            ["<c-p>"] = "move_selection_previous",
         -- 历史记录
-        ["<down>"] = "cycle_history_next",
-        ["<up>"] = "cycle_history_prev",
+            ["<down>"] = "cycle_history_next",
+            ["<up>"] = "cycle_history_prev",
         -- 关闭窗口
         -- ["<esc>"] = actions.close,
-        ["<c-c>"] = "close",
+            ["<c-c>"] = "close",
         -- 预览窗口上下滚动
-        ["<c-u>"] = "preview_scrolling_up",
-        ["<c-d>"] = "preview_scrolling_down",
+            ["<c-u>"] = "preview_scrolling_up",
+            ["<c-d>"] = "preview_scrolling_down",
       },
     }
   },

@@ -20,7 +20,7 @@ vim.cmd [[
   highlight @keyword.return.python guifg = DarkCyan
   highlight @repeat.python guifg = #0033B3 ctermfg = DarkBlue 
 ]]
-vim.api.nvim_set_hl(0,"@method.call.python",{fg=Black})
+
 vim.cmd[[
  " highlight NormalFloat  guibg = #F7F7F7
 ]]

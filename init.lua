@@ -22,4 +22,4 @@ require("plugin-config.comment")
 require("plugin-config.nvim-lualine")
 require("plugin-config.nvim-ts-autotag")
 require("plugin-config.bufferline")
-
+require("plugin-config.vim-illuminate")

@@ -57,7 +57,7 @@ return packer.startup({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'
     }
-    use {'nvim-treesitter/playground'}
+    use { 'nvim-treesitter/playground' }
 
     -- file System
     use {
@@ -100,6 +100,8 @@ return packer.startup({
 
     -- using packer.nvim
     use { 'akinsho/bufferline.nvim', tag = "v3.*" }
+
+    use { 'RRethy/vim-illuminate' }
   end,
   config = {
     -- snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshot")
