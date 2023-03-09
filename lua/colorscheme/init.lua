@@ -1,14 +1,7 @@
-local status, colorscheme = pcall(require, "colorscheme.github-nvim-theme")
-if not status then
-  vim.notify("point colorscheme not found")
-  return
-end
-
-
 
 -------------
-vim.cmd[[
-highlight Normal guibg = #F9F9F9
+vim.cmd [[
+ highlight Normal guibg = #F9F9F9
 ]]
 --------------- treesitter
 vim.cmd [[
@@ -18,17 +11,17 @@ vim.cmd [[
   highlight @include.python guifg = DarkBlue
   highlight @keyword.function.python guifg = Blue ctermfg=DarkBlue
   highlight @keyword.return.python guifg = DarkCyan
-  highlight @repeat.python guifg = #0033B3 ctermfg = DarkBlue 
+  highlight @repeat.python guifg = #0033B3 ctermfg = DarkBlue
 ]]
 
-vim.cmd[[
- " highlight NormalFloat  guibg = #F7F7F7
+vim.cmd [[
+ highlight NormalFloat  guibg = #F9F9F9
 ]]
 
 --------------- diagnostic
 vim.cmd [[
   highlight DiagnosticSignInfo  guifg = Black
-  highlight DiagnosticSignWarn  guifg = #C4A65E 
+  highlight DiagnosticSignWarn  guifg = #C4A65E
   " highlight DiagnosticSignError guifg = #F03D22
 
   highlight DiagnosticUnderlineWarn cterm = underline gui = underline guifg = #696969 guibg = none
@@ -41,3 +34,10 @@ vim.cmd [[
   highlight DiagnosticFloatingError guifg = #F03D22 guibg = none ctermfg = Red ctermbg = none
   highlight diagnosticfloatingInfo guifg = Black guibg = none ctermfg = Black ctermbg = none
 ]]
+
+
+local status, colorscheme = pcall(require, "colorscheme.github-nvim-theme")
+if not status then
+  vim.notify("point colorscheme not found")
+  return
+end

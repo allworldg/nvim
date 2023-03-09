@@ -13,4 +13,3 @@ githubTheme.setup({
   -- Overwrite the highlight groups
 }
 )
-
