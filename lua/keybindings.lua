@@ -14,8 +14,8 @@ local opt = {
   silent = true,
 }
 --
--- -- 本地变量
 local map = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 -- quick select all
 map('n', '<leader>a', 'ggVG', opt)
 -- $跳到行尾不带空格 (交换$ 和 g_)
@@ -151,8 +151,10 @@ map("v", "<c-_>", "gc", { noremap = false })
 
 -- bufferline
 -- 左右tab切换
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
+keymap({'n','i'},'<C-h>','<cmd>BufferLineCyclePrev<cr>')
+keymap({'n','i'},'<C-l>','<cmd>BufferLineCycleNext<cr>')
+-- map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
+-- map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 -- "moll/vim-bbye" 关闭当前 buffer
 map("n", "<C-w>", ":bdelete!<cr>", opt)
 -- 关闭左/右侧标签页

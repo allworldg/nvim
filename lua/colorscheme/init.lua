@@ -3,10 +3,8 @@ if not status then
   vim.notify("point colorscheme not found")
   return
 end
--------------
--- vim.cmd [[
---  highlight Normal guibg = #F9F9F9
--- ]]
+
+
 --------------- treesitter
 vim.cmd [[
   highlight @tag.html guifg=#1647c4 ctermfg = DarkBlue
@@ -19,8 +17,8 @@ vim.cmd [[
 ]]
 
 vim.cmd [[
- highlight NormalFloat  guibg = #F9F9F9
- highlight CusorLine guibg = #FCFAED
+ highlight NormalFloat  guibg = none
+ highlight CursorLine guibg = #FCFAED
 ]]
 
 --------------- diagnostic
@@ -34,7 +32,7 @@ vim.cmd [[
   highlight DiagnosticUnderlineInfo cterm = underline gui = underline guifg = #696969 guibg = none
   highlight DiagnosticUnderlineError cterm = underline gui = underline guifg = none guibg = none
 
-  highlight DiagnosticFloatingHint guifg = Black guibg = #F7F7F7 ctermfg = Black ctermbg = none
+  highlight DiagnosticFloatingHint guifg = Black guibg = none ctermfg = Black ctermbg = none
   highlight DiagnosticFloatingWarn guifg = Black guibg = none ctermfg = Black ctermbg = none
   highlight DiagnosticFloatingError guifg = #F03D22 guibg = none ctermfg = Red ctermbg = none
   highlight diagnosticfloatingInfo guifg = Black guibg = none ctermfg = Black ctermbg = none
