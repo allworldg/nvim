@@ -4,15 +4,14 @@ if not status then
   return
 end
 
--- 列表操作快捷键
-local list_keys = require("keybindings").nvimTreeList
+vim.keymap.set({ 'n', 'i' }, '<A-m>', '<cmd>:NvimTreeToggle<CR>', {})
 
 nvim_tree.setup {
   -- 完全禁止内置netrw
   disable_netrw = true,
   -- 不显示 git 状态图标
   git = {
-    enable = true 
+    enable = true
   },
   filters = {
     -- 隐藏 .文件
@@ -36,7 +35,33 @@ nvim_tree.setup {
     mappings = {
       -- 只用内置快捷键
       custom_only = true,
-      list = list_keys,
+      list = { -- 打开文件或文件夹
+        { key = { "o", "<2-leftmouse>" }, action = "edit" },
+        { key = { "<tab>" },              action = "preview" },
+        { key = "<cr>",                   action = "edit" },
+        -- v分屏打开文件
+        { key = "s",                      action = "vsplit" },
+        -- h分屏打开文件
+        -- ignore (node_modules)
+        -- hide (dotfiles)
+        { key = ".",                      action = "toggle_dotfiles" },
+        -- { key = "r", action = "refresh" },
+        -- 文件操作
+        { key = "a",                      action = "create" },
+        { key = "d",                      action = "remove" },
+        { key = "r",                      action = "rename" },
+        { key = "x",                      action = "cut" },
+        { key = "c",                      action = "copy" },
+        { key = "p",                      action = "paste" },
+        { key = "y",                      action = "copy_name" },
+        { key = "y",                      action = "copy_path" },
+        { key = "gy",                     action = "copy_absolute_path" },
+        { key = "i",                      action = "toggle_file_info" },
+        -- 进入下一级
+        { key = { "]" },                  action = "cd" },
+        -- 进入上一级
+        { key = { "[" },                  action = "dir_up" },
+      },
     },
   },
   actions = {

@@ -4,8 +4,11 @@ if not status then
   return
 end
 
+local keymap = vim.keymap.set
 local builtin = require("telescope.builtin")
-vim.keymap.set('n', 'gr', builtin.lsp_references, {})
+keymap('n', 'gr', builtin.lsp_references, {})
+keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", {})
+vim.keymap.set("n","<C-f>",builtin.live_grep,{})
 
 telescope.setup({
   defaults = {

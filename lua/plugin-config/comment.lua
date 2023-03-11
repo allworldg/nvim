@@ -74,7 +74,21 @@ local default_opts = {
   post_hook = nil,
 }
 
--- 关闭了extra快捷键，只用keybindings里定义的基础快捷键
-comment.setup(vim.tbl_deep_extend("force", default_opts, require("keybindings").comment))
-
+-- -- 关闭了extra快捷键，只用keybindings里定义的基础快捷键
+-- local keybindings = {
+--   -- normal 模式快捷键
+--   toggler = {
+--     line = "gcc",  -- 行注释
+--     block = "gbc", -- 块注释
+--   },
+--   -- visual 模式
+--   opleader = {
+--     line = "gc",
+--     bock = "gb",
+--   },
+-- }
+comment.setup(vim.tbl_deep_extend("force", default_opts,{}))
+-- ctrl + /
+vim.api.nvim_set_keymap("n", "<c-_>", "gcc", { noremap = false })
+vim.api.nvim_set_keymap("v", "<c-_>", "gc", { noremap = false })
 

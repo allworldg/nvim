@@ -4,6 +4,22 @@ if not ok then
   return
 end
 
+
+vim.keymap.set({'n','i'},'<C-h>','<cmd>BufferLineCyclePrev<cr>')
+vim.keymap.set({'n','i'},'<C-l>','<cmd>BufferLineCycleNext<cr>')
+local opt = {
+  noremap = true,
+  silent = true,
+}
+-- "moll/vim-bbye" 关闭当前 buffer
+vim.api.nvim_set_keymap("n", "<C-w>", ":bdelete!<cr>", opt)
+-- 关闭左/右侧标签页
+vim.api.nvim_set_keymap("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
+vim.api.nvim_set_keymap("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
+-- 关闭其他标签页
+vim.api.nvim_set_keymap("n", "<leader>bo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
+
+
 bufferline.setup {
   options = {
     number = "none",
