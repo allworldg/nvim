@@ -3,7 +3,7 @@
 --   insert_mode = "i",
 --   visual_mode = "v",
 --   visual_block_mode = "x",
---   term_mode = "t",
+--   terminal_mode = "t",
 --   command_mode = "c",
 
 -- leader key 为空

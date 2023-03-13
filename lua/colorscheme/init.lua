@@ -18,7 +18,7 @@ vim.cmd [[
 
 vim.cmd [[
  highlight NormalFloat  guibg = none
- highlight CursorLine guibg = #FCFAED
+ " highlight CursorLine guibg = #FCFAED
 ]]
 
 --------------- diagnostic
