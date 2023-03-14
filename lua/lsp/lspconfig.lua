@@ -7,6 +7,8 @@ local servers = {
   "lua_ls",
   "tsserver",
   "pyright",
+  "html",
+
 }
 
 local isOk, handler = pcall(require, "lsp.handlers")
@@ -17,7 +19,7 @@ end
 
 local opts = {}
 for key, serverName in pairs(servers) do
-   opts = {
+  opts = {
     on_attach = handler.on_attach,
     capabilities = handler.capabilities,
   }
@@ -27,7 +29,7 @@ for key, serverName in pairs(servers) do
 
   local isSet, server_conf = pcall(require, "lsp.server-settings." .. serverName)
   if isSet then
-     opts = vim.tbl_deep_extend("force", server_conf, opts) -- merge two opts
+    opts = vim.tbl_deep_extend("force", server_conf, opts)  -- merge two opts
   end
   lspconfig[serverName].setup(opts)
 end
