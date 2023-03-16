@@ -47,7 +47,8 @@ require("lazy").setup({
   -- file System
   {
     'nvim-tree/nvim-tree.lua',
-    version = "*" -- optional, updated every week. (see issue #1193)
+    version = "nightly" -- optional, updated every week. (see issue #1193)
+    -- commit = "16a0e3c"
   },
 
   -- auto complete
