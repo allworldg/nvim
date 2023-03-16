@@ -18,7 +18,7 @@ if not status then
   return
 end
 -- if you have opt options
-vim.cmd [[packadd packer.nvim]]
+vim.cmd.packadd('packer.nvim')
 
 packer.init(
   {
