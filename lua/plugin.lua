@@ -1,110 +1,91 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-    vim.cmd [[packadd packer.nvim]]
-    vim.notify('start to install packer')
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-ensure_packer()
 
-local status, packer = pcall(require, "packer")
-if not status then
-  vim.notify("packer not found")
-  return
-end
--- if you have opt options
-vim.cmd.packadd('packer.nvim')
+require("lazy").setup({
 
-packer.init(
+  -- Packer can manage itself
+  'wbthomason/packer.nvim',
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "neovim/nvim-lspconfig",
+
+
+  -- theme
+  'projekt0n/github-nvim-theme',
+
+  'nvim-lualine/lualine.nvim',
+
+  -- find file
+
   {
-    snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshot")
-  }
-)
-
-return packer.startup({
-  function()
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-
-    --lsp
-    use {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-    }
-
-    -- theme
-    use({ 'projekt0n/github-nvim-theme' })
-    use {
-      'nvim-lualine/lualine.nvim',
-    }
-    use({ 'tjdevries/colorbuddy.nvim' })
+    'nvim-telescope/telescope.nvim',
+    version = "0.1.1",
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
 
 
-    -- find file
-    use {
-      'nvim-telescope/telescope.nvim', tag = "0.1.1",
-      requires = { 'nvim-lua/plenary.nvim' },
-    }
+  -- highlight
 
-    -- highlight
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
-    }
-    use { 'nvim-treesitter/playground' }
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+  },
 
-    -- file System
-    use {
-      'nvim-tree/nvim-tree.lua',
-      tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    }
+  'nvim-treesitter/playground',
 
-    -- auto complete
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-nvim-lua'
-    use("hrsh7th/cmp-nvim-lsp-signature-help")
+  -- file System
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = "*" -- optional, updated every week. (see issue #1193)
+  },
 
-    --snip and snippets
-    use({
-      "L3MON4D3/LuaSnip",
-      -- install jsregexp (optional!:).
-      run = "make install_jsregexp"
-    })
-    use { 'saadparwaiz1/cmp_luasnip' }
-    use 'rafamadriz/friendly-snippets'
+  -- auto complete
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/cmp-nvim-lua',
+  "hrsh7th/cmp-nvim-lsp-signature-help",
 
-    -- autopairs
-    use("windwp/nvim-autopairs")
+  --snip and snippets
+  {
+    "L3MON4D3/LuaSnip",
+    -- install jsregexp (optional!:).
+    cms = "make install_jsregexp"
+  },
+  { 'saadparwaiz1/cmp_luasnip' },
+  'rafamadriz/friendly-snippets',
 
-    -- autotag
-    use("windwp/nvim-ts-autotag")
+  -- autopairs
+  "windwp/nvim-autopairs",
 
-    -- Comment
-    use("numToStr/Comment.nvim")
+  -- autotag
+  "windwp/nvim-ts-autotag",
 
-    use({
-      "kylechui/nvim-surround",
-      tag = "main", -- Use for stability; omit to use `main` branch for the latest features
-    })
+  -- Comment
+  "numToStr/Comment.nvim",
+
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+  },
 
 
-    -- using packer.nvim
-    use { 'akinsho/bufferline.nvim', tag = "v3.*" }
+  -- using packer.nvim
+  { 'akinsho/bufferline.nvim', version = "v3.*" },
 
-    use { 'RRethy/vim-illuminate' }
-  end,
-  config = {
-    -- snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshot")
-  }
+  { 'RRethy/vim-illuminate' },
 }
 )
