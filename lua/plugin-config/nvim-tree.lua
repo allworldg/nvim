@@ -10,7 +10,6 @@ vim.g.loaded_netrwPlugin = 1
 
 -- when open the neovim directory ,auto open the nvim-tree
 local function open_nvim_tree(data)
-
   -- buffer is a directory
   local directory = vim.fn.isdirectory(data.file) == 1
 
@@ -51,6 +50,10 @@ nvim_tree.setup {
         folder_arrow = true,
       }
     },
+  },
+  update_focused_file = {
+    enable = true,
+    update_root = true,
   },
   view = {
     -- 隐藏根目录

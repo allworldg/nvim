@@ -51,6 +51,6 @@ illuminate.configure({
   min_count_to_highlight = 1,
 })
 vim.cmd[[
-  hi IlluminatedWordRead guibg=#EDEBFC
-  highlight IlluminatedWordWrite  guibg=#EDEBFC
+  hi  IlluminatedWordRead guibg=#EDEBFC gui = none
+  highlight  IlluminatedWordWrite  guibg=#EDEBFC 
 ]]
