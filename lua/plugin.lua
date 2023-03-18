@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-  -- Packer can manage itself
+  --lsp
   {
     "williamboman/mason.nvim",
     config = function()
@@ -32,6 +32,12 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     config = function()
       require("lsp.lspconfig")
+    end
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("lsp.null-ls")
     end
   },
 
