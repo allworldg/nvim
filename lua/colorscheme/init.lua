@@ -4,7 +4,6 @@ if not status then
   return
 end
 
-
 --------------- treesitter
 vim.cmd [[
   highlight @tag.html guifg=#1647c4 ctermfg = DarkBlue

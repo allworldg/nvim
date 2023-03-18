@@ -15,7 +15,7 @@ local isOk, handler = pcall(require, "lsp.handlers")
 if not isOk then
   return
 end
-
+handler.setup()
 
 local opts = {}
 for key, serverName in pairs(servers) do
