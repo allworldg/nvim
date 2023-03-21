@@ -153,7 +153,9 @@ require("lazy").setup({
     version = "v3.*",
     config = function()
       require("plugin-config.bufferline")
-    end
+    end,
+    cond = false
+
   },
 
   {

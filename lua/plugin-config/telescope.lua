@@ -7,8 +7,9 @@ end
 local keymap = vim.keymap.set
 local builtin = require("telescope.builtin")
 keymap('n', 'gr', builtin.lsp_references, {})
+keymap('n', 'gd', builtin.lsp_definitions, {})
 keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", {})
-vim.keymap.set("n","<C-f>",builtin.live_grep,{})
+vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
 
 telescope.setup({
   defaults = {
@@ -51,7 +52,10 @@ telescope.setup({
     },
     lsp_references = {
       layout_config = { preview_cutoff = 10 }, -- 放大界面也不会让preview界面消失,
-    }
+    },
+    lsp_definitions = {
+      layout_config = { preview_cutoff = 10 },
+    },
   },
   extensions = {
   },

@@ -3,7 +3,6 @@ if not status then
   vim.notify("not found mason-lspconfig")
 end
 
-
 local servers = {
   "lua_ls",
   "tsserver",

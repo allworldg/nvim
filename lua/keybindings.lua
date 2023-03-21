@@ -23,7 +23,6 @@ map("v", "$", "g_", opt)
 map("v", "g_", "$", opt)
 map("n", "$", "g_", opt)
 map("n", "g_", "$", opt)
-
 -- save and exit
 map("n", "<leader>w", ":w<CR>", opt)
 map("n", "<leader>wq", ":wqa!<CR>", opt)
@@ -42,6 +41,9 @@ map("v", ">", ">gv", opt)
 
 -- 在visual mode 里粘贴的同时顺利打开附件不要复制
 map("v", "p", '"_dp', opt)
+
+-- buffer
+map("n","<leader>bl",":buffers<CR>:buffer<Space>",{})
 
 -- -- 退出
 map("n", "qq", ":q!<CR>", opt)
