@@ -11,6 +11,7 @@ vim.wo.number = true
 -- vim.wo.cursorline = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
+vim.opt.winblend = 0
 -- one tab == 2 blackspace
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2

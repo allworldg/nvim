@@ -16,14 +16,11 @@ local function open_nvim_tree(data)
   if not directory then
     return
   end
-
   -- change to the directory
   vim.cmd.cd(data.file)
-
   -- open the tree
   require("nvim-tree.api").tree.open()
 end
-
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 vim.keymap.set({ 'n', 'i' }, '<A-m>', '<cmd>:NvimTreeToggle<CR>', {})

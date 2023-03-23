@@ -21,7 +21,7 @@ M.setup = function()
     underline = true,
     severity_sort = true,
     float = {
-      focusable = false,
+      focusable = true,
       style = "minimal",
       border = "single",
       source = "always",
@@ -30,6 +30,7 @@ M.setup = function()
     },
   }
   vim.diagnostic.config(config)
+
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "single",

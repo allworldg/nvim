@@ -48,8 +48,12 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
     config = function()
-      require('colorscheme')
-    end
+      require('colorscheme.github-nvim-theme')
+    end,
+  },
+  {
+    'folke/tokyonight.nvim',
+    cond = false,
   },
 
   {
@@ -155,7 +159,6 @@ require("lazy").setup({
       require("plugin-config.bufferline")
     end,
     cond = false
-
   },
 
   {
