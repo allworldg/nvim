@@ -3,7 +3,7 @@ if not status then
   vim.notify("lualine not found")
   return
 end
-
+local test = 0
 
 lualine.setup({
   options = {
@@ -22,7 +22,7 @@ lualine.setup({
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = { 'filename' },
     lualine_x = { 'encoding', 'filetype' },
-    lualine_y = { '' },
+    lualine_y = {},
     lualine_z = { 'progress' }
   },
   inactive_sections = {

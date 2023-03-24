@@ -50,12 +50,24 @@ require("lazy").setup({
     config = function()
       require('colorscheme.github-nvim-theme')
     end,
+    cond = true,
   },
   {
-    'folke/tokyonight.nvim',
-    cond = false,
-  },
-
+    "svrana/neosolarized.nvim",
+    dependencies = {
+      "tjdevries/colorbuddy.nvim",
+    },
+    config = function()
+      require("neosolarized").setup({
+        comment_italics = true,
+        background_set = true,
+      })
+    end,
+    cond = true,
+    
+    enabled = false,
+  }
+  ,
   {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -71,7 +83,8 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require("plugin-config.telescope")
-    end
+    end,
+    lazy = false,
   },
 
 

@@ -26,6 +26,9 @@ map("n", "g_", "$", opt)
 -- save and exit
 map("n", "<leader>w", ":w<CR>", opt)
 map("n", "<leader>wq", ":wqa!<CR>", opt)
+-- -- exit
+map("n", "qq", ":q!<CR>", opt)
+map("n", "<leader>q", ":qa<CR>", opt)
 
 -- fix :set wrap
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -43,11 +46,8 @@ map("v", ">", ">gv", opt)
 map("v", "p", '"_dp', opt)
 
 -- buffer
-map("n","<leader>bl",":buffers<CR>:buffer<Space>",{})
+map("n", "<leader>bl", ":buffers<CR>:buffer<Space>", {})
 
--- -- 退出
-map("n", "qq", ":q!<CR>", opt)
-map("n", "<leader>q", ":qa!<CR>", opt)
 
 -- ------------------------------------------------------------------
 -- -- windows 分屏快捷键
@@ -76,8 +76,4 @@ map("n", "<c-down>", ":resize +2<cr>", opt)
 map("n", "<c-up>", ":resize -2<cr>", opt)
 -- 相等比例
 map("n", "<leader>s=", "<c-w>=", opt)
-
-
-
-
 
