@@ -28,9 +28,9 @@ end
 
 cmp.setup({
   preselect = cmp.PreselectMode.Item,
-  completion = {
-    completeopt = 'menu,menuone,noinsert'
-  },
+  -- completion = {
+  --   completeopt=""
+  -- },
   window = {
     completion = cmp.config.window.bordered({
       border = "single",
@@ -57,14 +57,12 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    -- 确认
     -- accept currently selected item. if none selected, `select` first item.
     -- set `select` to `false` to only confirm explicitly selected items.
     ["<cr>"] = cmp.mapping.confirm({
-      select = false,
+      select = true,
       behavior = cmp.ConfirmBehavior.replace,
     }),
-    -- 如果窗口内容太多，可以滚动
     ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
     ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     -- super tab
@@ -73,12 +71,10 @@ cmp.setup({
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
-      elseif check_backspace() then
-        fallback()
       else
         fallback()
       end
-    end, { "i", "s" }),
+    end, { "i", "s", }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -103,6 +99,7 @@ cmp.setup({
   }),
   -- set cmp-window max width
   formatting = {
+---@diagnostic disable-next-line: unused-local
     format = function(entry, vim_item)
       vim_item.abbr = string.sub(vim_item.abbr, 1, 40)
       return vim_item

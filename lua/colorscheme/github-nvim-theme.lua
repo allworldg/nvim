@@ -11,7 +11,7 @@ githubTheme.setup({
   ---@diagnostic disable-next-line: unused-local
   overrides = function(c)
     return {
-      NormalFloat = { bg = '#F7F7F7' }
+      -- NormalFloat = { bg = '#F7F7F7' }
     }
   end
 }

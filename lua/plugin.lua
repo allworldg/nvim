@@ -125,8 +125,7 @@ require("lazy").setup({
     },
     config = function()
       require("plugin-config.nvim-cmp")
-    end
-    ,
+    end,
   },
   --snip and snippets
   {
