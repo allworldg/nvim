@@ -126,6 +126,7 @@ require("lazy").setup({
     config = function()
       require("plugin-config.nvim-cmp")
     end
+    ,
   },
   --snip and snippets
   {
@@ -162,16 +163,6 @@ require("lazy").setup({
     config = function()
       require("plugin-config.nvim-surround")
     end
-  },
-
-  -- using packer.nvim
-  {
-    'akinsho/bufferline.nvim',
-    version = "v3.*",
-    config = function()
-      require("plugin-config.bufferline")
-    end,
-    cond = false
   },
 
   {

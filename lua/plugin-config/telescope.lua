@@ -19,7 +19,7 @@ local themes = require('telescope.themes')
 keymap('n', 'gr', builtin.lsp_references, {})
 keymap('n', 'gd', builtin.lsp_definitions, {})
 keymap("n", "<C-p>", builtin.find_files, {})
-keymap({ 'n', 'i' }, "<C-f>", function() builtin.live_grep(dropdown_theme) end, {})
+keymap({ 'n', 'i' }, "<C-f>", builtin.live_grep, {})
 
 
 

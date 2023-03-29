@@ -28,6 +28,9 @@ end
 
 cmp.setup({
   preselect = cmp.PreselectMode.Item,
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+  },
   window = {
     completion = cmp.config.window.bordered({
       border = "single",
@@ -35,15 +38,12 @@ cmp.setup({
       col_offset = 0,
     }),
     documentation = false,
-    completion = cmp.config.window.bordered(),
   },
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end,
   },
-
-
   -----keybindings
   -- 上一个
   mapping = {
@@ -79,7 +79,6 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
-
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -94,16 +93,14 @@ cmp.setup({
     }),
     -- end of super tab
   },
-
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = "buffer" },
     { name = "path" },
-    {name = "nvim_lua"},
+    { name = "nvim_lua" },
 
   }),
-
   -- set cmp-window max width
   formatting = {
     format = function(entry, vim_item)

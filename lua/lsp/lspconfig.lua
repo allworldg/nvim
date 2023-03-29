@@ -9,7 +9,8 @@ local servers = {
   "tsserver",
   "pyright",
   "html",
-  "clangd"
+  "clangd",
+  "bashls",
 }
 
 local isOk, handler = pcall(require, "lsp.handlers")

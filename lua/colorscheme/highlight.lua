@@ -9,11 +9,6 @@ vim.cmd [[
   highlight @repeat.python guifg = #0033B3 ctermfg = DarkBlue
 ]]
 
-vim.cmd [[
- highlight NormalFloat  guibg = none
- " highlight CursorLine guibg = #FCFAED
-]]
-
 --------------- diagnostic
 vim.cmd [[
   highlight DiagnosticSignInfo  guifg = Black

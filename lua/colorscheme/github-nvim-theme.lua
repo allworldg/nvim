@@ -8,8 +8,12 @@ githubTheme.setup({
   keyword_style = "none",
   comment_style = "none",
   dev = true,
-  -- sidebars = { "qf", "vista_kind", "terminal", "packer" },
-  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  -- Overwrite the highlight groups
+  ---@diagnostic disable-next-line: unused-local
+  overrides = function(c)
+    return {
+      NormalFloat = { bg = '#F7F7F7' }
+    }
+  end
 }
 )
+
