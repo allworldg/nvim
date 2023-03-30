@@ -26,17 +26,20 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
+vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#F7F7F7" })
+
 cmp.setup({
   preselect = cmp.PreselectMode.Item,
-  -- completion = {
-  --   completeopt=""
-  -- },
+  completion = {
+    completeopt = "" -- default
+  },
   window = {
-    completion = cmp.config.window.bordered({
-      border = "single",
-      side_padding = 0,
+    completion = {
+      border = "none",
+      side_padding = 1,
       col_offset = 0,
-    }),
+      winhighlight = "Normal:CmpNormal"
+    },
     documentation = false,
   },
   snippet = {
@@ -99,7 +102,7 @@ cmp.setup({
   }),
   -- set cmp-window max width
   formatting = {
----@diagnostic disable-next-line: unused-local
+    ---@diagnostic disable-next-line: unused-local
     format = function(entry, vim_item)
       vim_item.abbr = string.sub(vim_item.abbr, 1, 40)
       return vim_item

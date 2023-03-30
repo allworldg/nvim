@@ -72,7 +72,7 @@ require("lazy").setup({
     'nvim-lualine/lualine.nvim',
     config = function()
       require("plugin-config.nvim-lualine")
-    end
+    end,
   },
 
   -- find file
