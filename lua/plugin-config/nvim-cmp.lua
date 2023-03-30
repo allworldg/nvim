@@ -35,7 +35,7 @@ cmp.setup({
   },
   window = {
     completion = {
-      border = "none",
+      border = { "", "", "", "│", "", "", "", "│" },
       side_padding = 1,
       col_offset = 0,
       winhighlight = "Normal:CmpNormal"

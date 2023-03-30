@@ -38,23 +38,23 @@ telescope.setup({
     mappings = {
       i = {
         -- 上下移动
-            ["<c-n>"] = "move_selection_next",
-            ["<c-p>"] = "move_selection_previous",
+        ["<c-n>"] = "move_selection_next",
+        ["<c-p>"] = "move_selection_previous",
         -- 历史记录
-            ["<down>"] = "cycle_history_next",
-            ["<up>"] = "cycle_history_prev",
+        ["<down>"] = "cycle_history_next",
+        ["<up>"] = "cycle_history_prev",
         -- 关闭窗口
         -- ["<esc>"] = actions.close,
-            ["<c-c>"] = "close",
+        ["<c-c>"] = "close",
         -- 预览窗口上下滚动
-            ["<c-u>"] = "preview_scrolling_up",
-            ["<c-d>"] = "preview_scrolling_down",
+        ["<c-u>"] = "preview_scrolling_up",
+        ["<c-d>"] = "preview_scrolling_down",
       },
     }
   },
   pickers = {
     find_files = {
-      theme = dropdown, -- 可选参数： dropdown, cursor, ivy
+      theme = "dropdown", -- 可选参数： dropdown, cursor, ivy
       previewer = false,
     },
     live_grep = {
