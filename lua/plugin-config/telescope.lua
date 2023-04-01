@@ -1,21 +1,6 @@
 local status, telescope = pcall(require, "telescope")
-
-local dropdown_theme = require('telescope.themes').get_dropdown({
-  results_height = 20,
-  winblend = 20,
-  width = 0.8,
-  prompt_title = '',
-  prompt_prefix = 'Files>',
-  previewer = false,
-  borderchars = {
-    prompt = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
-    results = { ' ', '▐', '▄', '▌', '▌', '▐', '▟', '▙' },
-    preview = { '▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
-  },
-})
 local keymap = vim.keymap.set
 local builtin = require('telescope.builtin')
-local themes = require('telescope.themes')
 keymap('n', 'gr', builtin.lsp_references, {})
 keymap('n', 'gd', builtin.lsp_definitions, {})
 keymap("n", "<C-p>", builtin.find_files, {})
@@ -26,13 +11,11 @@ keymap({ 'n', 'i' }, "<C-f>", builtin.live_grep, {})
 telescope.setup({
   defaults = {
     results_title = '',
+    prompt_title = '',
     -- 打开弹窗后进入的初始模式，默认为 insert，也可以是 normal
     initial_mode = "insert",
     -- vertical , center , cursor,horizontal
-    layout_strategy = "horizontal", -- 可以写入局部picker来改变具体的picker界面
-    layout_config = {
-      width = 0.9,                  -- （猜测） 小于1时是按照百分比，大于的话是按照某个单位
-    },
+    layout_strategy = "vertical", -- 可以写入局部picker来改变具体的picker界面
     path_display = { "smart" },
     -- 窗口内快捷键
     mappings = {
@@ -54,18 +37,39 @@ telescope.setup({
   },
   pickers = {
     find_files = {
-      theme = "dropdown", -- 可选参数： dropdown, cursor, ivy
+      theme = "dropdown",
+      results_title = '',
+      prompt_title = "",
       previewer = false,
+      path_display = { "truncate" },
     },
     live_grep = {
-      layout_strategy = "vertical",
+      results_title = '',
+      prompt_title = "",
       shorten_path = true,
-      layout_config = { preview_cutoff = 10 }, -- 放大界面也不会让preview界面消失,
+      path_display = { "truncate" },
+      layout_strategy = "vertical",
+      layout_config = {
+        width = 0.99,
+        height = 0.99,
+        preview_cutoff = 10,
+      },
     },
     lsp_references = {
-      layout_config = { preview_cutoff = 10 }, -- 放大界面也不会让preview界面消失,
+      theme = "cursor",
+      shorten_path = true,
+      prompt_title = '',
+      path_display = { "truncate" },
+      previewer = false,
+      layout_config = {
+        width = 0.8,
+        height = 0.5
+      },
     },
     lsp_definitions = {
+      results_title = '',
+      prompt_title = "",
+      path_display = { "truncate" },
       layout_config = { preview_cutoff = 10 },
     },
   },
