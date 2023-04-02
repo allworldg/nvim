@@ -1,15 +1,14 @@
 local M = {}
 
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-  return
+if status_cmp_ok then
+  M.capabilities = vim.lsp.protocol.make_client_capabilities()
+  M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+  -- add some supported capabilities by nvim-cmp
+  M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+else
+  vim.notify("cmp_nvim_lsp not found in handlers")
 end
-
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
--- add some supported capabilities by nvim-cmp
-M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
-
 
 M.setup = function()
   local config = {

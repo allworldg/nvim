@@ -1,7 +1,6 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- https://github.com/hrsh7th/nvim-cmp
 -- https://github.com/onsails/lspkind-nvim
-
 local status, cmp = pcall(require, "cmp")
 if not status then
   vim.notify("cmp not found")

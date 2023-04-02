@@ -64,7 +64,6 @@ require("lazy").setup({
       })
     end,
     cond = true,
-    
     enabled = false,
   }
   ,
@@ -104,7 +103,6 @@ require("lazy").setup({
     config = function()
       require("plugin-config.nvim-tree")
     end
-    -- commit = "16a0e3c"
   },
 
   -- auto complete
@@ -113,7 +111,7 @@ require("lazy").setup({
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
     dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
+      {'hrsh7th/cmp-nvim-lsp'},
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
@@ -125,6 +123,7 @@ require("lazy").setup({
     config = function()
       require("plugin-config.nvim-cmp")
     end,
+
   },
   --snip and snippets
   {
@@ -165,6 +164,7 @@ require("lazy").setup({
 
   {
     'RRethy/vim-illuminate',
+    cond = false,
     config = function()
       require("plugin-config.vim-illuminate")
     end
