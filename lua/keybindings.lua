@@ -6,6 +6,7 @@
 --   terminal_mode = "t",
 --   command_mode = "c",
 
+
 -- leader key 为空
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -25,7 +26,8 @@ map("n", "$", "g_", opt)
 map("n", "g_", "$", opt)
 -- save and exit
 map("n", "<leader>w", ":w<CR>", opt)
-map("n", "<leader>wq", ":wqa!<CR>", opt)
+map("n", "<leader>wq", ":wall|qa!<CR>", opt)
+
 -- -- exit
 map("n", "qq", ":q!<CR>", opt)
 map("n", "<leader>q", ":qa<CR>", opt)
@@ -47,7 +49,6 @@ map("v", "p", '"_dp', opt)
 
 -- buffer
 map("n", "<leader>bl", ":buffers<CR>:buffer<Space>", {})
-
 
 -- ------------------------------------------------------------------
 -- -- windows 分屏快捷键

@@ -157,7 +157,14 @@ require("lazy").setup({
   {
     'andymass/vim-matchup',
     config = function()
-       vim.g.matchup_matchparen_offscreen = { method = "popup",border='single'  }
+      vim.g.matchup_matchparen_offscreen = { method = "popup", border = 'single' }
+    end
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = function()
+      return require("plugin-config.toggleterm")
     end
   }
 }
