@@ -33,7 +33,7 @@ telescope.setup({
         ["<c-u>"] = "preview_scrolling_up",
         ["<c-d>"] = "preview_scrolling_down",
       },
-    }
+    },
   },
   pickers = {
     find_files = {
@@ -72,7 +72,5 @@ telescope.setup({
       path_display = { "truncate" },
       layout_config = { preview_cutoff = 10 },
     },
-  },
-  extensions = {
   },
 })

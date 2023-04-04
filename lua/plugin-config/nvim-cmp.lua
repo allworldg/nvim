@@ -27,8 +27,10 @@ end
 
 vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#F7F7F7" })
 
+
+
 cmp.setup({
-  preselect = cmp.PreselectMode.Item,
+  -- preselect = cmp.PreselectMode.Item,
   completion = {
     completeopt = "" -- default
   },
@@ -76,7 +78,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, { "i", "s", }),
+    end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()

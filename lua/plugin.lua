@@ -52,21 +52,7 @@ require("lazy").setup({
     end,
     cond = true,
   },
-  {
-    "svrana/neosolarized.nvim",
-    dependencies = {
-      "tjdevries/colorbuddy.nvim",
-    },
-    config = function()
-      require("neosolarized").setup({
-        comment_italics = true,
-        background_set = true,
-      })
-    end,
-    cond = true,
-    enabled = false,
-  }
-  ,
+
   {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -111,7 +97,7 @@ require("lazy").setup({
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
     dependencies = {
-      {'hrsh7th/cmp-nvim-lsp'},
+      { 'hrsh7th/cmp-nvim-lsp' },
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
@@ -123,7 +109,6 @@ require("lazy").setup({
     config = function()
       require("plugin-config.nvim-cmp")
     end,
-
   },
   --snip and snippets
   {
@@ -164,10 +149,16 @@ require("lazy").setup({
 
   {
     'RRethy/vim-illuminate',
-    cond = false,
+    -- cond = false,
     config = function()
       require("plugin-config.vim-illuminate")
     end
   },
+  {
+    'andymass/vim-matchup',
+    config = function()
+       vim.g.matchup_matchparen_offscreen = { method = "popup",border='single'  }
+    end
+  }
 }
 )
