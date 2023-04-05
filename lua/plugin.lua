@@ -58,6 +58,7 @@ require("lazy").setup({
     config = function()
       require("plugin-config.nvim-lualine")
     end,
+    -- cond = false
   },
 
   -- find file

@@ -26,9 +26,6 @@ local check_backspace = function()
 end
 
 vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#F7F7F7" })
-
-
-
 cmp.setup({
   -- preselect = cmp.PreselectMode.Item,
   completion = {
