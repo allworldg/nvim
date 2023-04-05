@@ -63,9 +63,8 @@ nvim_tree.setup {
         { key = { "<tab>" },              action = "preview" },
         { key = "<cr>",                   action = "edit" },
         -- v分屏打开文件
-        { key = "s",                      action = "vsplit" },
-        -- h分屏打开文件
-        -- ignore (node_modules)
+        { key = "s",                      action = "split" },
+        { key = "v",                     action = "vsplit" },
         -- hide (dotfiles)
         { key = ".",                      action = "toggle_dotfiles" },
         -- { key = "r", action = "refresh" },
