@@ -77,4 +77,3 @@ map("n", "<c-down>", ":resize +2<cr>", opt)
 map("n", "<c-up>", ":resize -2<cr>", opt)
 -- 相等比例
 map("n", "<leader>s=", "<c-w>=", opt)
-
