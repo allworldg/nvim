@@ -17,3 +17,4 @@ githubTheme.setup({
 }
 )
 
+require("colorscheme.highlight")

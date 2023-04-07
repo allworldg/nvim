@@ -51,13 +51,6 @@ cmp.setup({
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     -- 下一个
     ["<C-n>"] = cmp.mapping.select_next_item(),
-    -- 出现补全
-    ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    -- 取消
-    ["<A-,>"] = cmp.mapping({
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
-    }),
     -- accept currently selected item. if none selected, `select` first item.
     -- set `select` to `false` to only confirm explicitly selected items.
     ["<cr>"] = cmp.mapping.confirm({
