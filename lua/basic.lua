@@ -67,7 +67,6 @@ vim.o.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.pumheight = 10
-
 -- wsl use windows clip , <C-c> from windows and <C-v> to wsl , 'yy' from wsl and <C-v> to windows
 -- vim.cmd([[
 -- let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
@@ -92,3 +91,10 @@ vim.cmd([[
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 ]])
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove { "c", "r", "o" }
+  end,
+  group = general,
+  desc = "Disable New Line Comment",
+})

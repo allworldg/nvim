@@ -41,8 +41,8 @@ require("lazy").setup({
       require("lsp.null-ls")
     end
   },
-
-
+  --
+  --
   -- theme
   {
     'projekt0n/github-nvim-theme',
@@ -94,7 +94,6 @@ require("lazy").setup({
   },
 
   -- auto complete
-
   {
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
@@ -134,12 +133,12 @@ require("lazy").setup({
   },
 
   -- Comment
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("plugin-config.comment")
-    end
-  },
+   {
+     "numToStr/Comment.nvim",
+     config = function()
+       require("plugin-config.comment")
+     end
+   },
 
   {
     "kylechui/nvim-surround",

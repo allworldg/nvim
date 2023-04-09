@@ -22,6 +22,6 @@ vim.cmd [[
 
   highlight DiagnosticFloatingHint guifg = Black guibg = none ctermfg = Black ctermbg = none
   highlight DiagnosticFloatingWarn guifg = Black guibg = none ctermfg = Black ctermbg = none
-  highlight DiagnosticFloatingError guifg = #F03D22 guibg = none ctermfg = Red ctermbg = none
+  highlight DiagnosticFloatingError guifg = #CB2431 guibg = none ctermfg = Red ctermbg = none
   highlight diagnosticfloatingInfo guifg = Black guibg = none ctermfg = Black ctermbg = none
 ]]
