@@ -76,7 +76,7 @@ M.on_attach = function(client, bufnr)
 
   -- if client.name == "" then
   -- 	client.server_capabilities.documentFormattingProvider = false
-  -- end
+  -- end 
   lsp_keymap(bufnr)
 end
 
