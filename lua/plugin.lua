@@ -13,6 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
+  install = {
+    missing = false,
+  },
 
   --lsp
   {
