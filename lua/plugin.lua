@@ -82,7 +82,7 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
-      require("plugin-config.nvim-treesiter")
+      require("plugin-config.nvim-treesitter")
     end
   },
   'nvim-treesitter/playground',
