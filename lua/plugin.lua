@@ -13,25 +13,18 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-  install = {
-    missing = false,
-  },
-
-  --lsp
   {
     "williamboman/mason.nvim",
     config = function()
       require("plugin-config.mason")
     end
   },
-
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("plugin-config.mason-lspconfig")
     end,
   },
-
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -56,7 +49,6 @@ require("lazy").setup({
     end,
     cond = true,
   },
-
   {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -64,7 +56,6 @@ require("lazy").setup({
     end,
     -- cond = false
   },
-
   -- find file
 
   {
@@ -75,8 +66,6 @@ require("lazy").setup({
       require("plugin-config.telescope")
     end,
   },
-
-
   -- highlight
   {
     'nvim-treesitter/nvim-treesitter',
@@ -86,7 +75,6 @@ require("lazy").setup({
     end
   },
   'nvim-treesitter/playground',
-
   -- file System
   {
     'nvim-tree/nvim-tree.lua',
@@ -95,7 +83,6 @@ require("lazy").setup({
       require("plugin-config.nvim-tree")
     end
   },
-
   -- auto complete
   {
     'hrsh7th/nvim-cmp',
@@ -119,7 +106,6 @@ require("lazy").setup({
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
   },
-
   -- autopairs
   {
     "windwp/nvim-autopairs",
@@ -134,15 +120,13 @@ require("lazy").setup({
       require("plugin-config.nvim-ts-autotag")
     end
   },
-
   -- Comment
-   {
-     "numToStr/Comment.nvim",
-     config = function()
-       require("plugin-config.comment")
-     end
-   },
-
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("plugin-config.comment")
+    end
+  },
   {
     "kylechui/nvim-surround",
     version = "*",
@@ -150,20 +134,18 @@ require("lazy").setup({
       require("plugin-config.nvim-surround")
     end
   },
-
   {
     'RRethy/vim-illuminate',
     -- cond = false,
     config = function()
       require("plugin-config.vim-illuminate")
-    end
+    end,
   },
   {
     'andymass/vim-matchup',
     config = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup", border = 'single' }
     end,
-    -- cond = false
   },
   {
     'akinsho/toggleterm.nvim',
@@ -172,5 +154,4 @@ require("lazy").setup({
       return require("plugin-config.toggleterm")
     end
   }
-}
-)
+})

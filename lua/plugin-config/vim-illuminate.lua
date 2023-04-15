@@ -15,6 +15,7 @@ illuminate.configure({
   delay = 100,
   filetype_overrides = {},
   filetypes_denylist = {
+    -- 'html',
     'dirvish',
     'fugitive',
   },

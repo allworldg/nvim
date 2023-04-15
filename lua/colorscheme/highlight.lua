@@ -25,3 +25,7 @@ vim.cmd [[
   highlight DiagnosticFloatingError guifg = #CB2431 guibg = none ctermfg = Red ctermbg = none
   highlight diagnosticfloatingInfo guifg = Black guibg = none ctermfg = Black ctermbg = none
 ]]
+
+vim.cmd[[ 
+  hi MatchParen guibg=#EDEBFC
+]]
