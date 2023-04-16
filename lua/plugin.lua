@@ -111,7 +111,7 @@ require("lazy").setup({
     "windwp/nvim-autopairs",
     config = function()
       require("plugin-config.nvim-autopairs")
-    end
+    end,
   },
   -- autotag
   {

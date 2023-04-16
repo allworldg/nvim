@@ -11,6 +11,7 @@ local servers = {
   "html",
   "clangd",
   "bashls",
+  "cssls"
 }
 
 local isOk, handler = pcall(require, "lsp.handlers")
