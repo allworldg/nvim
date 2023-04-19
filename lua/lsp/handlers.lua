@@ -30,7 +30,6 @@ M.setup = function()
   }
   vim.diagnostic.config(config)
 
-
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "single"
   })
@@ -38,9 +37,6 @@ M.setup = function()
     border = "single"
   })
 end
-
-
-
 
 local function lsp_keymap(bufnr)
   local opts = { noremap = true, silent = true }
