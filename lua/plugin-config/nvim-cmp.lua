@@ -86,12 +86,11 @@ cmp.setup({
     -- end of super tab
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'nvim_lsp' },
     { name = "buffer" },
     { name = "path" },
     { name = "nvim_lua" },
-
   }),
   -- set cmp-window max width
   formatting = {
