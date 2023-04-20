@@ -54,6 +54,7 @@ vim.o.swapfile = false
 vim.o.updatetime = 300
 -- 等待mappings
 vim.o.timeoutlen = 700
+vim.opt.ttimeoutlen=0
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
 vim.o.splitright = true
