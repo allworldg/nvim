@@ -20,11 +20,6 @@ if not ok then
 end
 from_vscode.lazy_load()
 
-local check_backspace = function()
-  local col = vim.fn.col "." - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
 vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#F7F7F7" })
 cmp.setup({
   -- preselect = cmp.PreselectMode.Item,
@@ -64,8 +59,6 @@ cmp.setup({
       function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
         else
           fallback()
         end
