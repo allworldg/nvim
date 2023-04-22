@@ -21,6 +21,7 @@ end
 from_vscode.lazy_load()
 
 vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#F7F7F7" })
+
 cmp.setup({
   -- preselect = cmp.PreselectMode.Item,
   completion = {
@@ -37,7 +38,7 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   -----keybindings
@@ -81,8 +82,8 @@ cmp.setup({
     -- end of super tab
   },
   sources = cmp.config.sources({
-    { name = 'luasnip' },
     { name = 'nvim_lsp' },
+    { name = 'luasnip' },
     { name = "buffer" },
     { name = "path" },
     { name = "nvim_lua" },
