@@ -59,6 +59,8 @@ cmp.setup({
       function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
+        elseif luasnip.expand_or_locally_jumpable() then
+          luasnip.expand_or_jump()
         else
           fallback()
         end
@@ -122,3 +124,25 @@ cmp.setup.cmdline(":", {
     return not disabled[cmd] or cmp.close()
   end
 })
+
+local unlinkgrp = vim.api.nvim_create_augroup(
+  'UnlinkSnippetOnModeChange',
+  { clear = true }
+)
+
+vim.api.nvim_create_autocmd('ModeChanged', {
+  group = unlinkgrp,
+  pattern = {'s:n', 'i:*'},
+  desc = 'Forget the current snippet when leaving the insert mode',
+
+  callback = function(evt)
+    if
+      luasnip.session
+      and luasnip.session.current_nodes[evt.buf]
+      and not luasnip.session.jump_active
+    then
+      luasnip.unlink_current()
+    end
+  end,
+})
+
