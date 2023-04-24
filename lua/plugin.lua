@@ -153,5 +153,11 @@ require("lazy").setup({
     config = function()
       return require("plugin-config.toggleterm")
     end
+  },
+  {
+    'ThePrimeagen/harpoon',
+    config=function ()
+      return require("plugin-config.harpoon")
+    end
   }
 })
