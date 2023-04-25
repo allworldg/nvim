@@ -7,11 +7,11 @@ end
 local servers = {
   "lua_ls",
   "tsserver",
-  "pyright",
   "html",
   "clangd",
   "bashls",
   "cssls",
+  "pylsp",
 }
 
 local isOk, handler = pcall(require, "lsp.handlers")
