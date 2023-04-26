@@ -11,7 +11,7 @@ local servers = {
   "clangd",
   "bashls",
   "cssls",
-  "pyright",
+  "pylsp"
 }
 
 local isOk, handler = pcall(require, "lsp.handlers")
