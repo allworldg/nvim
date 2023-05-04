@@ -44,9 +44,8 @@ map("n", "<c-d>", "10j", opt)
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
--- 在visual mode 里粘贴的同时顺利打开附件不要复制
-map("v", "p", '"_dp', opt)
-
+-- 在visual mode 里粘贴的同时顺利打开附件不要复制(可是会在引号内部粘贴时出现问题，暂时禁用)
+-- map("v", "p", '"_dp', opt)
 -- buffer
 map("n", "<leader>bl", ":buffers<CR>:buffer<Space>", {})
 

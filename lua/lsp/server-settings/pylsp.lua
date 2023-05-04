@@ -4,7 +4,7 @@ return {
       plugins = {
         pyflakes = { enabled = false },
         pycodestyle = { enabled = false },
-        pylint = { enabled = true, executable = "pylint",args={"--disable=C0114,C0115,C0116"} },
+        pylint = { enabled = true, executable = "pylint",args={"--disable=C0114,C0115,C0116,C0103"} },
         jedi_completion = { fuzzy = true },
         pyls_isort = { enabled = true },
         -- pylsp_mypy = { enabled = true },
