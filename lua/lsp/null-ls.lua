@@ -7,6 +7,8 @@ null_ls.setup({
   sources = {
     diagnostics.shellcheck,
     code_actions.shellcheck,
-    formatting.black,
+    formatting.black.with({
+      args={"--line-length=120"}
+    }),
   },
 })
