@@ -21,6 +21,7 @@ end
 from_vscode.lazy_load()
 
 vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#F7F7F7" })
+vim.api.nvim_set_hl(0, "CmpCursorLine", { bg = '#D5E5F6' })
 
 cmp.setup({
   -- preselect = cmp.PreselectMode.Item,
@@ -32,7 +33,7 @@ cmp.setup({
       border = { "", "", "", "│", "", "", "", "│" },
       side_padding = 1,
       col_offset = 0,
-      winhighlight = "Normal:CmpNormal"
+      winhighlight = "Normal:CmpNormal,CursorLine:CmpCursorLine"
     },
     documentation = false,
   },
@@ -133,17 +134,15 @@ local unlinkgrp = vim.api.nvim_create_augroup(
 
 vim.api.nvim_create_autocmd('ModeChanged', {
   group = unlinkgrp,
-  pattern = {'s:n', 'i:*'},
+  pattern = { 's:n', 'i:*' },
   desc = 'Forget the current snippet when leaving the insert mode',
-
   callback = function(evt)
     if
-      luasnip.session
-      and luasnip.session.current_nodes[evt.buf]
-      and not luasnip.session.jump_active
+        luasnip.session
+        and luasnip.session.current_nodes[evt.buf]
+        and not luasnip.session.jump_active
     then
       luasnip.unlink_current()
     end
   end,
 })
-

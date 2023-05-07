@@ -95,3 +95,4 @@ nvim_tree.setup {
     },
   },
 }
+vim.cmd[[ hi NvimTreeCursorLine guibg=#D5E5F6]]

@@ -10,6 +10,7 @@ vim.cmd [[
   highlight @repeat.python guifg = #0033B3 ctermfg = DarkBlue
 ]]
 
+-- diagnostic
 vim.cmd [[
   highlight DiagnosticSignInfo  guifg = Black
   highlight DiagnosticSignWarn  guifg = #C4A65E
@@ -28,4 +29,5 @@ vim.cmd [[
 
 vim.cmd[[ 
   hi MatchParen guibg=#EDEBFC
+  hi CursorLine guibg=#fcfaed
 ]]
