@@ -12,6 +12,8 @@ local servers = {
   "bashls",
   "cssls",
   "pyright",
+  "clangd",
+  "jsonls"
   -- "pylsp",
 }
 

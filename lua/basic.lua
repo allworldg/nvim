@@ -5,10 +5,11 @@ vim.o.fileencoding = 'utf-8'
 -- vim.opt.clipboard = 'unnamedplus'
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
--- 使用相对行号
+-- use line number
 vim.wo.number = true
 -- 高亮所在行
 vim.wo.cursorline = true
+vim.wo.cursorlineopt = "line"
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
 vim.opt.winblend = 0

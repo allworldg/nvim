@@ -26,7 +26,7 @@ vim.api.nvim_set_hl(0, "CmpCursorLine", { bg = '#D5E5F6' })
 cmp.setup({
   -- preselect = cmp.PreselectMode.Item,
   completion = {
-    completeopt = "" -- default
+    completeopt = "menuone,noselect" -- default
   },
   window = {
     completion = {
