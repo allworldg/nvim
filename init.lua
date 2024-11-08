@@ -1,8 +1,8 @@
-require("basic")
-require("keybindings")
-require("colorscheme.default")
-require("plugin")
-
+if exists('g:vscode')
+    " VSCode extension
+else
+    " ordinary Neovim
+endif
 
 
 
