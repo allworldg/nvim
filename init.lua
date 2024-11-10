@@ -38,7 +38,7 @@ if vim.g.vscode then
       }
     },
     -- automatically check for plugin updates
-    checker = { enabled = true },
+    checker = { enabled = false },
   })
   ------------------------------------baseConfig------------------
   vim.cmd.colorscheme = ""
@@ -80,7 +80,10 @@ if vim.g.vscode then
     group = general,
     desc = "Disable New Line Comment",
   })
-
+  vim.cmd([[
+    autocmd InsertEnter * call jobstart("C:\\Users\\allworldg\\im-select.exe 2052")
+    autocmd InsertLeave * call jobstart("C:\\Users\\allworldg\\im-select.exe 3081")
+  ]])
   ----------------------------------------------keybindings-----------
   local ok, vscode = pcall(require, "vscode")
 
