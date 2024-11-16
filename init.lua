@@ -107,7 +107,17 @@ if vim.g.vscode then
   map("v", ">", ">gv", opt)
   keymap('n', "<leader>f", function() vscode.call('editor.action.formatDocument') end, {})
   keymap('i', "<c-k>", function() vscode.call('editor.action.triggerParameterHints') end, {})
-  keymap('n',"<leader>bo",function() vscode.call('workbench.action.closeOtherEditors')end,{})
+  keymap('n', "<leader>bo", function() vscode.call('workbench.action.closeOtherEditors') end, {})
+  keymap('n', "<leader>se", function() vscode.call('editor.action.showHover') end, {})
+  keymap('n', "<leader>rn", function() vscode.call('editor.action.rename') end, {})
+  keymap('n', "<leader>h", function() vscode.call('workbench.action.navigateLeft') end, {})
+  keymap('n', "<leader>l", function() vscode.call("workbench.action.navigateRight") end, {})
+  keymap('n', "K", function() vscode.call('editor.action.showHover') end, {})
+  keymap('n', "<c-w>", function() vscode.call("workbench.action.closeActiveEditor") end, {})
+  keymap('n', 'gd', function() vscode.call("editor.action.revealDefinition") end, {})
+  keymap('n', "gi", function() vscode.call("editor.action.goToImplementation") end, {})
+  keymap('v', "p", "P", {})
+  
 else
   -- ordinary Neovim
 end
