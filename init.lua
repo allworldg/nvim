@@ -1,7 +1,7 @@
-require("basic")
+require("base")
 require("keybindings")
-require("colorscheme.default")
 require("plugin")
+require("highlight")
 
 
 

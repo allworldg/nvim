@@ -1,7 +1,11 @@
-local status,surround = pcall(require,"nvim-surround")
-if not status then
-  vim.notify("nvim-surround not found")
-end
-surround.setup({
-
-})
+return {
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  }
+}

@@ -11,8 +11,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 local opt = {
-  noremap = true,
   silent = true,
+  noremap = true,
 }
 --
 local map = vim.api.nvim_set_keymap

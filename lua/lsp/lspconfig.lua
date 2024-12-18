@@ -1,41 +1,43 @@
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then
-  return
-end
+return {
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      local _,lspconfig = pcall(require, "lspconfig")
+      local servers = {
+        "lua_ls",
+        "ts_ls",
+        "html",
+        "clangd",
+        "bashls",
+        "cssls",
+        "pyright",
+        "clangd",
+        "jsonls"
+        -- "pylsp",
+      }
 
+      local isOk, handler = pcall(require, "lsp.handlers")
+      if not isOk then
+        return
+      end
+      handler.setup()
 
-local servers = {
-  "lua_ls",
-  "tsserver",
-  "html",
-  "clangd",
-  "bashls",
-  "cssls",
-  "pyright",
-  "clangd",
-  "jsonls"
-  -- "pylsp",
+      local opts = {}
+      for key, serverName in pairs(servers) do
+        opts = {
+          on_attach = handler.on_attach,
+          capabilities = handler.capabilities,
+        }
+
+        -- maybe serverName is "username@servername"
+        serverName = vim.split(serverName, "@")[1]
+
+        local isSet, server_conf = pcall(require, "lsp.server-settings." .. serverName)
+        if isSet then
+          opts = vim.tbl_deep_extend("force", server_conf, opts) -- merge two opts
+        end
+        lspconfig[serverName].setup(opts)
+      end
+    end
+  },
 }
-
-local isOk, handler = pcall(require, "lsp.handlers")
-if not isOk then
-  return
-end
-handler.setup()
-
-local opts = {}
-for key, serverName in pairs(servers) do
-  opts = {
-    on_attach = handler.on_attach,
-    capabilities = handler.capabilities,
-  }
-
-  -- maybe serverName is "username@servername"
-  serverName = vim.split(serverName, "@")[1]
-
-  local isSet, server_conf = pcall(require, "lsp.server-settings." .. serverName)
-  if isSet then
-    opts = vim.tbl_deep_extend("force", server_conf, opts) -- merge two opts
-  end
-  lspconfig[serverName].setup(opts)
-end

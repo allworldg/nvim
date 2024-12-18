@@ -1,8 +1,8 @@
-local status,tsautotag = pcall(require,"nvim-ts-autotag")
+return{
 
-if not status then
-  vim.notify("not found tsautotag")
-end
+  {
+    "windwp/nvim-ts-autotag",
+    config = true 
+   }
 
-
-tsautotag.setup()
+}

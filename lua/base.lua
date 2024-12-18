@@ -2,9 +2,21 @@
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = 'utf-8'
 -- jk移动时光标下上方保留8行
--- vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
+vim.g.clipboard = {
+  name = 'myWin32yank',
+  copy = {
+    ['+'] = '/mnt/c/Users/allworldg/scoop/apps/win32yank/0.1.1/win32yank.exe -i --crlf',
+    ['*'] = '/mnt/c/Users/allworldg/scoop/apps/win32yank/0.1.1/win32yank.exe -i --crlf',
+  },
+  paste = {
+    ['+'] = '/mnt/c/Users/allworldg/scoop/apps/win32yank/0.1.1/win32yank.exe -o --lf',
+    ['*'] ='/mnt/c/Users/allworldg/scoop/apps/win32yank/0.1.1/win32yank.exe -o --lf',
+
+  },
+}
 -- use line number
 vim.wo.number = true
 -- 高亮所在行
@@ -35,7 +47,7 @@ vim.opt.incsearch = true
 -- 使用增强状态栏后不再需要 vim 的模式提示
 vim.o.showmode = false
 -- 命令行高为0，输入命令时才占用位置
-vim.o.cmdheight = 1
+vim.o.cmdheight = 0
 -- 当文件被外部程序修改时，自动加载
 vim.o.autoread = true
 vim.bo.autoread = true
@@ -55,7 +67,7 @@ vim.o.swapfile = false
 vim.o.updatetime = 300
 -- 等待mappings
 vim.o.timeoutlen = 700
-vim.opt.ttimeoutlen=0
+vim.opt.ttimeoutlen = 0
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -69,22 +81,13 @@ vim.o.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.pumheight = 10
--- wsl use windows clip , <C-c> from windows and <C-v> to wsl , 'yy' from wsl and <C-v> to windows
--- vim.cmd([[
--- let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
---  if executable(s:clip)
---      augroup WSLYank
---          autocmd!
---          autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
---      augroup END
---  endif
---  ]])
-vim.cmd [[
- augroup Yank
- autocmd!
- autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
- augroup END
-]]
+-- vim.cmd [[
+--  augroup Yank
+--  autocmd!
+--  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+--  augroup END
+-- ]]
+
 
 -- remember the last edit cursor
 vim.cmd([[
