@@ -5,18 +5,6 @@ vim.o.fileencoding = 'utf-8'
 vim.opt.clipboard = "unnamedplus"
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
-vim.g.clipboard = {
-  name = 'myWin32yank',
-  copy = {
-    ['+'] = '/mnt/c/Users/allworldg/scoop/apps/win32yank/0.1.1/win32yank.exe -i --crlf',
-    ['*'] = '/mnt/c/Users/allworldg/scoop/apps/win32yank/0.1.1/win32yank.exe -i --crlf',
-  },
-  paste = {
-    ['+'] = '/mnt/c/Users/allworldg/scoop/apps/win32yank/0.1.1/win32yank.exe -o --lf',
-    ['*'] ='/mnt/c/Users/allworldg/scoop/apps/win32yank/0.1.1/win32yank.exe -o --lf',
-
-  },
-}
 -- use line number
 vim.wo.number = true
 -- 高亮所在行
