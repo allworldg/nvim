@@ -1,4 +1,4 @@
-return { {
+return {
   "williamboman/mason-lspconfig.nvim",
   opts = {
     ensure_installed = {
@@ -6,4 +6,4 @@ return { {
       "ts_ls",
     },
   }
-} }
+}

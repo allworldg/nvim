@@ -1,3 +1,3 @@
 return {
-      { 'echasnovski/mini.cursorword', version = '*' },
+      'echasnovski/mini.cursorword', version = '*',
 }
