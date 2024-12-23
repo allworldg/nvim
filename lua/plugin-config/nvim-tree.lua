@@ -31,17 +31,16 @@ return {
 
       -- default mappings
       api.config.mappings.default_on_attach(bufnr)
-
       -- custom mappings
       vim.keymap.set({ 'n', 'i' }, '<A-m>', '<cmd>:NvimTreeToggle<CR>', {})
       vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
       vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-      vim.keymap.set('n', 'o', api.node.open.edit,opts('open'))
+      vim.keymap.set('n', 'o', api.node.open.edit, opts('open'))
       vim.keymap.set('n', '<2-leftmouse>', api.node.open.edit, opts(''))
       vim.keymap.set('n', '<cr>', api.node.open.edit, opts('open'))
       vim.keymap.set('n', "<tab>", api.node.open.preview, opts('preview'))
-      vim.keymap.set('n', 's', api.node.open.horizontal, opts('split'))
-      vim.keymap.set('n', 'vs', api.node.open.vertical, opts('vsplit'))
+      vim.keymap.set('n', 'vs', api.node.open.horizontal, opts('hsplit'))
+      vim.keymap.set('n', 's', api.node.open.vertical, opts('vsplit'))
       vim.keymap.set('n', '.', api.tree.toggle_hidden_filter, opts('hide/show dotfiles'))
       vim.keymap.set('n', 'a', api.fs.create, opts('create'))
       vim.keymap.set('n', 'd', api.fs.remove, opts('remove'))
@@ -85,6 +84,9 @@ return {
           resize_window = true,
           -- 打开文件时关闭 tree
           quit_on_open = true,
+          window_picker = {
+            enable = false
+          }
         },
       },
     }
