@@ -46,6 +46,7 @@ return {
           path_display = { "truncate" },
         },
         live_grep = {
+          -- remember install ripgrep before use
           results_title = '',
           prompt_title = "",
           shorten_path = true,
