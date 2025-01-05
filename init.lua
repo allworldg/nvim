@@ -32,10 +32,9 @@ if vim.g.vscode then
         event = "VeryLazy",
         config = function()
           require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
           })
         end,
-      }
+      },
     },
     -- automatically check for plugin updates
     checker = { enabled = false },
@@ -68,6 +67,7 @@ if vim.g.vscode then
   vim.o.writebackup = false
   vim.o.swapfile = false
   -- smaller updatetime
+
   vim.o.updatetime = 300
   -- 等待mappings
   vim.o.timeoutlen = 700
@@ -115,9 +115,9 @@ if vim.g.vscode then
   keymap('n', "K", function() vscode.call('editor.action.showHover') end, {})
   keymap('n', "<c-w>", function() vscode.call("workbench.action.closeActiveEditor") end, {})
   keymap('n', 'gd', function() vscode.call("editor.action.revealDefinition") end, {})
+  keymap('n', 'gr', function() vscode.call("editor.action.goToReferences") end, {})
   keymap('n', "gi", function() vscode.call("editor.action.goToImplementation") end, {})
   keymap('v', "p", "P", {})
-  
 else
   -- ordinary Neovim
 end
