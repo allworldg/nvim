@@ -20,8 +20,9 @@ return {
       -- open the tree
       require("nvim-tree.api").tree.open()
     end
-    vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+    -- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
     vim.cmd [[ hi NvimTreeCursorLine guibg=#D5E5F6]]
+    vim.keymap.set({ 'n', 'i' }, '<A-m>', '<cmd>:NvimTreeToggle<CR>', {})
     local function my_on_attach(bufnr)
       local api = require "nvim-tree.api"
 
@@ -32,7 +33,6 @@ return {
       -- default mappings
       api.config.mappings.default_on_attach(bufnr)
       -- custom mappings
-      vim.keymap.set({ 'n', 'i' }, '<A-m>', '<cmd>:NvimTreeToggle<CR>', {})
       vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
       vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
       vim.keymap.set('n', 'o', api.node.open.edit, opts('open'))
@@ -50,6 +50,7 @@ return {
       vim.keymap.set('n', 'p', api.fs.paste, opts('paste'))
       vim.keymap.set("n", "gy", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
       vim.keymap.set("n", "<C-k>", api.node.show_info_popup, opts("Info"))
+      vim.keymap.del("n", "q", opts(""))
     end
     require("nvim-tree").setup {
       git = {
