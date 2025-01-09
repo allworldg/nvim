@@ -8,6 +8,7 @@ return {
   config = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
+    -- use "nvim ." to auto open nvim
     local function open_nvim_tree(data)
       -- buffer is a directory
       local directory = vim.fn.isdirectory(data.file) == 1
