@@ -9,8 +9,11 @@ vim.api.nvim_create_user_command(
 )
 return {
   "folke/snacks.nvim",
+  lazy = false,
   ---@type snacks.Config
   opts = {
+    -- words = {enabled = true},
+    dim = {},
     dashboard = {
       -- your dashboard configuration comes here
       -- or leave it empty to use the default settings
@@ -25,3 +28,4 @@ return {
     }
   },
 }
+

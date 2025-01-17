@@ -4,7 +4,7 @@ return {
   config = function()
     local _, lspconfig = pcall(require, "lspconfig")
     local lspconfig_defaults = lspconfig.util.default_config
-    local capabilities=vim.lsp.protocol.make_client_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     lspconfig_defaults.capabilities = vim.tbl_deep_extend(
       'force',
@@ -63,6 +63,7 @@ return {
       end
     })
 
+
     lspconfig.lua_ls.setup({
       settings = {
         Lua = {
@@ -72,5 +73,16 @@ return {
         },
       },
     })
+    -- lspconfig.ts_ls.setup({})
+    lspconfig.volar.setup {
+      -- add filetypes for typescript, javascript and vue
+      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+      init_options = {
+        vue = {
+          -- disable hybrid mode
+          hybridMode = false,
+        },
+      },
+    }
   end
 }

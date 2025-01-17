@@ -3,5 +3,5 @@ return {
   config = function()
     vim.g.matchup_matchparen_offscreen = { method = "popup", border = 'single' }
   end,
-  cond=true,
+  cond = false,
 }

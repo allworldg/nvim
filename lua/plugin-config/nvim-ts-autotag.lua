@@ -1,8 +1,9 @@
-return{
+return {
 
   {
     "windwp/nvim-ts-autotag",
-    config = true 
-   }
+    config = true
+  }
 
 }
+
