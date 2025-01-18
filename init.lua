@@ -3,3 +3,4 @@ require("keybindings")
 require("plugin")
 require("highlight")
 require("statusline")
+

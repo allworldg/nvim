@@ -8,9 +8,10 @@
 vim.cmd([[highlight mywhite guifg=#ffffff guibg=#ffffff]])
 
 local leftSectionColor = "%#PmenuSel#"
-local leftSection = leftSectionColor .. "%-10(%t%)"
+local leftSection = leftSectionColor .. "%-15(%t%m%)"
 local middleSectionColor = "%#mywhite#"
 local middleSection = middleSectionColor .. "%="
 local rightSectionColor = "%#PmenuSel#"
 local rightSection = "%=" .. rightSectionColor .. "%-6.(%l%)%-3.(%p%)"
 vim.opt.statusline = leftSection .. middleSection .. rightSection
+vim.o.laststatus = 3
