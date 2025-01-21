@@ -1,5 +1,4 @@
 return {
-
   "neovim/nvim-lspconfig",
   config = function()
     local _, lspconfig = pcall(require, "lspconfig")
@@ -23,7 +22,7 @@ return {
         focusable = true,
         style = "minimal",
         border = "single",
-        source = "always",
+        source = true,
         header = "",
         prefix = "",
       },
@@ -38,10 +37,34 @@ return {
     vim.api.nvim_create_autocmd('LspAttach', {
       desc = 'LSP actions',
       callback = function(event)
-        local opts = { buffer = event.buf }
+        local bufnr = event.buf
+        local opts = { buffer = bufnr }
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if client and client.server_capabilities.documentHighlightProvider then
+          vim.api.nvim_create_augroup("lsp_document_hightlight", { clear = true })
+          vim.api.nvim_create_autocmd("CursorHold", {
+            callback = function()
+              vim.defer_fn(function()
+                vim.lsp.buf.document_highlight()
+              end, 100)
+            end,
+            buffer = bufnr,
+            group = "lsp_document_hightlight",
+            desc = "highlight lsp document highlight"
+          })
+          vim.api.nvim_create_autocmd("CursorMoved", {
+            callback = function()
+              vim.defer_fn(function()
+                vim.lsp.buf.clear_references()
+              end, 100)
+            end,
+            buffer = bufnr,
+            group = "lsp_document_hightlight",
+            desc = "clear lsp document hightlight"
+          })
+        end
+
         vim.keymap.set('n', '<space>se', vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', '<leader>gp', vim.diagnostic.goto_prev, opts)
-        vim.keymap.set('n', '<leader>gn', vim.diagnostic.goto_next, opts)
         -- Enable completion triggered by <c-x><c-o>
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -69,6 +92,11 @@ return {
         Lua = {
           diagnostics = {
             globals = { "vim" },
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files and plugins
+            library = { vim.env.VIMRUNTIME },
+            checkThirdParty = false,
           },
         },
       },
