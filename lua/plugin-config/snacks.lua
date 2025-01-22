@@ -1,5 +1,6 @@
--- lazy.nvim
-
+vim.cmd [[
+  highlight SnacksIndent guifg=#d3d3d3
+]]
 vim.api.nvim_create_user_command(
   'Dashboard', -- 命令名称 :Test
   function()
@@ -15,6 +16,16 @@ return {
     -- words = {enabled = true},
     dim = {},
     -- notifier={},
+    indent = {
+      animate = { enabled = false },
+      indent = {
+        priority = 1,
+        enabled = true,     -- enable indent guides
+        char = "│",
+        only_scope = false, -- only show indent guides of the scope
+        hl = "SnacksIndent", ---@type string|string[] hl groups for indent guides
+      },
+    },
     dashboard = {
       preset = {
         header = [[allworldg]]

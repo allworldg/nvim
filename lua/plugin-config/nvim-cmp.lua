@@ -32,6 +32,14 @@ return {
     cmp.setup.cmdline("/", {
       sources = {
         { name = "buffer" },
+        {
+          {
+            name = 'cmdline',
+            option = {
+              ignore_cmds = { 'Man', '!' }
+            }
+          }
+        }
       },
     })
 
