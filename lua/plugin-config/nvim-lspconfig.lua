@@ -40,29 +40,29 @@ return {
         local bufnr = event.buf
         local opts = { buffer = bufnr }
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client.server_capabilities.documentHighlightProvider then
-          vim.api.nvim_create_augroup("lsp_document_hightlight", { clear = true })
-          vim.api.nvim_create_autocmd("CursorHold", {
-            callback = function()
-              vim.defer_fn(function()
-                vim.lsp.buf.document_highlight()
-              end, 100)
-            end,
-            buffer = bufnr,
-            group = "lsp_document_hightlight",
-            desc = "highlight lsp document highlight"
-          })
-          vim.api.nvim_create_autocmd("CursorMoved", {
-            callback = function()
-              vim.defer_fn(function()
-                vim.lsp.buf.clear_references()
-              end, 100)
-            end,
-            buffer = bufnr,
-            group = "lsp_document_hightlight",
-            desc = "clear lsp document hightlight"
-          })
-        end
+        -- if client and client.server_capabilities.documentHighlightProvider then
+        --   vim.api.nvim_create_augroup("lsp_document_hightlight", { clear = true })
+        --   vim.api.nvim_create_autocmd("CursorHold", {
+        --     callback = function()
+        --       vim.defer_fn(function()
+        --         vim.lsp.buf.document_highlight()
+        --       end, 100)
+        --     end,
+        --     buffer = bufnr,
+        --     group = "lsp_document_hightlight",
+        --     desc = "highlight lsp document highlight"
+        --   })
+        --   vim.api.nvim_create_autocmd("CursorMoved", {
+        --     callback = function()
+        --       vim.defer_fn(function()
+        --         vim.lsp.buf.clear_references()
+        --       end, 100)
+        --     end,
+        --     buffer = bufnr,
+        --     group = "lsp_document_hightlight",
+        --     desc = "clear lsp document hightlight"
+        --   })
+        -- end
 
         vim.keymap.set('n', '<space>se', vim.diagnostic.open_float, opts)
         -- Enable completion triggered by <c-x><c-o>

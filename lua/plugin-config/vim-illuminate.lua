@@ -1,6 +1,6 @@
 return {
   'RRethy/vim-illuminate',
-  cond = false,
+  -- cond = false,
   opts = {
     providers = {
       'lsp',
