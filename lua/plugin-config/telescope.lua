@@ -7,10 +7,10 @@ return {
   config = function()
     local keymap = vim.keymap.set
     local builtin = require('telescope.builtin')
-    keymap('n', 'gr', builtin.lsp_references, {})
-    keymap('n', 'gd', builtin.lsp_definitions, {})
-    keymap("n", "<C-p>", builtin.find_files, {})
-    keymap({ 'n', 'i' }, "<C-f>", builtin.live_grep, {})
+    -- keymap('n', 'gr', builtin.lsp_references, {})
+    -- keymap('n', 'gd', builtin.lsp_definitions, {})
+    -- keymap("n", "<C-p>", builtin.find_files, {})
+    -- keymap({ 'n', 'i' }, "<C-f>", builtin.live_grep, {})
     require("telescope").setup({
       defaults = {
         results_title = '',
@@ -52,7 +52,7 @@ return {
           prompt_title = "",
           shorten_path = true,
           path_display = { "truncate" },
-          layout_strategy = "vertical",
+          layout_strategy = "horizontal",
           layout_config = {
             width = 0.99,
             height = 0.99,

@@ -1,6 +1,3 @@
-vim.cmd [[
-  highlight SnacksIndent guifg=#d3d3d3
-]]
 vim.api.nvim_create_user_command(
   'Dashboard', -- 命令名称 :Test
   function()
@@ -8,6 +5,9 @@ vim.api.nvim_create_user_command(
   end,
   { nargs = 0 } -- 参数配置（这里是 0 表示不接受参数）
 )
+vim.cmd [[
+  highlight SnacksIndent guifg=#d3d3d3
+]]
 return {
   "folke/snacks.nvim",
   lazy = false,
@@ -42,14 +42,44 @@ return {
       },
     },
     picker = {
+      layout = {
+        layout = {
+          box = "horizontal",
+          width = 1.0,
+          min_width = 120,
+          height = 26, -- more than maybe 25? is full height, 0.1-0.9 means % height
+          {
+            box = "vertical",
+            border = "none",
+            title = "{title} {live} {flags}",
+            { win = "input", height = 1,     border = "none" },
+            { win = "list",  border = "none" },
+          },
+          { win = "preview", title = "", border = "single", width = 0.6 },
+        },
+      },
       win = {
         input = {
           keys = {
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<c-k>"] = { "preview_scroll_up", mode = { "i", "n" } },
             ["<c-j>"] = { "preview_scroll_down", mode = { "i", "n" } },
           }
         }
-      }
+      },
+      -- formatters = {
+        -- text = {
+        --   ft = nil, ---@type string? filetype for highlighting
+        -- },
+        -- file = {
+        --   filename_first = false, -- display filename before the file path
+        --   truncate = 50,      -- truncate the file path to (roughly) this length
+        -- },
+        -- selected = {
+        --   show_always = false, -- only show the selected column when there are multiple selections
+        --   unselected = true, -- use the unselected icon for unselected items
+        -- },
+      -- },
     },
   },
   keys = {
