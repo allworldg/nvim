@@ -69,7 +69,7 @@ return {
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- use telescople gd
+        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- use by other tools
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)

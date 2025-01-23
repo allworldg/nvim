@@ -1,7 +1,8 @@
 return {
   'nvim-telescope/telescope.nvim',
   tag = "0.1.8",
-  cond = false,
+  -- cond = false,
+  enabled = false,
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local keymap = vim.keymap.set

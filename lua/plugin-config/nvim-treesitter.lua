@@ -2,7 +2,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   opts = {
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "python", "javascript", "html", "bash", "vue","typescript","css" },
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "python", "javascript", "html", "bash", "vue", "typescript", "css" },
     sync_install = false,
     auto_install = false,
     highlight = {
@@ -18,10 +18,10 @@ return {
       additional_vim_regex_highlighting = false
     },
     matchup = {
-      enable = true,     -- mandatory, false will disable the whole extension
+      enable = true, -- mandatory, false will disable the whole extension
     },
   },
-  config=function(_,opts)
+  config = function(_, opts)
     require('nvim-treesitter.configs').setup(opts)
   end
 }
