@@ -47,10 +47,11 @@ return {
       enabled = true,
       layout = {
         layout = {
-          box = "horizontal",
-          width = 1.0,
-          min_width = 120,
-          height = 26, -- more than maybe 25? is full height, 0.1-0.9 means % height
+          backdrop = false,
+          box = "vertical",
+          width = 0.4,
+          min_width = 80,
+          height = 0.9, -- more than maybe 25? is full height, 0.1-0.9 means % height
           {
             box = "vertical",
             border = "none",
@@ -58,7 +59,7 @@ return {
             { win = "input", height = 1,     border = "none" },
             { win = "list",  border = "none" },
           },
-          { win = "preview", title = "", border = "single", width = 0.6 },
+          { win = "preview", title = "", border = "single"},
         },
       },
       win = {
