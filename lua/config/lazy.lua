@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    { import = "plugin-config" },
+    { import = "plugin" },
   },
   git = {
     -- defaults for the `Lazy log` command

@@ -5,7 +5,7 @@ highlight rightSectionColor guibg=#0087af guifg= #ffffff
 ]])
 
 local leftSectionColor = "%#leftSectionColor#"
-local leftSection = leftSectionColor .. "%-1.(%t%m%)"
+local leftSection = leftSectionColor .. "%-1.(%f%m%)"
 local middleSectionColor = "%#mywhite#"
 local middleSection = middleSectionColor .. "%="
 local rightSectionColor = "%#rightSectionColor#"

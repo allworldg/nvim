@@ -27,9 +27,11 @@ return {
       },
     },
     dashboard = {
+      enabled = true,
       preset = {
         header = [[allworldg]]
       },
+      -- pick = ,
       -- your dashboard configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
@@ -42,6 +44,7 @@ return {
       },
     },
     picker = {
+      enabled = true,
       layout = {
         layout = {
           box = "horizontal",
@@ -67,19 +70,15 @@ return {
           }
         }
       },
-      -- formatters = {
-        -- text = {
-        --   ft = nil, ---@type string? filetype for highlighting
-        -- },
-        -- file = {
-        --   filename_first = false, -- display filename before the file path
-        --   truncate = 50,      -- truncate the file path to (roughly) this length
-        -- },
-        -- selected = {
-        --   show_always = false, -- only show the selected column when there are multiple selections
-        --   unselected = true, -- use the unselected icon for unselected items
-        -- },
-      -- },
+      formatters = {
+        text = {
+          ft = nil, ---@type string? filetype for highlighting
+        },
+        file = {
+          filename_first = false, -- display filename before the file path
+          truncate = 50,      -- truncate the file path to (roughly) this length
+        },
+      },
     },
   },
   keys = {
