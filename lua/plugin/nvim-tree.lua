@@ -23,7 +23,7 @@ return {
     end
     -- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
     vim.cmd [[ hi NvimTreeCursorLine guibg=#D5E5F6]]
-    vim.keymap.set({ 'n', 'i' }, '<A-m>', '<cmd>:NvimTreeToggle<CR>', {})
+    vim.keymap.set({ 'n', 'i' }, '<A-m>', '<cmd>:NvimTreeToggle<CR><esc>', {})
     local function my_on_attach(bufnr)
       local api = require "nvim-tree.api"
 

@@ -56,6 +56,7 @@ return {
     -- change highlight in live_grep user input text
     vim.cmd [[highlight  FzFLuaLivePrompt guifg=#000000 gui=bold]]
     vim.cmd [[highlight FzFLuaNormal guifg=#000000 guibg=#f6f8fa]]
+    vim.cmd [[highlight FzfLuaPathLineNr guifg=#0550ae]]
 
 
 
