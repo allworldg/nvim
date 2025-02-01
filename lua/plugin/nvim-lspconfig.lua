@@ -101,15 +101,25 @@ return {
         },
       },
     })
-    -- lspconfig.ts_ls.setup({})
     lspconfig.volar.setup {
       -- add filetypes for typescript, javascript and vue
       filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    }
+    lspconfig.ts_ls.setup {
       init_options = {
-        vue = {
-          -- disable hybrid mode
-          hybridMode = false,
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            --run @vue/language-server in conjunction with a TypeScript server that employs @vue/typescript-plugin
+            location = "/home/allworldg/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server",
+            languages = { "javascript", "typescript", "vue" },
+          },
         },
+      },
+      filetypes = {
+        "javascript",
+        "typescript",
+        "vue",
       },
     }
   end

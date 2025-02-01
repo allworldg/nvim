@@ -54,15 +54,14 @@ return {
       vim.keymap.del("n", "q", opts(""))
     end
     require("nvim-tree").setup {
-      -- sync_root_with_cwd = true,
       git = {
         enable = true
       },
       filters = {
         -- 隐藏 .文件
         dotfiles = true,
-        -- 隐藏 node_modules 文件夹
-        -- custom = { "node_modules" },
+        custom = {},
+        exclude = { 'node_modules' },
       },
       renderer = {
         icons = {

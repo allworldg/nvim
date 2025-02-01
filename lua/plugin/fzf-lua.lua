@@ -66,7 +66,7 @@ return {
     }
     vim.keymap.set("n", "<C-f>", function() require 'fzf-lua'.live_grep(profile_live_grep) end, opt)
     vim.keymap.set("n", "<C-p>", function() require 'fzf-lua'.files(profile_files) end, opt)
-    vim.keymap.set("n", "gr", ":FzfLua lsp_references<CR>", opt)
+    vim.keymap.set("n", "gr", function() require 'fzf-lua'.lsp_references({ winopts = { relative = 'cursor' } }) end, opt)
     vim.keymap.set("n", "gi", ":FzfLua lsp_implementations<CR>", opt)
     vim.keymap.set("n", "gd", ":lua require('fzf-lua').lsp_definitions({ jump_to_single_result = true })<CR>", opt)
     vim.keymap.set("n", "gD", ":FzfLua lsp_declarations<CR>", opt)
