@@ -34,7 +34,7 @@ return {
         hidden=true,
       },
       grep={
-        hidden=false,
+        hidden=true,
         no_ignore=false,
       }
     }
