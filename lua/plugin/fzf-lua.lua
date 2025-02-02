@@ -29,8 +29,14 @@ return {
           ["<C-k>"] = "preview-up", },
       },
       files = {
-        cwd_prompt = false
+        cwd_prompt = false,
+        no_ignore = false,
+        hidden=true,
       },
+      grep={
+        hidden=false,
+        no_ignore=false,
+      }
     }
     local profile_files = {
       winopts = {
