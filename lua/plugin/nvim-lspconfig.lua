@@ -122,5 +122,6 @@ return {
         "vue",
       },
     }
+    lspconfig.emmet_language_server.setup({})
   end
 }
