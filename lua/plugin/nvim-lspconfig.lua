@@ -95,7 +95,7 @@ return {
           },
           workspace = {
             -- Make the server aware of Neovim runtime files and plugins
-            library = { vim.env.VIMRUNTIME },
+            library = { vim.env.VIMRUNTIME, "${3rd}/luv/library" },
             checkThirdParty = false,
           },
         },
