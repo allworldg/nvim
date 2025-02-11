@@ -59,15 +59,6 @@ map("n", "<leader>bl", ":buffers<CR>:buffer<Space>", {})
 
 map("n", "<leader>sv", ":vsp<cr>", opt)
 map("n", "<leader>sh", ":sp<cr>", opt)
--- 关闭当前
-map("n", "<leader>sc", "<c-w>c", opt)
--- 关闭其他split
-map("n", "<leader>so", "<c-w>o", opt) -- close others
--- <leader> + hjkl 窗口之间跳转
-map("n", "<leader>h", "<c-w>h", opt)
-map("n", "<leader>j", "<c-w>j", opt)
-map("n", "<leader>k", "<c-w>k", opt)
-map("n", "<leader>l", "<c-w>l", opt)
 -- 左右比例控制
 map("n", "<c-left>", ":vertical resize -2<cr>", opt)
 map("n", "<c-right>", ":vertical resize +2<cr>", opt)
