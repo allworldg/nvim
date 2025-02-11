@@ -113,7 +113,7 @@ if vim.g.vscode then
   keymap('n', "<leader>h", function() vscode.call('workbench.action.navigateLeft') end, {})
   keymap('n', "<leader>l", function() vscode.call("workbench.action.navigateRight") end, {})
   keymap('n', "K", function() vscode.call('editor.action.showHover') end, {})
-  keymap('n', "<c-w>", function() vscode.call("workbench.action.closeActiveEditor") end, {})
+  keymap('n', "qq", function() vscode.call("workbench.action.closeActiveEditor") end, {})
   keymap('n', 'gd', function() vscode.call("editor.action.revealDefinition") end, {})
   keymap('n', 'gr', function() vscode.call("editor.action.goToReferences") end, {})
   keymap('n', "gi", function() vscode.call("editor.action.goToImplementation") end, {})
