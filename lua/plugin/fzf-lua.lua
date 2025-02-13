@@ -5,7 +5,6 @@ return {
   -- or if using mini.icons/mini.nvim
   opts = {},
   config = function()
-    local actions = require("fzf-lua").actions
     require("fzf-lua").setup {
       fzf_colors = {
         ["bg+"] = { "bg", "CursorLine" }, -- the horizontal one.
@@ -76,6 +75,7 @@ return {
     vim.keymap.set("n", "gr", function() require 'fzf-lua'.lsp_references({ winopts = { relative = 'cursor' } }) end, opt)
     vim.keymap.set("n", "gi", function() require 'fzf-lua'.lsp_implementations({ jump_to_single_result = true }) end, opt)
     vim.keymap.set("n", "gd", ":lua require('fzf-lua').lsp_definitions({ jump_to_single_result = true })<CR>", opt)
+    vim.keymap.set("n", "sl", function() require 'fzf-lua'.diagnostics_workspace({}) end, opt)
     vim.keymap.set("n", "gD", ":FzfLua lsp_declarations<CR>", opt)
   end
 }

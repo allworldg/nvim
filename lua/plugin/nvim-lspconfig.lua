@@ -13,7 +13,6 @@ return {
     vim.diagnostic.config({
       -- disable virtual text
       virtual_text = true,
-      -- show signs
       signs = true,
       update_in_insert = true,
       underline = true,
