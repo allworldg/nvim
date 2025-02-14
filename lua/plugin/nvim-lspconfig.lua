@@ -2,13 +2,10 @@ return {
   "neovim/nvim-lspconfig",
   config = function()
     local _, lspconfig = pcall(require, "lspconfig")
-    local lspconfig_defaults = lspconfig.util.default_config
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-    lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+    lspconfig.util.default_config.capabilities = vim.tbl_deep_extend(
       'force',
-      lspconfig_defaults.capabilities,
-      require('cmp_nvim_lsp').default_capabilities(capabilities)
+      lspconfig.util.default_config.capabilities,
+      require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
     )
     vim.diagnostic.config({
       -- disable virtual text
