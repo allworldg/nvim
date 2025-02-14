@@ -17,6 +17,7 @@ return {
         height = 1,
         fullscreen = false,
         backdrop = 100, --fully transparent
+        title_flags = false,
         preview = {
           title = false,
           layout = "vertical"
@@ -40,6 +41,7 @@ return {
     }
     local profile_files = {
       winopts = {
+        title = "",
         preview = {
           hidden = true
         }
@@ -47,6 +49,7 @@ return {
     }
     local profile_live_grep = {
       winopts = {
+        title = "",
         preview = {
           vertical = "down:60%",
           border = { "", "", "", "│", "", "", "", "│" },
@@ -73,8 +76,8 @@ return {
     vim.keymap.set("n", "<C-f>", function() require 'fzf-lua'.live_grep(profile_live_grep) end, opt)
     vim.keymap.set("n", "<C-p>", function() require 'fzf-lua'.files(profile_files) end, opt)
     vim.keymap.set("n", "gr", function() require 'fzf-lua'.lsp_references({ winopts = { relative = 'cursor' } }) end, opt)
-    vim.keymap.set("n", "gi", function() require 'fzf-lua'.lsp_implementations({ jump_to_single_result = true }) end, opt)
-    vim.keymap.set("n", "gd", ":lua require('fzf-lua').lsp_definitions({ jump_to_single_result = true })<CR>", opt)
+    vim.keymap.set("n", "gi", function() require 'fzf-lua'.lsp_implementations() end, opt)
+    vim.keymap.set("n", "gd", function() require 'fzf-lua'.lsp_definitions() end, opt)
     vim.keymap.set("n", "sl", function() require 'fzf-lua'.diagnostics_workspace({}) end, opt)
     vim.keymap.set("n", "gD", ":FzfLua lsp_declarations<CR>", opt)
   end
