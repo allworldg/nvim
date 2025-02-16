@@ -10,6 +10,7 @@ vim.cmd [[
 ]]
 return {
   "folke/snacks.nvim",
+  -- dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
   ---@type snacks.Config
   opts = {
@@ -31,10 +32,6 @@ return {
       preset = {
         header = [[allworldg]]
       },
-      -- pick = ,
-      -- your dashboard configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
       sections = {
         { section = "startup" },
         { section = "header", padding = 1 },
@@ -43,8 +40,19 @@ return {
         { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
       },
     },
+    explorer = {
+      enabled = false,
+    },
     picker = {
       enabled = false,
+      replace_netrw = true,
+      sources = {
+        explorer = {
+          -- focus = "input",
+          auto_close = true,
+          layout = { layout = { position = "left" } },
+        }
+      },
       layout = {
         layout = {
           backdrop = false,

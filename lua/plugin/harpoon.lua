@@ -1,6 +1,7 @@
 return {
   'ThePrimeagen/harpoon',
   dependencies = { { "nvim-lua/plenary.nvim" } },
+  cond = true,
   branch = "harpoon2",
   config = function()
     vim.keymap.set("n", "<A-p>", require("harpoon.ui").toggle_quick_menu, {})

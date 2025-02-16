@@ -5,7 +5,7 @@ return {
     lspconfig.util.default_config.capabilities = vim.tbl_deep_extend(
       'force',
       lspconfig.util.default_config.capabilities,
-      require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+      require('cmp_nvim_lsp').default_capabilities()
     )
     vim.diagnostic.config({
       -- disable virtual text
@@ -36,6 +36,7 @@ return {
         local bufnr = event.buf
         local opts = { buffer = bufnr }
         local client = vim.lsp.get_client_by_id(event.data.client_id)
+        client.capabilities = lspconfig.util.default_config.capabilities
         -- if client and client.server_capabilities.documentHighlightProvider then
         --   vim.api.nvim_create_augroup("lsp_document_hightlight", { clear = true })
         --   vim.api.nvim_create_autocmd("CursorHold", {
@@ -100,24 +101,49 @@ return {
     lspconfig.volar.setup {
       -- add filetypes for typescript, javascript and vue
       filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-    }
-    lspconfig.ts_ls.setup {
       init_options = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            --run @vue/language-server in conjunction with a TypeScript server that employs @vue/typescript-plugin
-            location = "/home/allworldg/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server",
-            languages = { "javascript", "typescript", "vue" },
-          },
+        vue = {
+          hybridMode = false,
         },
       },
-      filetypes = {
-        "javascript",
-        "typescript",
-        "vue",
-      },
     }
+    -- lspconfig.vtsls.setup {
+    --   filetypes = {
+    --     "javascript",
+    --     "javascriptreact",
+    --     "javascript.jsx",
+    --     "typescript",
+    --     "typescriptreact",
+    --     "typescript.tsx",
+    --   },
+    --   settings = {
+    --     complete_function_calls = true,
+    --     vtsls = {
+    --       enableMoveToFileCodeAction = true,
+    --       autoUseWorkspaceTsdk = true,
+    --       experimental = {
+    --         maxInlayHintLength = 30,
+    --         completion = {
+    --           enableServerSideFuzzyMatch = true,
+    --         },
+    --       },
+    --     },
+    --     typescript = {
+    --       updateImportsOnFileMove = { enabled = "always" },
+    --       suggest = {
+    --         completeFunctionCalls = true,
+    --       },
+    --       inlayHints = {
+    --         enumMemberValues = { enabled = true },
+    --         functionLikeReturnTypes = { enabled = true },
+    --         parameterNames = { enabled = "literals" },
+    --         parameterTypes = { enabled = true },
+    --         propertyDeclarationTypes = { enabled = true },
+    --         variableTypes = { enabled = false },
+    --       },
+    --     },
+    --   },
+    -- }
     lspconfig.emmet_language_server.setup({})
   end
 }

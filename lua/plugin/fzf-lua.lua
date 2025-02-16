@@ -1,7 +1,7 @@
 return {
   "ibhagwan/fzf-lua",
   -- optional for icon support
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- dependencies = { "nvim-tree/nvim-web-devicons" },
   -- or if using mini.icons/mini.nvim
   opts = {},
   config = function()
@@ -31,8 +31,8 @@ return {
       },
       files = {
         cwd_prompt = false,
-        no_ignore = false,
-        hidden = true,
+        no_ignore = true,
+        hidden = true
       },
       grep = {
         hidden = true,
