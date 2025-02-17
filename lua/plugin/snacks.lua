@@ -55,10 +55,11 @@ return {
         }
       },
       layout = {
+        cycle = false,
         layout = {
           backdrop = false,
           box = "vertical",
-          width = 0.4,
+          width = 0.3,
           min_width = 80,
           height = 0.9, -- more than maybe 25? is full height, 0.1-0.9 means % height
           {
@@ -78,6 +79,12 @@ return {
             ["<c-k>"] = { "preview_scroll_up", mode = { "i", "n" } },
             ["<c-j>"] = { "preview_scroll_down", mode = { "i", "n" } },
           }
+        },
+        list = {
+          keys = {
+            ["<a-m>"] = "close",
+            ["x"] = "explorer_move",
+          }
         }
       },
       formatters = {
@@ -92,7 +99,7 @@ return {
     },
   },
   keys = {
-    { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+    { "<A-m>",     function() Snacks.explorer() end, desc = "File Explorer" },
     --   -- picker
     --   { "<c-f>",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
     --   { "<leader>:",  function() Snacks.picker.command_history() end,                         desc = "Command History" },
