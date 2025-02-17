@@ -10,7 +10,7 @@ vim.cmd [[
 ]]
 return {
   "folke/snacks.nvim",
-  -- dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "echasnovski/mini.icons" },
   lazy = false,
   ---@type snacks.Config
   opts = {
@@ -75,7 +75,7 @@ return {
       win = {
         input = {
           keys = {
-            ["<Esc>"] = { "close", mode = { "n", "i" } },
+            ["<Esc>"] = { "close", mode = { "n"} },
             ["<c-k>"] = { "preview_scroll_up", mode = { "i", "n" } },
             ["<c-j>"] = { "preview_scroll_down", mode = { "i", "n" } },
           }
