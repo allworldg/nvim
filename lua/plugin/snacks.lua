@@ -41,15 +41,16 @@ return {
       },
     },
     explorer = {
-      enabled = false,
+      enabled = true,
     },
     picker = {
-      enabled = false,
+      enabled = true,
       replace_netrw = true,
       sources = {
         explorer = {
-          -- focus = "input",
-          auto_close = true,
+          focus = "list",
+          auto_close = false,
+          jump = { close = true },
           layout = { layout = { position = "left" } },
         }
       },
@@ -90,24 +91,25 @@ return {
       },
     },
   },
-  -- keys = {
-  --   -- picker
-  --   { "<c-f>",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
-  --   { "<leader>:",  function() Snacks.picker.command_history() end,                         desc = "Command History" },
-  --   { "<c-p>",      function() Snacks.picker.files() end,                                   desc = "Find Files" },
-  --   -- find
-  --   { "<leader>fb", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
-  --   { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-  --   { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find Files" },
-  --   { "<leader>fg", function() Snacks.picker.git_files() end,                               desc = "Find Git Files" },
-  --   { "<leader>fr", function() Snacks.picker.recent() end,                                  desc = "Recent" },
-  --   -- git
-  --   { "<leader>gc", function() Snacks.picker.git_log() end,                                 desc = "Git Log" },
-  --   { "<leader>gs", function() Snacks.picker.git_status() end,                              desc = "Git Status" },
-  --   -- LSP
-  --   { "gd",         function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
-  --   { "gr",         function() Snacks.picker.lsp_references() end,                          nowait = true,                  desc = "References" },
-  --   { "gi",         function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
-  --   { "gD",         function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
-  -- },
+  keys = {
+    { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+    --   -- picker
+    --   { "<c-f>",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
+    --   { "<leader>:",  function() Snacks.picker.command_history() end,                         desc = "Command History" },
+    --   { "<c-p>",      function() Snacks.picker.files() end,                                   desc = "Find Files" },
+    --   -- find
+    --   { "<leader>fb", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
+    --   { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+    --   { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find Files" },
+    --   { "<leader>fg", function() Snacks.picker.git_files() end,                               desc = "Find Git Files" },
+    --   { "<leader>fr", function() Snacks.picker.recent() end,                                  desc = "Recent" },
+    --   -- git
+    --   { "<leader>gc", function() Snacks.picker.git_log() end,                                 desc = "Git Log" },
+    --   { "<leader>gs", function() Snacks.picker.git_status() end,                              desc = "Git Status" },
+    --   -- LSP
+    --   { "gd",         function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
+    --   { "gr",         function() Snacks.picker.lsp_references() end,                          nowait = true,                  desc = "References" },
+    --   { "gi",         function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
+    --   { "gD",         function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
+  },
 }

@@ -2,7 +2,7 @@ return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
   lazy = false,
-  -- cond = false,
+  cond = false,
   config = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
