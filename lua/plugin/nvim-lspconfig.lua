@@ -79,7 +79,8 @@ return {
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
         -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts) --use same keybinding by telescople.references
-        vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
+        -- use conform.nvim to format
+        -- vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
       end
     })
 

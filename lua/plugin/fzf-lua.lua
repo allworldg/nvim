@@ -31,7 +31,7 @@ return {
       },
       files = {
         cwd_prompt = false,
-        no_ignore = true,
+        no_ignore = false,
         hidden = true
       },
       grep = {
