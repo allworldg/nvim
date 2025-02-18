@@ -1,9 +1,17 @@
+vim.keymap.set("n", "<C-f>", function() require 'fzf-lua'.live_grep(profile_live_grep) end, { noremap = false })
+vim.keymap.set("n", "<C-p>", function() require 'fzf-lua'.files(profile_files) end, opt)
+vim.keymap.set("n", "gr", function() require 'fzf-lua'.lsp_references({ winopts = { relative = 'cursor' } }) end, opt)
+vim.keymap.set("n", "gi", function() require 'fzf-lua'.lsp_implementations() end, opt)
+vim.keymap.set("n", "gd", function() require 'fzf-lua'.lsp_definitions() end, opt)
+vim.keymap.set("n", "sl", function() require 'fzf-lua'.diagnostics_workspace({}) end, opt)
+vim.keymap.set("n", "gD", ":FzfLua lsp_declarations<CR>", opt)
 return {
   "ibhagwan/fzf-lua",
   -- optional for icon support
   -- dependencies = { "nvim-tree/nvim-web-devicons" },
   -- or if using mini.icons/mini.nvim
   opts = {},
+  lazy = true,
   config = function()
     require("fzf-lua").setup {
       fzf_colors = {
@@ -73,12 +81,5 @@ return {
       silent = true,
       noremap = true,
     }
-    vim.keymap.set("n", "<C-f>", function() require 'fzf-lua'.live_grep(profile_live_grep) end, opt)
-    vim.keymap.set("n", "<C-p>", function() require 'fzf-lua'.files(profile_files) end, opt)
-    vim.keymap.set("n", "gr", function() require 'fzf-lua'.lsp_references({ winopts = { relative = 'cursor' } }) end, opt)
-    vim.keymap.set("n", "gi", function() require 'fzf-lua'.lsp_implementations() end, opt)
-    vim.keymap.set("n", "gd", function() require 'fzf-lua'.lsp_definitions() end, opt)
-    vim.keymap.set("n", "sl", function() require 'fzf-lua'.diagnostics_workspace({}) end, opt)
-    vim.keymap.set("n", "gD", ":FzfLua lsp_declarations<CR>", opt)
   end
 }

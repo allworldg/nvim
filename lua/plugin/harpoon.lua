@@ -1,13 +1,14 @@
+vim.keymap.set("n", "<A-p>", function() require("harpoon.ui").toggle_quick_menu() end, {})
+vim.keymap.set("n", "<A-a>", function() require("harpoon.mark").add_file() end, {})
+vim.keymap.set("n", "<c-h>", function() require("harpoon.ui").nav_prev() end, { silent = true })
+vim.keymap.set("n", "<c-l>", function() require("harpoon.ui").nav_next() end, { silent = true })
 return {
   'ThePrimeagen/harpoon',
   dependencies = { { "nvim-lua/plenary.nvim" } },
   cond = true,
+  lazy = true,
   branch = "harpoon2",
   config = function()
-    vim.keymap.set("n", "<A-p>", require("harpoon.ui").toggle_quick_menu, {})
-    vim.keymap.set("n", "<A-a>", require("harpoon.mark").add_file, {})
-    vim.keymap.set("n", "<c-h>", require("harpoon.ui").nav_prev, { silent = true })
-    vim.keymap.set("n", "<c-l>", require("harpoon.ui").nav_next, { silent = true })
     require("harpoon").setup({
       tabline = true
     })

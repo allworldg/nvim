@@ -1,12 +1,13 @@
 return {
   {
     "numToStr/Comment.nvim",
-    lazy = false,
+    lazy = true,
+    keys = {
+      { "<c-_>", "gcc", mode = {"n"}, remap = true },
+      { "<c-_>", "gc", mode = {"v"}, remap = true }
+    },
     config = function()
-      vim.api.nvim_set_keymap("n", "<c-_>", "gcc", { noremap = false })
-      vim.api.nvim_set_keymap("v", "<c-_>", "gc", { noremap = false })
       require('Comment').setup()
     end
-
   }
 }
