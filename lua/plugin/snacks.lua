@@ -41,7 +41,7 @@ return {
       },
     },
     explorer = {
-      enabled = true,
+      enabled = false,
     },
     picker = {
       enabled = true,
@@ -99,7 +99,7 @@ return {
     },
   },
   keys = {
-    { "<A-m>",     function() Snacks.explorer() end, desc = "File Explorer" },
+    -- { "<A-m>",     function() Snacks.explorer() end, desc = "File Explorer" },
     --   -- picker
     --   { "<c-f>",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
     --   { "<leader>:",  function() Snacks.picker.command_history() end,                         desc = "Command History" },
