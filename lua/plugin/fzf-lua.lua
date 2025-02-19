@@ -1,17 +1,51 @@
-vim.keymap.set("n", "<C-f>", function() require 'fzf-lua'.live_grep(profile_live_grep) end, { noremap = false })
-vim.keymap.set("n", "<C-p>", function() require 'fzf-lua'.files(profile_files) end, opt)
-vim.keymap.set("n", "gr", function() require 'fzf-lua'.lsp_references({ winopts = { relative = 'cursor' } }) end, opt)
-vim.keymap.set("n", "gi", function() require 'fzf-lua'.lsp_implementations() end, opt)
-vim.keymap.set("n", "gd", function() require 'fzf-lua'.lsp_definitions() end, opt)
-vim.keymap.set("n", "sl", function() require 'fzf-lua'.diagnostics_workspace({}) end, opt)
-vim.keymap.set("n", "gD", ":FzfLua lsp_declarations<CR>", opt)
 return {
   "ibhagwan/fzf-lua",
-  -- optional for icon support
-  -- dependencies = { "nvim-tree/nvim-web-devicons" },
-  -- or if using mini.icons/mini.nvim
   opts = {},
   lazy = true,
+  keys = {
+    {
+      "<C-f>",
+      function()
+        require 'fzf-lua'.live_grep({
+          winopts = {
+            title = "",
+            preview = {
+              vertical = "down:60%",
+              border = { "", "", "", "│", "", "", "", "│" },
+            }
+          }
+        })
+      end,
+      desc = "live_grep"
+    },
+    {
+      "<C-p>",
+      function()
+        require 'fzf-lua'.files({
+          winopts = {
+            title = "",
+            preview = {
+              hidden = true,
+            }
+          },
+        })
+      end,
+      desc = "files"
+    },
+    {
+      "gr",
+      function()
+        require 'fzf-lua'.lsp_references({
+          winopts = { relative = 'cursor' },
+        })
+      end,
+      desc = "lsp_references"
+    },
+    { "gi", function() require 'fzf-lua'.lsp_implementations() end,   desc = "lsp_implementations" },
+    { "gd", function() require 'fzf-lua'.lsp_definitions() end,       desc = "lsp_definitions" },
+    { "sl", function() require 'fzf-lua'.diagnostics_workspace() end, desc = "diagnostics_workspace" },
+    { "gD", function() require 'fzf-lua'.lsp_declarations() end,      desc = "lsp_declarations" },
+  },
   config = function()
     require("fzf-lua").setup {
       fzf_colors = {
@@ -47,23 +81,6 @@ return {
         no_ignore = false,
       },
     }
-    local profile_files = {
-      winopts = {
-        title = "",
-        preview = {
-          hidden = true
-        }
-      },
-    }
-    local profile_live_grep = {
-      winopts = {
-        title = "",
-        preview = {
-          vertical = "down:60%",
-          border = { "", "", "", "│", "", "", "", "│" },
-        }
-      }
-    }
 
     -- change highlight color to head, e.g:"<ctrl-g>" under the input area
     vim.cmd [[highlight FzfLuaHeaderBind guifg=#0969da]]
@@ -74,12 +91,5 @@ return {
     vim.cmd [[highlight  FzFLuaLivePrompt guifg=#000000 gui=bold]]
     vim.cmd [[highlight FzFLuaNormal guifg=#000000 guibg=#f6f8fa]]
     vim.cmd [[highlight FzfLuaPathLineNr guifg=#0550ae]]
-
-
-
-    local opt = {
-      silent = true,
-      noremap = true,
-    }
   end
 }
