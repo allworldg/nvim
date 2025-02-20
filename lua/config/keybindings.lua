@@ -44,10 +44,7 @@ map("n", "<c-d>", "10j", opt)
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
--- 在visual mode 里粘贴的同时顺利打开附件不要复制
--- 解释：_d会将选中字符送去黑洞寄存器，然后P在当前光标前进行paste，如果用"_dp,
--- 则是先送去黑洞寄存器，此时后面的字符往前移动，p粘贴到当前光标之后，所以会出现问题。
-map("v", "p", '"_dP', opt)
+map("v", "p", 'P', opt)
 -- buffer
 map("n", "<leader>bl", ":buffers<CR>:buffer<Space>", {})
 
