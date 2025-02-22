@@ -53,18 +53,9 @@ map("n", "<leader>bl", ":buffers<CR>:buffer<Space>", {})
 -- ------------------------------------------------------------------
 -- -- windows 分屏快捷键
 -- ------------------------------------------------------------------
-
-map("n", "<leader>sv", ":vsp<cr>", opt)
-map("n", "<leader>sh", ":sp<cr>", opt)
 -- 左右比例控制
 map("n", "<c-left>", ":vertical resize -2<cr>", opt)
 map("n", "<c-right>", ":vertical resize +2<cr>", opt)
-map("n", "<leader>s,", ":vertical resize -10<cr>", opt)
-map("n", "<leader>s.", ":vertical resize +10<cr>", opt)
 -- 上下比例
-map("n", "<leader>sj", ":resize +10<cr>", opt)
-map("n", "<leader>sk", ":resize -10<cr>", opt)
 map("n", "<c-down>", ":resize +2<cr>", opt)
 map("n", "<c-up>", ":resize -2<cr>", opt)
--- 相等比例
-map("n", "<leader>s=", "<c-w>=", opt)
