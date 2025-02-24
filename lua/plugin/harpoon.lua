@@ -13,9 +13,9 @@ return {
       tabline = true
     })
     vim.cmd('highlight! HarpoonInactive guibg=#ececec guifg=#63698c')
-    vim.cmd('highlight! HarpoonActive guibg=whilte guifg=#000000')
-    vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
-    vim.cmd('highlight! HarpoonNumberInactive guibg=#ececec guifg=#7aa2f7')
+    vim.cmd('highlight! HarpoonActive guibg=#ffffff guifg=#000000')
+    vim.cmd('highlight! HarpoonNumberActive guibg=#ffffff guifg=#000000')
+    vim.cmd('highlight! HarpoonNumberInactive guibg=#ececec guifg=#000000')
     vim.cmd('highlight! TabLineFill guibg=#f3f3f3 guifg=white')
   end
 }
