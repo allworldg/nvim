@@ -103,6 +103,8 @@ vim.keymap.set("n", "<c-d>", "10j", opt)
 vim.keymap.set("v", "<", "<gv", opt)
 vim.keymap.set("v", ">", ">gv", opt)
 vim.keymap.set('v', "p", "P", {})
+vim.keymap.set("n", "<leader>w", ":w<CR>", opt)
+
 if vim.g.vscode then
   vim.keymap.set('n', "<leader>f", function() vscode.call('editor.action.formatDocument') end, {})
   vim.keymap.set('i', "<c-k>", function() vscode.call('editor.action.triggerParameterHints') end, {})
