@@ -86,6 +86,7 @@ return {
 
 
     lspconfig.lua_ls.setup({
+      filetypes = {"lua"},
       settings = {
         Lua = {
           diagnostics = {
