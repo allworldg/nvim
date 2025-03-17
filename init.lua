@@ -79,10 +79,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
   group = general,
   desc = "Disable New Line Comment",
 })
-vim.cmd([[
-    autocmd InsertEnter * call jobstart("C:\\Users\\allworldg\\im-select.exe 2052")
-    autocmd InsertLeave * call jobstart("C:\\Users\\allworldg\\im-select.exe 3081")
-  ]])
+-- vim.cmd([[
+--     autocmd InsertEnter * call jobstart("C:\\Users\\allworldg\\im-select.exe 2052")
+--     autocmd InsertLeave * call jobstart("C:\\Users\\allworldg\\im-select.exe 3081")
+--   ]])
 ----------------------------------------------keybindings-----------
 local ok, vscode = pcall(require, "vscode")
 
