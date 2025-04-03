@@ -2,11 +2,6 @@ return {
   "neovim/nvim-lspconfig",
   config = function()
     local _, lspconfig = pcall(require, "lspconfig")
-    lspconfig.util.default_config.capabilities = vim.tbl_deep_extend(
-      'force',
-      lspconfig.util.default_config.capabilities,
-      require('cmp_nvim_lsp').default_capabilities()
-    )
     vim.diagnostic.config({
       -- disable virtual text
       virtual_text = true,
