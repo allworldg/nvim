@@ -16,7 +16,7 @@ return {
           else
             return cmp.select_and_accept()
           end
-        end
+        end,'fallback'
       }
     },
     appearance = {
