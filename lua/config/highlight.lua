@@ -1,3 +1,4 @@
+vim.api.nvim_set_hl(0, 'LineNr', { fg = "#238993" })
 -- treesitter
 vim.cmd [[
   highlight @tag.html guifg=#1647c4 ctermfg = DarkBlue
@@ -14,7 +15,6 @@ vim.cmd [[
 vim.cmd [[
   highlight DiagnosticSignInfo  guifg = Black
   highlight DiagnosticSignWarn  guifg = #C4A65E
-  " highlight DiagnosticSignError guifg = #F03D22
 
   highlight DiagnosticUnderlineWarn cterm = underline gui = underline guifg = #696969 guibg = none
   highlight DiagnosticUnderlineHint cterm = underline gui = underline guifg = #696969 guibg = none
@@ -27,7 +27,7 @@ vim.cmd [[
   highlight diagnosticfloatingInfo guifg = Black guibg = none ctermfg = Black ctermbg = none
 ]]
 
-vim.cmd[[ 
+vim.cmd [[
   hi MatchParen guibg=#EDEBFC
   hi CursorLine guibg=#fcfaed
 ]]

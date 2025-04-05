@@ -22,11 +22,24 @@ vim.lsp.buf.hover = function()
     border = "single"
   })
 end
-
+local a = 123
 vim.diagnostic.config({
   -- disable virtual text
   virtual_text = true,
-  signs = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.INFO] = ""
+    },
+    numhl = {
+      [vim.diagnostic.severity.WARN] = 'WarningMsg',
+      [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+      [vim.diagnostic.severity.INFO] = 'DiagnosticInfo',
+      [vim.diagnostic.severity.HINT] = 'DiagnosticHint',
+    }
+  },
   update_in_insert = true,
   underline = true,
   severity_sort = true,
