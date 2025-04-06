@@ -22,7 +22,6 @@ vim.lsp.buf.hover = function()
     border = "single"
   })
 end
-local a = 123
 vim.diagnostic.config({
   -- disable virtual text
   virtual_text = true,
