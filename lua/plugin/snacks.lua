@@ -18,6 +18,7 @@ return {
     dim = {},
     -- notifier={},
     indent = {
+      enabled = false,
       animate = { enabled = false },
       indent = {
         priority = 1,
@@ -44,7 +45,7 @@ return {
       enabled = false,
     },
     picker = {
-      enabled = true,
+      enabled = false,
       replace_netrw = true,
       sources = {
         explorer = {

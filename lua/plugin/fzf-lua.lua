@@ -1,7 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
   opts = {},
-  lazy = true,
   keys = {
     {
       "<C-f>",
@@ -35,10 +34,13 @@ return {
     {
       "gr",
       function()
-        require 'fzf-lua'.lsp_references({
-          winopts = { relative = 'cursor' },
-        })
+        require 'fzf-lua'.lsp_references(
+          {
+            winopts = { relative = 'cursor' },
+          }
+        )
       end,
+      nowait=true,
       desc = "lsp_references"
     },
     { "gi", function() require 'fzf-lua'.lsp_implementations() end,   desc = "lsp_implementations" },
