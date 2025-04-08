@@ -22,8 +22,10 @@ vim.lsp.buf.hover = function()
     border = "single"
   })
 end
+
 vim.diagnostic.config({
   virtual_text = true,
+  virtual_lines = false,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "",
@@ -50,7 +52,6 @@ vim.diagnostic.config({
     prefix = "",
   },
 })
-
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
@@ -81,7 +82,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --   })
     -- end
 
-    vim.keymap.set('n', '<leader>se', vim.diagnostic.open_float, opts)
+    -- vim.keymap.set('n', '<leader>se', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '<leader>se', function()
+      vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
+      vim.api.nvim_create_autocmd("CursorMoved", {
+        group = vim.api.nvim_create_augroup("virtual-lines", { clear = true });
+        callback=function ()
+          vim.diagnostic.config({virtual_lines=false,virtual_text=true})
+          return true
+        end
+      })
+    end, opts)
+
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- use by other tools
@@ -96,7 +108,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts) --use same keybinding by telescople.references
+    --use same keybinding by fzflua.references
+    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     -- use conform.nvim to format
     -- vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, opts)
   end
