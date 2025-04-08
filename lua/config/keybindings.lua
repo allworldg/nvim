@@ -48,9 +48,9 @@ map("v", "p", 'P', opt)
 -- buffer
 map("n", "<leader>bl", ":buffers<CR>:buffer<Space>", {})
 
-vim.keymap.set("n","<c-h>",":tabp<CR>",{silent=true})
-vim.keymap.set("n","<c-l>",":tabn<CR>",{silent=true})
-vim.keymap.set("n","<A-a>",":tabnew<CR>",{silent=true})
+vim.keymap.set("n", "<c-h>", ":tabp<CR>", { silent = true })
+vim.keymap.set("n", "<c-l>", ":tabn<CR>", { silent = true })
+vim.keymap.set("n", "<A-a>", ":tabnew<CR>", { silent = true })
 
 
 

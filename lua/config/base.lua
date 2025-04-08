@@ -35,7 +35,7 @@ vim.opt.incsearch = true
 -- 使用增强状态栏后不再需要 vim 的模式提示
 vim.o.showmode = false
 -- 命令行高为0，输入命令时才占用位置
-vim.o.cmdheight = 1
+vim.o.cmdheight = 0
 -- 当文件被外部程序修改时，自动加载
 vim.o.autoread = true
 vim.bo.autoread = true
@@ -61,23 +61,13 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 -- 样式(开启真彩色，防止在gui和终端下颜色不同（大概不需要?）)
 vim.opt.termguicolors = true
--- 不可见字符的显示，这里只把空格显示为一个点
--- vim.o.list = true
--- vim.o.listchars = "space:·"
 -- 补全增强
 vim.o.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.pumheight = 10
 
-vim.opt.showtabline=0
--- vim.cmd [[
---  augroup Yank
---  autocmd!
---  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
---  augroup END
--- ]]
-
+vim.opt.showtabline = 0
 
 -- remember the last edit cursor
 vim.cmd([[
