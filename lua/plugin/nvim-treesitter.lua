@@ -1,6 +1,9 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
+  event = { "VeryLazy" },
+  lazy = vim.fn.argc(-1) == 0, -- if open nvim for a file, then load early
+  cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   opts = {
     ensure_installed = { "c", "lua", "vim", "vimdoc", "python", "javascript", "html", "bash", "vue", "typescript", "css" },
     sync_install = false,

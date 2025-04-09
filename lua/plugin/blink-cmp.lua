@@ -1,8 +1,8 @@
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = { 'rafamadriz/friendly-snippets', "L3MON4D3/LuaSnip", },
   version = '1.*',
-
+  event = {"InsertEnter","CmdlineEnter"},
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -23,7 +23,7 @@ return {
       nerd_font_variant = 'mono'
     },
     completion = { documentation = { auto_show = false } },
-
+    snippets = { preset = 'luasnip' },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },

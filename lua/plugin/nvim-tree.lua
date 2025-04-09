@@ -1,14 +1,34 @@
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
-  lazy = false,
-  -- cond = false,
+  lazy = true,
+  cmd = "NvimTreeOpen",
+  keys = { { "<A-m>", "<cmd>:NvimTreeToggle<CR><esc>", mode = { "n", "i" } } },
+  init = function()
+    vim.api.nvim_create_autocmd("BufEnter", {
+      group = vim.api.nvim_create_augroup("nvimtree_start_directory", { clear = true }),
+      desc = "Start nvim-tree with directory",
+      once = true,
+      callback = function()
+        if package.loaded["nvim-tree"] then
+          return
+        else
+          ---@diagnostic disable-next-line: param-type-mismatch
+          local state = vim.uv.fs_stat(vim.fn.argv(0))
+          if state and state.type == "directory" then
+            vim.cmd("NvimTreeOpen")
+          end
+        end
+      end
+    })
+  end,
   config = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
     local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
     vim.api.nvim_create_autocmd("User", {
+      desc = "snack plugin for nvim-tree lsp rename",
       pattern = "NvimTreeSetup",
       callback = function()
         local events = require("nvim-tree.api").events
@@ -20,22 +40,8 @@ return {
         end)
       end,
     })
-    -- use "nvim ." to auto open nvim
-    local function open_nvim_tree(data)
-      -- buffer is a directory
-      local directory = vim.fn.isdirectory(data.file) == 1
 
-      if not directory then
-        return
-      end
-      -- change to the directory
-      vim.cmd.cd(data.file)
-      -- open the tree
-      require("nvim-tree.api").tree.open()
-    end
-    -- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
     vim.cmd [[ hi NvimTreeCursorLine guibg=#D5E5F6]]
-    vim.keymap.set({ 'n', 'i' }, '<A-m>', '<cmd>:NvimTreeToggle<CR><esc>', {})
     local function my_on_attach(bufnr)
       local api = require "nvim-tree.api"
 
