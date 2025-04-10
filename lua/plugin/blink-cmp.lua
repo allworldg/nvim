@@ -2,7 +2,7 @@ return {
   'saghen/blink.cmp',
   dependencies = { 'rafamadriz/friendly-snippets', "L3MON4D3/LuaSnip", },
   version = '1.*',
-  event = {"InsertEnter","CmdlineEnter"},
+  event = { "InsertEnter", "CmdlineEnter" },
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -30,6 +30,10 @@ return {
     fuzzy = { implementation = "prefer_rust_with_warning" },
     cmdline = {
       completion = { menu = { auto_show = true }, list = { selection = { preselect = false } } },
+      keymap = {
+        ['<Right>'] = { 'fallback' },
+        ['<Left>'] = { 'fallback' },
+      }
     }
   },
   opts_extend = { "sources.default" },
