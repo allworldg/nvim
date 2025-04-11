@@ -1,7 +1,7 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  event="VeryLazy",
+  event = "VeryLazy",
   config = function()
     require('lualine').setup {
       options = {
@@ -9,6 +9,7 @@ return {
         icons_enabled = true,
         component_separators = '',
         section_separators = '',
+        disabled_filetypes = { 'NvimTree', 'custom-messages' }
       },
       sections = {
         lualine_a = { { 'branch', color = { bg = '#cee1f8', fg = '#478fe3' } } },
