@@ -16,7 +16,6 @@ local opt = {
 }
 --
 local map = vim.api.nvim_set_keymap
-local keymap = vim.keymap.set
 -- quick select all
 map('n', '<leader>a', 'ggVG', opt)
 -- $跳到行尾不带空格 (交换$ 和 g_)
@@ -29,7 +28,7 @@ map("n", "<leader>w", ":w<CR>", opt)
 map("n", "<leader>wq", ":wall|qa!<CR>", opt)
 
 -- -- exit
-map("n", "qq", ":q!<CR>", opt)
+map("n", "qq", ":q!<CR>", vim.tbl_extend('force', opt, { nowait = true }))
 map("n", "<leader>q", ":qa<CR>", opt)
 
 -- fix :set wrap
