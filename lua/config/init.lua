@@ -1,5 +1,5 @@
 require("config.base")
-require("config.keybindings")
+require("config.keymap")
 require("config.lazy")
 require("config.highlight")
 require("config.nvim-messages")
