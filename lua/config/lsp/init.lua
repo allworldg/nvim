@@ -82,8 +82,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --   })
     -- end
 
-    -- vim.keymap.set('n', '<leader>se', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '<leader>se', function()
+    vim.keymap.set('n', '<leader>se', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '<leader>k', function()
       vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
       vim.api.nvim_create_autocmd("CursorMoved", {
         group = vim.api.nvim_create_augroup("virtual-lines", { clear = true });
