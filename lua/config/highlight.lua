@@ -9,6 +9,8 @@ vim.cmd [[
   highlight @keyword.function.python guifg = Blue ctermfg=DarkBlue
   highlight @keyword.return.python guifg = DarkCyan
   highlight @repeat.python guifg = #0033B3 ctermfg = DarkBlue
+
+  highlight LspSignatureActiveParameter guifg= #238993
 ]]
 
 -- diagnostic
