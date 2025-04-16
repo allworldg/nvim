@@ -76,7 +76,7 @@ return {
       win = {
         input = {
           keys = {
-            ["<Esc>"] = { "close", mode = { "n"} },
+            ["<Esc>"] = { "close", mode = { "n" } },
             ["<c-k>"] = { "preview_scroll_up", mode = { "i", "n" } },
             ["<c-j>"] = { "preview_scroll_down", mode = { "i", "n" } },
           }
@@ -99,11 +99,28 @@ return {
       },
     },
   },
+  init = function()
+    local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
+    vim.api.nvim_create_autocmd("User", {
+      desc = "snack plugin for nvim-tree lsp rename",
+      pattern = "NvimTreeSetup",
+      callback = function()
+        local events = require("nvim-tree.api").events
+        events.subscribe(events.Event.NodeRenamed, function(data)
+          if prev.new_name ~= data.new_name or prev.old_name ~= data.old_name then
+            data = data
+            local Snacks = require("snacks")
+            Snacks.rename.on_rename_file(data.old_name, data.new_name)
+          end
+        end)
+      end,
+    })
+  end,
   keys = {
     -- { "<A-m>",     function() Snacks.explorer() end, desc = "File Explorer" },
     --   -- picker
-    --   { "<c-f>",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
-    --   { "<leader>:",  function() Snacks.picker.command_history() end,                         desc = "Command History" },
+    -- { "<c-f>",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
+    -- { "<leader>:",  function() Snacks.picker.command_history() end,                         desc = "Command History" },
     --   { "<c-p>",      function() Snacks.picker.files() end,                                   desc = "Find Files" },
     --   -- find
     --   { "<leader>fb", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },

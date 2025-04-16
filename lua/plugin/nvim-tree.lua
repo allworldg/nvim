@@ -26,21 +26,6 @@ return {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
-    local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
-    vim.api.nvim_create_autocmd("User", {
-      desc = "snack plugin for nvim-tree lsp rename",
-      pattern = "NvimTreeSetup",
-      callback = function()
-        local events = require("nvim-tree.api").events
-        events.subscribe(events.Event.NodeRenamed, function(data)
-          if prev.new_name ~= data.new_name or prev.old_name ~= data.old_name then
-            data = data
-            Snacks.rename.on_rename_file(data.old_name, data.new_name)
-          end
-        end)
-      end,
-    })
-
     vim.cmd [[ hi NvimTreeCursorLine guibg=#D5E5F6]]
     local function my_on_attach(bufnr)
       local api = require "nvim-tree.api"
