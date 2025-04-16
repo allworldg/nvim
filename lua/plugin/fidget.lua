@@ -3,4 +3,5 @@ return {
   opts = {
     -- options
   },
+  event = {"VeryLazy"}
 }
