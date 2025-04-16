@@ -44,6 +44,9 @@ vim.lsp.config.vtsls = {
         variableTypes = { enabled = false },
       },
     },
+    javascript = {
+      updateImportsOnFileMove = { enabled = "always" },
+    }
   },
 }
 vim.lsp.enable("vtsls", true)
