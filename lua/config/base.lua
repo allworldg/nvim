@@ -69,13 +69,6 @@ vim.o.pumheight = 10
 
 vim.opt.showtabline = 0
 
--- remember the last edit cursor
-vim.cmd([[
-  augroup vimrc-remember-cursor-position
-    autocmd!
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-augroup END
-]])
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     vim.opt.formatoptions:remove { "c", "r", "o" }
