@@ -3,7 +3,7 @@ local vue_language_server = mason_registry.get_package("vue-language-server"):ge
     "/node_modules/@vue/language-server"
 vim.lsp.config.vtsls = {
   cmd = { "vtsls", "--stdio" },
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
+  filetypes = { "vue", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
   root_markers = {
     "tsconfig.json", "package.json", "jsconfig.json", ".git"
   },
@@ -49,4 +49,4 @@ vim.lsp.config.vtsls = {
     }
   },
 }
-vim.lsp.enable("vtsls", true)
+vim.lsp.enable("vtsls",true)
