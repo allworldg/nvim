@@ -15,8 +15,9 @@ return {
         else
           ---@diagnostic disable-next-line: param-type-mismatch
           local state = vim.uv.fs_stat(vim.fn.argv(0))
+          local path = vim.fn.argv(0)
           if state and state.type == "directory" then
-            vim.cmd("NvimTreeOpen")
+            vim.cmd("NvimTreeOpen "..path)
           end
         end
       end
