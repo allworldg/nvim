@@ -31,18 +31,12 @@ vim.api.nvim_create_user_command('Messages', function(params)
     width = width,
     height = height,
     style = 'minimal',
-    -- relative = 'editor',
-    -- col = (vim.o.columns - width) / 2,
-    -- row = (vim.o.lines - height) / 2 - 1, -- Ajust position to avoid obstruction
-    -- border = 'rounded',                   -- style：rounded/single/double/shadow/none
-    -- title = '',
-    -- title_pos = 'center'
   }
 
   win = vim.api.nvim_open_win(buf, true, opts)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, messages)
   vim.api.nvim_win_set_cursor(win, { #messages, 0 })
-  vim.bo[buf].filetype = 'custom-messages' -- for lualine.nvim to disable this type
+  vim.bo[buf].filetype = 'vim' -- for lualine.nvim to ignore this type
   vim.bo[buf].modifiable = false
   vim.api.nvim_set_option_value('number', true, { win = win })
   vim.api.nvim_buf_call(buf, function()

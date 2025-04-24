@@ -9,7 +9,7 @@ return {
         icons_enabled = true,
         component_separators = '',
         section_separators = '',
-        disabled_filetypes = { 'NvimTree', 'custom-messages' }
+        disabled_filetypes = { 'NvimTree'}
       },
       sections = {
         lualine_a = { { 'branch', color = { bg = '#cee1f8', fg = '#478fe3' } } },
