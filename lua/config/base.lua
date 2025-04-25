@@ -7,11 +7,11 @@ vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 -- use line number
 vim.wo.number = true
+vim.opt.signcolumn="no"
 -- 高亮所在行
 vim.wo.cursorline = true
 vim.wo.cursorlineopt = "line"
 -- 显示左侧图标指示列
-vim.wo.signcolumn = "yes"
 vim.opt.winblend = 0
 -- one tab == 2 blackspace
 vim.opt.tabstop = 2
