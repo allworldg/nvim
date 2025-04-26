@@ -4,6 +4,5 @@ return {
     version = "v2.*",
     lazy = true,
     build = "make install_jsregexp",
-    cond = false,
   },
 }
