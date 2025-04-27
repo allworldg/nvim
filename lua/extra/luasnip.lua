@@ -4,6 +4,7 @@ return {
     version = "v2.*",
     lazy = true,
     build = "make install_jsregexp",
+    cond = false,
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load({ paths = { "../config/snippets" } })
       local luasnip = require("luasnip")
