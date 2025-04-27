@@ -26,6 +26,13 @@ return {
     -- snippets = { preset = 'luasnip' },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
+      providers={
+        snippets={
+          opts={
+            search_paths={'~/.config/nvim/lua/config/snippets'}
+          }
+        }
+      }
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
     cmdline = {
