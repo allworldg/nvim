@@ -1,7 +1,7 @@
 vim.api.nvim_set_hl(0, 'LineNr', { fg = "#238993" })
 -- treesitter
 vim.cmd [[
-  highlight @tag.html guifg=#1647c4 ctermfg = DarkBlue
+  highlight @tag.html guifg=#027b56 ctermfg = DarkBlue
   highlight @variable.python guifg = Black
   highlight @parameter.python guifg = DarkCyan
   highlight @include.python guifg = DarkBlue

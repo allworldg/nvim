@@ -1,10 +1,9 @@
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets'},
+  dependencies = { 'rafamadriz/friendly-snippets', { 'L3MON4D3/LuaSnip', version = 'v2.*' } },
   version = '1.*',
   event = { "InsertEnter", "CmdlineEnter" },
   ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
   opts = {
     keymap = {
       preset = 'default',
@@ -26,10 +25,10 @@ return {
     -- snippets = { preset = 'luasnip' },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
-      providers={
-        snippets={
-          opts={
-            search_paths={'~/.config/nvim/lua/config/snippets'}
+      providers = {
+        snippets = {
+          opts = {
+            search_paths = { '~/.config/nvim/lua/config/snippets' }
           }
         }
       }
