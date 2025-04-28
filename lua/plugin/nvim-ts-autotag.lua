@@ -1,7 +1,6 @@
 return {
   {
     "windwp/nvim-ts-autotag",
-    config = true,
-    event = "VeryLazy"
+    -- event = "VeryLazy"
   }
 }
