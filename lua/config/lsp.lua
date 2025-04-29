@@ -110,7 +110,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.lsp.config.html = {
   cmd = { 'vscode-html-language-server', '--stdio' },
-  filetypes = { 'html', 'templ'},
+  filetypes = { 'html', 'templ' },
   root_markers = { 'package.json', '.git' },
   settings = {},
   init_options = {
@@ -119,7 +119,7 @@ vim.lsp.config.html = {
     configurationSection = { 'html', 'css', 'javascript' },
   },
 }
-vim.lsp.enable('html',true)
+vim.lsp.enable('html', true)
 
 vim.lsp.config.jsonls = {
   cmd = { 'vscode-json-language-server', '--stdio' },
@@ -127,7 +127,7 @@ vim.lsp.config.jsonls = {
   init_options = {
     provideFormatter = true,
   },
-  root_markers = { '.git',"tsconfig.json", "package.json", "jsconfig.json"},
+  root_markers = { '.git', "tsconfig.json", "package.json", "jsconfig.json" },
 }
 vim.lsp.enable('jsonls', true)
 
@@ -234,7 +234,7 @@ vim.lsp.config.vtsls = {
     }
   },
 }
-vim.lsp.enable("vtsls",true)
+vim.lsp.enable("vtsls", true)
 
 local mason_registry = require("mason-registry")
 local typescript_path = mason_registry.get_package("vue-language-server"):get_install_path() ..
@@ -253,4 +253,108 @@ vim.lsp.config.volar = {
   },
 
 }
-vim.lsp.enable("volar",true)
+vim.lsp.enable("volar", true)
+
+
+
+vim.lsp.config.tailwindcss = {
+  cmd = { 'tailwindcss-language-server', '--stdio' },
+  -- filetypes copied and adjusted from tailwindcss-intellisense
+  filetypes = {
+    -- html
+    'aspnetcorerazor',
+    'astro',
+    'astro-markdown',
+    'blade',
+    'clojure',
+    'django-html',
+    'htmldjango',
+    'edge',
+    'eelixir', -- vim ft
+    'elixir',
+    'ejs',
+    'erb',
+    'eruby', -- vim ft
+    'gohtml',
+    'gohtmltmpl',
+    'haml',
+    'handlebars',
+    'hbs',
+    'html',
+    'htmlangular',
+    'html-eex',
+    'heex',
+    'jade',
+    'leaf',
+    'liquid',
+    'markdown',
+    'mdx',
+    'mustache',
+    'njk',
+    'nunjucks',
+    'php',
+    'razor',
+    'slim',
+    'twig',
+    -- css
+    'css',
+    'less',
+    'postcss',
+    'sass',
+    'scss',
+    'stylus',
+    'sugarss',
+    -- js
+    'javascript',
+    'javascriptreact',
+    'reason',
+    'rescript',
+    'typescript',
+    'typescriptreact',
+    -- mixed
+    'vue',
+    'svelte',
+    'templ',
+  },
+  settings = {
+    tailwindCSS = {
+      validate = true,
+      lint = {
+        cssConflict = 'warning',
+        invalidApply = 'error',
+        invalidScreen = 'error',
+        invalidVariant = 'error',
+        invalidConfigPath = 'error',
+        invalidTailwindDirective = 'error',
+        recommendedVariantOrder = 'warning',
+      },
+      classAttributes = {
+        'class',
+        'className',
+        'class:list',
+        'classList',
+        'ngClass',
+      },
+      includeLanguages = {
+        eelixir = 'html-eex',
+        eruby = 'erb',
+        templ = 'html',
+        htmlangular = 'html',
+      },
+    },
+    editor = {
+      tabSize = vim.lsp.util.get_effective_tabstop()
+    }
+  },
+  root_markers = {
+    'tailwind.config.js',
+    'tailwind.config.cjs',
+    'tailwind.config.mjs',
+    'tailwind.config.ts',
+    'postcss.config.js',
+    'postcss.config.cjs',
+    'postcss.config.mjs',
+    'postcss.config.ts',
+  },
+}
+vim.lsp.enable("tailwindcss", true)
