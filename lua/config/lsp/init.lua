@@ -57,38 +57,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
     local bufnr = event.buf
     local opts = { buffer = bufnr }
-    -- local client = vim.lsp.get_client_by_id(event.data.client_id)
-    -- if client and client.server_capabilities.documentHighlightProvider then
-    --   vim.api.nvim_create_augroup("lsp_document_hightlight", { clear = true })
-    --   vim.api.nvim_create_autocmd("CursorHold", {
-    --     callback = function()
-    --       vim.defer_fn(function()
-    --         vim.lsp.buf.document_highlight()
-    --       end, 100)
-    --     end,
-    --     buffer = bufnr,
-    --     group = "lsp_document_hightlight",
-    --     desc = "highlight lsp document highlight"
-    --   })
-    --   vim.api.nvim_create_autocmd("CursorMoved", {
-    --     callback = function()
-    --       vim.defer_fn(function()
-    --         vim.lsp.buf.clear_references()
-    --       end, 100)
-    --     end,
-    --     buffer = bufnr,
-    --     group = "lsp_document_hightlight",
-    --     desc = "clear lsp document hightlight"
-    --   })
-    -- end
-
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
     vim.keymap.set('n', '<leader>se', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '<leader>k', function()
       vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
       vim.api.nvim_create_autocmd("CursorMoved", {
-        group = vim.api.nvim_create_augroup("virtual-lines", { clear = true });
-        callback=function ()
-          vim.diagnostic.config({virtual_lines=false,virtual_text=true})
+        group = vim.api.nvim_create_augroup("virtual-lines", { clear = true }),
+        callback = function()
+          vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
           return true
         end
       })
