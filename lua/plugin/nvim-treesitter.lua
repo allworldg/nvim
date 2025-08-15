@@ -5,7 +5,7 @@ return {
   lazy = vim.fn.argc(-1) == 0, -- if open nvim for a file, then load early
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   opts = {
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "python", "javascript", "html", "bash", "vue", "typescript", "css" },
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "python", "javascript", "html", "bash", "vue", "typescript", "css","go" },
     sync_install = false,
     auto_install = false,
     highlight = {
