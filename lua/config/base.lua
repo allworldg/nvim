@@ -76,3 +76,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
   group = general,
   desc = "Disable New Line Comment",
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup('FTStuff', { clear = true }),
+    callback = function(args)
+        local m = args.match
+        if m == 'text' then vim.cmd.setlocal('wrap linebreak')
+        end
+    end
+})
