@@ -9,7 +9,7 @@ vim.o.sidescrolloff = 8
 vim.wo.number = true
 vim.opt.signcolumn="no"
 -- 高亮所在行
-vim.wo.cursorline = true
+vim.wo.cursorline = false
 vim.wo.cursorlineopt = "line"
 -- 显示左侧图标指示列
 vim.opt.winblend = 0

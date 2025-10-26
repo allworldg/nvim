@@ -22,8 +22,9 @@ return {
   },
   config = function()
     vim.cmd [[
-      highlight  IlluminatedWordWrite guibg=#FCE8F4 gui= none "declaration
-      highlight  IlluminatedWordRead guibg=#EDEBFC gui = none "reference
+      highlight  IlluminatedWordWrite guibg=#FCE8F4 gui= none         "declaration
+      highlight  IlluminatedWordRead guibg=#EDEBFC gui = none         "reference
+      highlight  IlluminatedWordText  gui = none
     ]]
   end,
 }

@@ -12,6 +12,9 @@ vim.cmd [[
   highlight SnippetTabstop guibg=#edebfc
 
   highlight LspSignatureActiveParameter guifg= #238993
+  highlight Keyword guifg=#0000ff
+  highlight Function guifg=#795e26
+  highlight PreProc guifg=#795e26
 ]]
 
 -- diagnostic
