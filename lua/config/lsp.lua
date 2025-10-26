@@ -370,7 +370,7 @@ vim.lsp.config.css = {
     less = { validate = true },
   },
 }
-vim.lsp.enable("css",true)
+vim.lsp.enable("css", true)
 
 
 ---@brief
@@ -470,15 +470,22 @@ vim.lsp.config.gopls = {
     on_dir(get_root_dir(fname))
   end
 }
-vim.lsp.enable("gopls",true)
+vim.lsp.enable("gopls", true)
 
 vim.lsp.config.asm_lsp = {
-  cmd={'asm-lsp'},
-  filetypes={'asm','vmasm'},
-  root_markers={'.asm-lsp.toml','.git'}
+  cmd = { 'asm-lsp' },
+  filetypes = { 'asm', 'vmasm' },
+  root_markers = { '.asm-lsp.toml', '.git' }
 }
-vim.lsp.enable("asm_lsp",true)
+vim.lsp.enable("asm_lsp", true)
 
-
-
-
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = false;
+      }
+    }
+  }
+})
+vim.lsp.enable('rust_analyzer')

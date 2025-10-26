@@ -8,7 +8,7 @@ return {
     ensure_installed = { "c", "lua", "vim", "vimdoc", "python", "javascript", "html", "bash", "vue", "typescript", "css","go" },
     sync_install = false,
     auto_install = false,
-    highlight = {
+    highlight = {  --":Inspect command to search highlight groups"
       enable = true,
       -- disable in big file
       disable = function(lang, buf)
