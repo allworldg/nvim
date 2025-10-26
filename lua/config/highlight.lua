@@ -12,6 +12,8 @@ vim.cmd [[
   highlight SnippetTabstop guibg=#edebfc
 
   highlight LspSignatureActiveParameter guifg= #238993
+  highlight rustFuncName guifg=#0030f2
+  highlight rustKeyword guifg=#9d00ec
 ]]
 
 -- diagnostic
