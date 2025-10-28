@@ -66,6 +66,7 @@ return {
         dotfiles = true,
         custom = {},
         exclude = { 'node_modules' },
+        git_ignored = false,
       },
       renderer = {
         icons = {
