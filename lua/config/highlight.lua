@@ -14,6 +14,7 @@ vim.cmd [[
   highlight LspSignatureActiveParameter guifg= #238993
   highlight rustFuncName guifg=#0030f2
   highlight rustKeyword guifg=#9d00ec
+  highlight @lsp.type.function.rust guifg=#0030f2
 ]]
 
 -- diagnostic
