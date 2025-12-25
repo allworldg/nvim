@@ -34,12 +34,13 @@ require("lazy").setup({
         })
       end,
     },
+    { 'projekt0n/github-nvim-theme', name = 'github-theme' }
   },
   -- automatically check for plugin updates
   checker = { enabled = false },
 })
 ------------------------------------baseConfig------------------
-vim.cmd.colorscheme = ""
+vim.cmd.colorscheme('github_light')
 -- VSCode extension
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -110,19 +111,11 @@ if vim.g.vscode then
   vim.keymap.set('i', "<c-k>", function() vscode.call('editor.action.triggerParameterHints') end, {})
   vim.keymap.set('n', "<leader>bo", function() vscode.call('workbench.action.closeOtherEditors') end, {})
   vim.keymap.set('n', "<leader>se", function() vscode.call('editor.action.showHover') end, {})
+  vim.keymap.set('n', "<leader>ca", function() vscode.call('editor.action.quickFix') end, {})
   vim.keymap.set('n', "<leader>rn", function() vscode.call('editor.action.rename') end, {})
-  vim.keymap.set('n', "<leader>h", function() vscode.call('workbench.action.navigateLeft') end, {})
-  vim.keymap.set('n', "<leader>l", function() vscode.call("workbench.action.navigateRight") end, {})
   vim.keymap.set('n', "K", function() vscode.call('editor.action.showHover') end, {})
   vim.keymap.set('n', "qq", function() vscode.call("workbench.action.closeActiveEditor") end, {})
   vim.keymap.set('n', 'gd', function() vscode.call("editor.action.revealDefinition") end, {})
   vim.keymap.set('n', 'gr', function() vscode.call("editor.action.goToReferences") end, {})
   vim.keymap.set('n', "gi", function() vscode.call("editor.action.goToImplementation") end, {})
-  vim.keymap.set('n', 'zM', function() vscode.call("editor.foldAll") end, { noremap = true, silent = true })
-  vim.keymap.set('n', 'zR', function() vscode.call("editor.unfoldAll") end, { noremap = true, silent = true })
-  vim.keymap.set('n', 'zc', function() vscode.call("editor.fold") end, { noremap = true, silent = true })
-  vim.keymap.set('n', 'zC', function() vscode.call("editor.foldRecursively") end, { noremap = true, silent = true })
-  vim.keymap.set('n', 'zo', function() vscode.call("editor.unfold") end, { noremap = true, silent = true })
-  vim.keymap.set('n', 'zO', function() vscode.call("editor.unfoldRecursively") end, { noremap = true, silent = true })
-  vim.keymap.set('n', 'za', function() vscode.call("editor.toggleFold") end, { noremap = true, silent = true })
 end
