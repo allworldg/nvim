@@ -1,6 +1,0 @@
-require("config.base")
-require("config.keymap")
-require("config.lazy")
-require("config.highlight")
-require("config.nvim-messages")
-require("config.lsp")

@@ -1,0 +1,6 @@
+require("config")
+require("keymap")
+require("plugins")
+require("highlight")
+require("nvim-messages")
+require("lsp")
