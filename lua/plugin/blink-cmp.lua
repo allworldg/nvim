@@ -16,7 +16,7 @@ return {
             return cmp.select_and_accept()
           end
         end, 'fallback'
-      }
+      },
     },
     appearance = {
       nerd_font_variant = 'mono'
