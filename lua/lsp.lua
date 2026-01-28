@@ -159,9 +159,7 @@ vim.lsp.config.lua = {
 }
 vim.lsp.enable("lua")
 
-local mason_registry = require("mason-registry")
-local vue_language_server = mason_registry.get_package("vue-language-server"):get_install_path() ..
-    "/node_modules/@vue/language-server"
+local vue_language_server = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server")
 vim.lsp.config.vtsls = {
   cmd = { "vtsls", "--stdio" },
   filetypes = { "vue", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
