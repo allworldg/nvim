@@ -1,1 +1,6 @@
-require("init")
+vim.cmd.colorscheme('allworldg-light')
+require("config")
+require("keymap")
+require("plugins")
+require("nvim-messages")
+require("lsp")

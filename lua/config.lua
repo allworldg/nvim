@@ -9,8 +9,8 @@ vim.o.sidescrolloff = 8
 vim.wo.number = true
 vim.opt.signcolumn="no"
 -- 高亮所在行
-vim.wo.cursorline = false
-vim.wo.cursorlineopt = "line"
+vim.wo.cursorline = true
+vim.wo.cursorlineopt = "number"
 -- 显示左侧图标指示列
 vim.opt.winblend = 0
 -- one tab == 2 blackspace

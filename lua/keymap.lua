@@ -25,9 +25,11 @@ map("n", "$", "g_", opt)
 map("n", "g_", "$", opt)
 -- save and exit
 map("n", "<leader>w", ":w<CR>", opt)
-map("n", "<leader>wq", ":wall|qa!<CR>", opt)
+map("n", "<leader>wq", ":w|q!<CR>", opt)
+map("n","<leader>wa", ":wa<CR>",opt)
 
 -- -- exit
+map("n", "q", "<Nop>", opt)
 map("n", "qq", ":q!<CR>", vim.tbl_extend('force', opt, { nowait = true }))
 map("n", "<leader>q", ":qa<CR>", opt)
 

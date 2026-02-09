@@ -85,15 +85,5 @@ return {
         no_ignore = false,
       },
     }
-
-    -- change highlight color to head, e.g:"<ctrl-g>" under the input area
-    vim.cmd [[highlight FzfLuaHeaderBind guifg=#0969da]]
-    -- change highlight color to head, e.g:"Fuzzy Search" under the input area
-    vim.cmd [[highlight FzFLuaHeaderText guifg=#0969da]]
-    -- vim.cmd [[highlight IncSearch guifg=#000000]]
-    -- change highlight in live_grep user input text
-    vim.cmd [[highlight  FzFLuaLivePrompt guifg=#000000 gui=bold]]
-    vim.cmd [[highlight FzFLuaNormal guifg=#000000 guibg=#f6f8fa]]
-    vim.cmd [[highlight FzfLuaPathLineNr guifg=#0550ae]]
   end
 }
