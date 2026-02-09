@@ -10,9 +10,6 @@ local palette = {
   bg = '#ffffff',
   fg = '#1f1f1f',
   white = '#8c8c8c',
-  bg_active = '#f8d700',
-  fg_function = '#795e26',
-  fg_string = '#a31515',
 
   purple = '#af00db',
   black = '#1f1f1f',
@@ -24,8 +21,11 @@ local palette = {
 
   bright_blue = '#dae9f9',
   bright_white = '#f6f8fa',
+
   boolean = '#0c40d2',
-  border = '',
+  bg_select = '#f8d700',
+  fg_function = '#795e26',
+  fg_string = '#a31515',
 }
 
 local ui = {
@@ -38,17 +38,6 @@ local ui = {
   border = palette.border,
 
 }
-
-local interaction = {
-  hover  = palette.bg_hover,    -- 悬浮
-  select = palette.bright_blue, -- 当前选中
-  active = palette.bg_active,   -- 当前激活
-}
-
-if true then
-  print()
-end
-
 
 ---@type table<string, vim.api.keyset.highlight>
 local groups = vim.tbl_extend('error', {}, {
@@ -65,7 +54,7 @@ local groups = vim.tbl_extend('error', {}, {
   Pmenu = { fg = ui.fg, bg = ui.bg_float },
   PmenuThumb = { bg = palette.white },
   PmenuMatch = { fg = palette.blue, bold = true, cterm = { bold = true } },
-  PmenuSel = { bg = interaction.select },
+  PmenuSel = { bg = palette.bright_blue },
   PmenuMatchSel = { fg = palette.blue, bold = true, cterm = { bold = true } },
   EndOfBuffer = { fg = palette.bright_white },
 
@@ -73,8 +62,8 @@ local groups = vim.tbl_extend('error', {}, {
   -- StatusLine = { fg = colors.bg, bg = colors.statusLineBg, cterm = { reverse = true } },
   -- StatusLineNC = { fg = colors.bright_black, bg = colors.bright_white, cterm = { reverse = true } },
 
-  Visual = { bg = interaction.select },
-  IncSearch = { fg = ui.fg, bg = interaction.active },
+  Visual = { bg = palette.bright_blue },
+  IncSearch = { fg = ui.fg, bg = palette.bg_select },
   MoreMsg = { fg = ui.fg },
   ErrorMsg = { fg = palette.red },
   WarningMsg = { fg = palette.yellow },
@@ -103,10 +92,7 @@ local groups = vim.tbl_extend('error', {}, {
   ['punctuation.bracket'] = { link = 'Delimiter' },
   ['@lsp.type.macro'] = { link = 'keyword' },
   rustKeyWord = { link = 'keyword' },
-
-  -- ['@lsp.type.keyword.rust'] = { link = 'Statement' },
   ['@tag'] = { fg = palette.green },
-  -- ['@type.builtin'] = {link='Type'},
 
 
   --===Diagnostic===
