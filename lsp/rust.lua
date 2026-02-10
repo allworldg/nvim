@@ -27,7 +27,7 @@ local function is_library(fname)
     end
   end
 end
-vim.lsp.config('rust_analyzer', {
+return {
   cmd = { 'rust-analyzer' },
   filetypes = { 'rust' },
   root_dir = function(bufnr, on_dir)
@@ -92,5 +92,4 @@ vim.lsp.config('rust_analyzer', {
       reload_workspace(bufnr)
     end, { desc = 'Reload current cargo workspace' })
   end,
-})
-vim.lsp.enable('rust_analyzer')
+}

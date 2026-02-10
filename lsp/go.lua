@@ -84,7 +84,7 @@ local function get_root_dir(fname)
   end
   return vim.fs.root(fname, 'go.work') or vim.fs.root(fname, 'go.mod') or vim.fs.root(fname, '.git')
 end
-vim.lsp.config.gopls = {
+return {
   cmd = { 'gopls' },
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_dir = function(bufnr, on_dir)
@@ -95,4 +95,3 @@ vim.lsp.config.gopls = {
     on_dir(get_root_dir(fname))
   end
 }
-vim.lsp.enable("gopls", true)

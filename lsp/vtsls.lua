@@ -1,5 +1,5 @@
 local vue_language_server = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server")
-vim.lsp.config.vtsls = {
+return {
   cmd = { "vtsls", "--stdio" },
   filetypes = { "vue", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
   root_markers = {
@@ -47,4 +47,3 @@ vim.lsp.config.vtsls = {
     }
   },
 }
-vim.lsp.enable("vtsls", true)

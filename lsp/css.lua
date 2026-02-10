@@ -1,4 +1,4 @@
-vim.lsp.config.css = {
+return {
   cmd = { 'vscode-css-language-server', '--stdio' },
   filetypes = { 'css', 'scss', 'less' },
   init_options = { provideFormatter = true }, -- needed to enable formatting capabilities
@@ -9,5 +9,4 @@ vim.lsp.config.css = {
     less = { validate = true },
   },
 }
-vim.lsp.enable("css", true)
 

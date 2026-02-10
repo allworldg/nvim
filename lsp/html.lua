@@ -1,4 +1,4 @@
-vim.lsp.config.html = {
+return {
   cmd = { 'vscode-html-language-server', '--stdio' },
   filetypes = { 'html', 'templ' },
   root_markers = { 'package.json', '.git' },
@@ -9,4 +9,3 @@ vim.lsp.config.html = {
     configurationSection = { 'html', 'css', 'javascript' },
   },
 }
-vim.lsp.enable('html', true)

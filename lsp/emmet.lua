@@ -1,4 +1,4 @@
-vim.lsp.config.emmet = {
+return {
   cmd = { 'emmet-language-server', '--stdio' },
   filetypes = {
     'css',
@@ -16,4 +16,3 @@ vim.lsp.config.emmet = {
   },
   root_markers = { '.git' },
 }
-vim.lsp.enable("emmet", true)

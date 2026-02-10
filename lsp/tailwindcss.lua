@@ -1,4 +1,4 @@
-vim.lsp.config.tailwindcss = {
+return {
   cmd = { 'tailwindcss-language-server', '--stdio' },
   -- filetypes copied and adjusted from tailwindcss-intellisense
   filetypes = {
@@ -98,4 +98,3 @@ vim.lsp.config.tailwindcss = {
     'postcss.config.ts',
   },
 }
-vim.lsp.enable("tailwindcss", true)
