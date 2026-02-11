@@ -3,7 +3,7 @@ return {
   dependencies = { 'rafamadriz/friendly-snippets' },
   cond = true,
   version = '1.*',
-  event = { "InsertEnter", "CmdlineEnter" },
+  event='VeryLazy',
   ---@module 'blink.cmp'
   opts = {
     keymap = {
