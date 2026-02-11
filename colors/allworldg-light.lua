@@ -109,6 +109,15 @@ local groups = vim.tbl_extend('error', {}, {
   DiagnosticUnderlineError = { link = 'DiagnosticError' },
   DiagnoticUnderlineInfo = { link = 'DiagnosticInfo' },
 
+  ---statusline
+  StatuslineFileName = { bg = palette.bright_blue, fg = palette.blue },
+  StatuslineGit = { bg = palette.blue, fg = palette.bright_white },
+  StatuslineLsp = { bg = palette.bg, fg = palette.bright_white },
+  StatuslineMiddle={bg=palette.bg},
+  StatuslineFileType = { fg = palette.blue, bg = palette.bg },
+  StatuslinePercentage = { fg = palette.blue, bg = palette.bright_blue },
+  StatuslineLocation = { fg = palette.bg, bg = palette.blue },
+
 
   ---Blink.cmp
   BlinkCmpMenuSelection = { link = 'PmenuSel' },
