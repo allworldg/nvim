@@ -9,28 +9,27 @@ function M.git()
   local added = git_info.added and ("+" .. git_info.added) or ""
   local changed = git_info.changed and ("~" .. git_info.changed) or ""
   local removed = git_info.removed and ("-" .. git_info.removed) or ""
-  return table.concat({" ", head, added, changed, removed ," "})
+  return table.concat({ " ", head, added, changed, removed, " " })
 end
 
 function M.active()
   -- `%P` shows the scroll percentage but says 'Bot', 'Top' and 'All' as well.
   return table.concat({
     "%#StatuslineFileName#", " %t", "%m ",
-    "%#StatuslineGit#",M.git(),
+    "%#StatuslineGit#", M.git(),
+    vim.diagnostic.status(),
     "%#StatuslineMiddle#",
     "%=",
     "%#StatuslineFileType#", " %y ",
-    "%#StatuslinePercentage#"," %p%% ",
+    "%#StatuslinePercentage#", " %p%% ",
     "%#StatuslineLocation#", " %l:%c ", })
 end
 
 function M.inactive()
-  return " %t"
+  return "%#StatuslineInactive# %t"
 end
-
 local group = vim.api.nvim_create_augroup("Statusline", { clear = true })
-
-vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   group = group,
   desc = "Activate statusline on focus",
   callback = function()
@@ -38,8 +37,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
   end,
 })
 
-
-vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
   group = group,
   desc = "Deactivate statusline when unfocused",
   callback = function()

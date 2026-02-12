@@ -26,8 +26,8 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.INFO] = ""
     },
     numhl = {
-      [vim.diagnostic.severity.WARN] = 'WarningMsg',
-      [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+      [vim.diagnostic.severity.WARN] = 'DiagnosticWarn',
+      [vim.diagnostic.severity.ERROR] = 'DiagnosticError',
       [vim.diagnostic.severity.INFO] = 'DiagnosticInfo',
       [vim.diagnostic.severity.HINT] = 'DiagnosticHint',
     }
@@ -83,7 +83,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-
+--- enable lsps
 vim.api.nvim_create_autocmd({'BufReadPre', 'BufNewFile'},{
   once=true,
   callback=function ()
