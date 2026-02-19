@@ -7,7 +7,7 @@ vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 -- use line number
 vim.wo.number = true
-vim.opt.signcolumn="no"
+vim.opt.signcolumn = "no"
 -- 高亮所在行
 vim.wo.cursorline = true
 vim.wo.cursorlineopt = "number"
@@ -78,10 +78,21 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('FTStuff', { clear = true }),
-    callback = function(args)
-        local m = args.match
-        if m == 'text' then vim.cmd.setlocal('wrap linebreak')
-        end
+  group = vim.api.nvim_create_augroup('FTStuff', { clear = true }),
+  callback = function(args)
+    local m = args.match
+    if m == 'text' then
+      vim.cmd.setlocal('wrap linebreak')
     end
+  end
+})
+
+require('vim._core.ui2').enable({
+  enable = true, -- Whether to enable or disable the UI.
+  msg = {        -- Options related to the message module.
+    ---@type 'cmd'|'msg' Where to place regular messages, either in the
+    ---cmdline or in a separate ephemeral message window.
+    target = 'cmd',
+    timeout = 4000, -- Time a message is visible in the message window.
+  },
 })
