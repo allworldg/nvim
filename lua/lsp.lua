@@ -84,13 +84,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 --- enable lsps
-vim.api.nvim_create_autocmd({'BufReadPre', 'BufNewFile'},{
-  once=true,
-  callback=function ()
-    local lspNames = vim.iter(vim.api.nvim_get_runtime_file('lsp/*.lua',true)):map(
+vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
+  once = true,
+  callback = function()
+    local lspNames = vim.iter(vim.api.nvim_get_runtime_file('lsp/*.lua', true)):map(
       function(file)
-       return vim.fn.fnamemodify(file,':t:r')
+        return vim.fn.fnamemodify(file, ':t:r')
       end):totable()
-    vim.lsp.enable(lspNames)
+    for _, lspName in ipairs(lspNames) do
+      local _, config = pcall(require, "lsp/" .. lspName)
+      if config.disable == nil or config.disable == false then
+        vim.lsp.enable(lspName)
+      end
+    end
   end
 })

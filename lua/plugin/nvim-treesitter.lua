@@ -1,3 +1,4 @@
+-- must install treesitter-cli before
 return {
   'nvim-treesitter/nvim-treesitter',
   branch = "main",
