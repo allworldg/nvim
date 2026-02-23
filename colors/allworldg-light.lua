@@ -9,7 +9,6 @@ vim.g.colors_name = 'allworldg-vlight'
 local palette = {
   bg = '#ffffff',
   fg = '#1f1f1f',
-  white = '#8c8c8c',
 
   purple = '#af00db',
   black = '#1f1f1f',
@@ -18,8 +17,10 @@ local palette = {
   green = '#027b56',
   cyan = '#216f86',
   yellow = '#9a6700',
+  white = '#f3f3f3',
 
   bright_blue = '#dae9f9',
+  bright_black = '#8c8c8c',
   bright_white = '#f6f8fa',
 
   boolean = '#0c40d2',
@@ -31,10 +32,9 @@ local palette = {
 local ui = {
   bg = palette.bg,
   bg_float = palette.bright_white,
-  bg_alt = palette.white,
   fg = palette.fg,
-  fg_muted = palette.white,
-  fg_comment = palette.white,
+  fg_muted = palette.bright_black,
+  fg_comment = palette.bright_black,
   border = palette.border,
 
 }
@@ -49,10 +49,10 @@ local groups = vim.tbl_extend('error', {}, {
   CursorLine = { bg = palette.bright_blue },
   CursorLineNr = { fg = ui.fg, bg = ui.bg },
   LineNr = { fg = ui.fg_muted, bg = ui.bg },
-  ColorColumn = { bg = ui.bg_alt },
+  ColorColumn = { bg = palette.bright_black },
   Comment = { fg = ui.fg_comment, bg = ui.bg, cterm = { nocombine = true }, nocombine = true },
   Pmenu = { fg = ui.fg, bg = ui.bg_float },
-  PmenuThumb = { bg = palette.white },
+  PmenuThumb = { bg = palette.bright_black },
   PmenuMatch = { fg = palette.blue, bold = true, cterm = { bold = true } },
   PmenuSel = { bg = palette.bright_blue },
   PmenuMatchSel = { fg = palette.blue, bold = true, cterm = { bold = true } },
@@ -96,7 +96,7 @@ local groups = vim.tbl_extend('error', {}, {
 
 
   --===Diagnostic===
-  DiagnosticHint = { fg = palette.white },
+  DiagnosticHint = { fg = palette.bright_black },
   DiagnosticWarn = { fg = palette.yellow },
   DiagnosticError = { fg = palette.red },
   DiagnosticInfo = { fg = palette.fg },
@@ -110,15 +110,19 @@ local groups = vim.tbl_extend('error', {}, {
   DiagnoticUnderlineInfo = { link = 'DiagnosticInfo' },
 
   ---statusline
-  StatusLine = {bg=palette.bg},
+  StatusLine = { bg = palette.bg },
   StatuslineFileName = { bg = palette.bright_blue, fg = palette.blue },
   StatuslineGit = { bg = palette.blue, fg = palette.bright_white },
   StatuslineLsp = { bg = palette.bg, fg = palette.bright_white },
-  StatuslineMiddle={bg=palette.bg},
+  StatuslineMiddle = { bg = palette.bg },
   StatuslineFileType = { fg = palette.blue, bg = palette.bg },
   StatuslinePercentage = { fg = palette.blue, bg = palette.bright_blue },
   StatuslineLocation = { fg = palette.bg, bg = palette.blue },
-  StatuslineInactive = {bg=palette.bright_white},
+  StatuslineInactive = { bg = palette.bright_white },
+
+  ---Tabline
+  TabLine = { bg = palette.white },
+  TabLineSel={bg=palette.bg,bold=true},
 
 
   ---Blink.cmp
@@ -133,8 +137,9 @@ local groups = vim.tbl_extend('error', {}, {
   NvimTreeGitDirtyIcon = { fg = palette.yellow },
   --fzflua---
   FzfLuaHeaderBind = { fg = palette.blue },
-  FzFLuaHeaderText = { fg = palette.blue },
-  FzFLuaLivePrompt = { fg = palette.black, bold = true },
+  FzfLuaHeaderText = { fg = palette.blue },
+  FzfLuaLivePrompt = { fg = palette.black, bold = true },
+  FzfLuaBufNr = { fg = palette.yellow },
 
 })
 
