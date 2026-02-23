@@ -52,7 +52,7 @@ vim.o.splitright = true
 vim.opt.termguicolors = true
 vim.opt.shortmess:append('c')
 vim.o.pumheight = 10
-vim.opt.showtabline = 0
+vim.opt.showtabline = 1
 
 
 local group = vim.api.nvim_create_augroup('allworldg/settings', { clear = true })

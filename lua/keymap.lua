@@ -25,7 +25,7 @@ map("n", "$", "g_", opt)
 map("n", "g_", "$", opt)
 -- save and exit
 map("n", "<leader>w", ":w<CR>", opt)
-map("n", "<leader>wq", ":w|q!<CR>", opt)
+map("n", "<leader>wq", ":w|q<CR>", opt)
 map("n","<leader>wa", ":wa<CR>",opt)
 
 -- -- exit

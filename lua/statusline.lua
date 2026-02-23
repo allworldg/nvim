@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 function M.git()
   local git_info = vim.b.gitsigns_status_dict
@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   group = group,
   desc = "Activate statusline on focus",
   callback = function()
-    vim.opt_local.statusline = "%!v:lua.M.active()"
+    vim.opt_local.statusline = "%!v:lua.require'statusline'.active()"
   end,
 })
 
@@ -41,6 +41,7 @@ vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
   group = group,
   desc = "Deactivate statusline when unfocused",
   callback = function()
-    vim.opt_local.statusline = "%!v:lua.M.inactive()"
+    vim.opt_local.statusline = "%!v:lua.require'statusline'.inactive()"
   end,
 })
+return M
