@@ -44,6 +44,11 @@ vim.diagnostic.config({
     prefix = "",
   },
 })
+
+vim.lsp.document_color.enable(true, 0, {
+  style = 'virtual'
+})
+
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
