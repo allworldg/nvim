@@ -1,5 +1,4 @@
 vim.cmd.colorscheme('allworldg-light')
-vim.lsp.log.set_level("debug")
 require("settings")
 require("keymap")
 require("plugins")
