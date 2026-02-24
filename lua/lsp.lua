@@ -97,8 +97,8 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
         return vim.fn.fnamemodify(file, ':t:r')
       end):totable()
     for _, lspName in ipairs(lspNames) do
-      local _, config = pcall(require, "lsp/" .. lspName)
-      if config.disable == nil or config.disable == false then
+      local ok, config = pcall(require, "lsp/" .. lspName)
+      if ok and type(config) == 'table' and config.disable ~= true then
         vim.lsp.enable(lspName)
       end
     end
