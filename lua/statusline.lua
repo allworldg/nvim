@@ -1,5 +1,7 @@
 local M = {}
 
+M.disabled_filetypes = { 'NvimTree' }
+
 function M.git()
   local git_info = vim.b.gitsigns_status_dict
   if not git_info or git_info.head == "" then
@@ -28,16 +30,28 @@ end
 function M.inactive()
   return "%#StatuslineInactive# %t"
 end
+
 local group = vim.api.nvim_create_augroup("Statusline", { clear = true })
-vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
+vim.api.nvim_create_autocmd({ 'WinEnter','BufEnter' }, {
   group = group,
   desc = "Activate statusline on focus",
   callback = function()
+    if vim.api.nvim_win_get_config(0).relative ~= "" then
+      vim.opt_local.statusline = " "
+      return
+    end
+    for _, filetype in pairs(M.disabled_filetypes) do
+      if vim.bo.filetype == filetype then
+        vim.opt_local.statusline = " "
+        return
+      end
+    end
     vim.opt_local.statusline = "%!v:lua.require'statusline'.active()"
   end,
 })
 
-vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
+
+vim.api.nvim_create_autocmd({ 'WinLeave','BufLeave' }, {
   group = group,
   desc = "Deactivate statusline when unfocused",
   callback = function()
