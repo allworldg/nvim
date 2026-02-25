@@ -67,6 +67,7 @@ local groups = vim.tbl_extend('error', {}, {
   MoreMsg = { fg = ui.fg },
   ErrorMsg = { fg = palette.red },
   WarningMsg = { fg = palette.yellow },
+  OkMsg = {fg=palette.green},
   Question = { fg = palette.fg },
 
   --===Builtin Syntax===
