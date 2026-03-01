@@ -47,7 +47,7 @@ return {
     { "gi",         function() require 'fzf-lua'.lsp_implementations() end,   desc = "lsp_implementations" },
     { "gd",         function() require 'fzf-lua'.lsp_definitions() end,       desc = "lsp_definitions" },
     { "<leader>sw", function() require 'fzf-lua'.diagnostics_workspace() end, desc = "diagnostics_workspace" },
-    { "<leader>sl", function() require 'fzf-lua'.diagnostics_document() end,  desc = "diagnostics_workspace" },
+    { "<leader>sD", function() require 'fzf-lua'.diagnostics_document() end,  desc = "diagnostics_workspace" },
     { "gD",         function() require 'fzf-lua'.lsp_declarations() end,      desc = "lsp_declarations" },
   },
   config = function()

@@ -78,6 +78,7 @@ local groups = vim.tbl_extend('error', {}, {
   Identifier = { fg = palette.fg },
   Keyword = { fg = palette.purple, bold = false, cterm = { bold = false } },
   Operator = { fg = palette.fg },
+  PreProc = {fg=palette.blue},
   String = { fg = palette.fg_string },
   Statement = { fg = palette.purple, bold = false },
   Special = { fg = palette.fg },
@@ -120,6 +121,7 @@ local groups = vim.tbl_extend('error', {}, {
   StatuslinePercentage = { fg = palette.blue, bg = palette.bright_blue },
   StatuslineLocation = { fg = palette.bg, bg = palette.blue },
   StatuslineInactive = { bg = palette.bright_white },
+  StatuslineDisabled = {bg=palette.bg},
 
   ---Tabline
   TabLine = { bg = palette.white },

@@ -31,30 +31,40 @@ function M.inactive()
   return "%#StatuslineInactive# %t"
 end
 
+function M.is_disabled_statusline()
+  if vim.api.nvim_win_get_config(0).relative ~= "" then
+    return true
+  end
+  for _, filetype in pairs(M.disabled_filetypes) do
+    if vim.bo.filetype == filetype then
+      return true
+    end
+  end
+  return false
+end
+
 local group = vim.api.nvim_create_augroup("Statusline", { clear = true })
-vim.api.nvim_create_autocmd({ 'WinEnter','BufEnter' }, {
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   group = group,
   desc = "Activate statusline on focus",
   callback = function()
-    if vim.api.nvim_win_get_config(0).relative ~= "" then
+    if M.is_disabled_statusline() then
       vim.opt_local.statusline = " "
       return
-    end
-    for _, filetype in pairs(M.disabled_filetypes) do
-      if vim.bo.filetype == filetype then
-        vim.opt_local.statusline = " "
-        return
-      end
     end
     vim.opt_local.statusline = "%!v:lua.require'statusline'.active()"
   end,
 })
 
 
-vim.api.nvim_create_autocmd({ 'WinLeave','BufLeave' }, {
+vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
   group = group,
   desc = "Deactivate statusline when unfocused",
   callback = function()
+    if M.is_disabled_statusline() then
+      vim.opt_local.statusline = "%#StatuslineDisabled#"
+      return
+    end
     vim.opt_local.statusline = "%!v:lua.require'statusline'.inactive()"
   end,
 })

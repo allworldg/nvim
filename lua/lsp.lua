@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local bufnr = event.buf
     local opts = { buffer = bufnr }
     local client = vim.lsp.get_client_by_id(event.data.client_id)
-    vim.keymap.set('n', '<leader>se', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '<leader>sd', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '<leader>k', function()
       vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
       vim.api.nvim_create_autocmd("CursorMoved", {
