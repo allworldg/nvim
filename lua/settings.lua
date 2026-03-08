@@ -16,13 +16,12 @@ vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 -- 新行对齐当前行，空格替代tab
 vim.opt.expandtab = true
-vim.opt.expandtab = true
-vim.opt.autoindent = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 -- search ignore case except have capital word
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.helpheight=12
 
 -- do not highlight except the incsearch result
 vim.opt.hlsearch = false
