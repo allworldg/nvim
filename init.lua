@@ -110,7 +110,7 @@ if vim.g.vscode then
   vim.keymap.set('n', "<leader>f", function() vscode.call('editor.action.formatDocument') end, {})
   vim.keymap.set('i', "<c-k>", function() vscode.call('editor.action.triggerParameterHints') end, {})
   vim.keymap.set('n', "<leader>bo", function() vscode.call('workbench.action.closeOtherEditors') end, {})
-  vim.keymap.set('n', "<leader>se", function() vscode.call('editor.action.showHover') end, {})
+  vim.keymap.set('n', "<leader>sd", function() vscode.call('editor.action.showHover') end, {})
   vim.keymap.set('n', "<leader>ca", function() vscode.call('editor.action.quickFix') end, {})
   vim.keymap.set('n', "<leader>rn", function() vscode.call('editor.action.rename') end, {})
   vim.keymap.set('n', "K", function() vscode.call('editor.action.showHover') end, {})
