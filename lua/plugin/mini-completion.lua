@@ -1,7 +1,2 @@
-return{
- 'nvim-mini/mini.completion', version = false,
- cond = true,
- config=function ()
-   require('mini.completion').setup()
- end
-}
+vim.pack.add({ { src = "git@github.com:nvim-mini/mini.completion" } }, { conform = false })
+-- require("mini.completion").setup()
