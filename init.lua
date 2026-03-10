@@ -5,6 +5,7 @@ require("lsp")
 require("statusline")
 require("tabline")
 require("commands")
+require("autocmds")
 
 --plugin manager
 local pluginNames = vim.iter(vim.api.nvim_get_runtime_file("lua/plugin/*.lua", true)):each(
