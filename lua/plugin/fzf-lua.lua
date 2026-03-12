@@ -61,8 +61,9 @@ vim.keymap.set("n", "gr",
       {
         winopts = {
           height = 0.6,
+          width=1,
           relative = 'cursor',
-          preview = { layout = 'horizontal', horizontal = "left:50%" }
+          preview = { layout = 'horizontal', horizontal = "left:50%",scrollbar=false }
         },
       }
     )

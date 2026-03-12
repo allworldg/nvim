@@ -11,16 +11,16 @@ return {
     "selene.yml",
     ".git",
   },
-  -- settings = {
-  --   Lua = {
-  --     diagnostics = {
-  --       globals = { "vim" },
-  --     },
-  --     workspace = {
-  --       -- Make the server aware of Neovim runtime files and plugins
-  --       library = { vim.env.VIMRUNTIME, "${3rd}/luv/library" },
-  --       checkThirdParty = false,
-  --     },
-  --   },
-  -- },
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files and plugins
+        library = { vim.env.VIMRUNTIME, "${3rd}/luv/library" },
+        checkThirdParty = false,
+      },
+    },
+  },
 }

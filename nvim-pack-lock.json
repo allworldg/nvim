@@ -14,7 +14,7 @@
       "src": "git@github.com:j-hui/fidget.nvim.git"
     },
     "fzf-lua": {
-      "rev": "d9508cc1d05ffcdc91a32dfd38fc1013a56b20da",
+      "rev": "30ba09afbc0eac5fc5ec8823418d1e45d0712b9f",
       "src": "git@github.com:ibhagwan/fzf-lua.git"
     },
     "gitsigns.nvim": {
@@ -29,10 +29,6 @@
       "rev": "597d32ed2c9fbfbf9a250bec7c6b9035f71214f5",
       "src": "git@github.com:nvim-mini/mini.comment"
     },
-    "mini.completion": {
-      "rev": "4f94cafdeef02bf3ef9997cd6862658801caa22c",
-      "src": "git@github.com:nvim-mini/mini.completion"
-    },
     "nvim-autopairs": {
       "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
       "src": "git@github.com:windwp/nvim-autopairs.git"
@@ -42,11 +38,11 @@
       "src": "git@github.com:kylechui/nvim-surround.git"
     },
     "nvim-tree.lua": {
-      "rev": "4b30847c91d498446cb8440c03031359b045e050",
+      "rev": "e1ad8b96834779b4c2674ef83be3f1a4ed007358",
       "src": "git@github.com:nvim-tree/nvim-tree.lua.git"
     },
     "nvim-treesitter": {
-      "rev": "5cb05e1b0fa3c469958a2b26f36b3fe930af221c",
+      "rev": "493890b87a81dfe6a7e577dbc364ae33fa482da9",
       "src": "git@github.com:nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
