@@ -1,20 +1,3 @@
------------basic config -----------------------
-local signature_help = vim.lsp.buf.signature_help
----@diagnostic disable-next-line: duplicate-set-field
-vim.lsp.buf.signature_help = function()
-  return signature_help({
-    border = "single",
-  })
-end
-
-local hover_help = vim.lsp.buf.hover
----@diagnostic disable-next-line: duplicate-set-field
-vim.lsp.buf.hover = function()
-  return hover_help({
-    border = "single"
-  })
-end
-
 vim.diagnostic.config({
   virtual_text = true,
   virtual_lines = false,
@@ -36,8 +19,6 @@ vim.diagnostic.config({
   underline = true,
   severity_sort = true,
   float = {
-    focusable = true,
-    style = "minimal",
     border = "single",
     source = true,
     header = "",
@@ -52,9 +33,7 @@ vim.lsp.document_color.enable(true, 0, {
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
-    local bufnr = event.buf
-    local opts = { buffer = bufnr }
-    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    local opts = { buffer = event.buf }
     vim.keymap.set('n', '<leader>sd', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '<leader>k', function()
       vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
@@ -70,8 +49,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- use by other tools
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', 'K', function()
+      vim.lsp.buf.hover({
+        border = "single"
+      })
+    end, opts)
+
+    ---used by other plugin keymap
     -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts) -- use by other tools
     -- vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
     -- vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
@@ -85,6 +70,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     -- use conform.nvim to format
     -- vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, opts)
+    vim.keymap.set('n', '[e', function()
+      vim.diagnostic.jump { count = -1, severity = vim.diagnostic.severity.ERROR }
+    end)
+    vim.keymap.set('n', ']e', function()
+      vim.diagnostic.jump { count = 1, severity = vim.diagnostic.severity.ERROR }
+    end)
   end
 })
 
