@@ -1,4 +1,5 @@
-vim.pack.add({{src = 'git@github.com:saghen/blink.cmp.git',version=vim.version.range("1.*") }}, { conform = false })
+vim.pack.add({ { src = 'git@github.com:saghen/blink.cmp.git', version = vim.version.range("1.*") } }, { conform = false })
+vim.pack.add({ "git@github.com:rafamadriz/friendly-snippets.git" }, { confirm = false })
 require('blink.cmp').setup({
   keymap = {
     preset = 'default',
