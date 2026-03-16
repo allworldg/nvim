@@ -42,6 +42,7 @@ local ui = {
 ---@type table<string, vim.api.keyset.highlight>
 local groups = vim.tbl_extend('error', {}, {
   ---===BaseUI===
+  Added = {fg= palette.green},
   Normal = { fg = ui.fg, bg = ui.bg },
   NormalFloat = { fg = ui.fg, bg = ui.bg_float },
   NormalNc = { fg = ui.fg, bg = ui.bg },

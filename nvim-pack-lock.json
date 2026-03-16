@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "4b18c32adef2898f95cdef6192cbd5796c1a332d",
+      "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
       "src": "git@github.com:saghen/blink.cmp.git",
       "version": "1.0.0 - 2.0.0"
     },
@@ -14,7 +14,7 @@
       "src": "git@github.com:j-hui/fidget.nvim.git"
     },
     "fzf-lua": {
-      "rev": "30ba09afbc0eac5fc5ec8823418d1e45d0712b9f",
+      "rev": "6e41ba7505f35a6f054ca682b043aa0cea36c2ef",
       "src": "git@github.com:ibhagwan/fzf-lua.git"
     },
     "gitsigns.nvim": {
@@ -38,11 +38,11 @@
       "src": "git@github.com:kylechui/nvim-surround.git"
     },
     "nvim-tree.lua": {
-      "rev": "e1ad8b96834779b4c2674ef83be3f1a4ed007358",
+      "rev": "b3772adec8db61ba9098c5624a0823a77be3a23d",
       "src": "git@github.com:nvim-tree/nvim-tree.lua.git"
     },
     "nvim-treesitter": {
-      "rev": "493890b87a81dfe6a7e577dbc364ae33fa482da9",
+      "rev": "ebc3201290b8372df2b3a1c23b71b9f007d972ff",
       "src": "git@github.com:nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
