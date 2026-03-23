@@ -1,38 +1,35 @@
 local M = {}
 local H = {}
 
-H.state = {
-  ns            = nil,
-  current_range = nil,
-  ranges        = {},
-  bufnr         = nil,
-  timer         = nil,
-  cancel_fn     = nil,
-  request_id    = 0,
-}
+H.ranges = {}
+H.current_range = {}
+H.request_id = 0
+H.bufnr = vim.api.nvim_get_current_buf()
+H.timer = vim.uv.new_timer()
+H.cancel_fn = nil
+
+H.ns_id = vim.api.nvim_create_namespace("allworldg/doc_highlight")
 
 M.setup = function()
-  H.state.ns = vim.api.nvim_create_namespace("allworldg/doc_highlight")
-  H.state.timer = vim.uv.new_timer()
+  H.timer = vim.uv.new_timer()
   local group = vim.api.nvim_create_augroup("allworldg/doc_highlight", { clear = true })
-  vim.api.nvim_create_autocmd("CursorMoved", {
+  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufEnter", "TextChanged", "TextChangedI" }, {
     group = group,
     callback = function(event)
-      local has_highlight = not vim.tbl_isempty(H.state.ranges)
+      local has_highlight = not vim.tbl_isempty(H.ranges)
       if has_highlight then
-        if H.state.bufnr ~= event.buf or not H.is_in_any_range(H.get_cursor_pos(), H.state.ranges) then
-          H.clearHighlight(H.state.bufnr)
+        if event.event == "TextChanged" or event.event == "TextChangedI" or H.bufnr ~= event.buf or not H.is_in_any_range(H.get_cursor_pos(), H.ranges) then
+          H.clearHighlight(H.bufnr)
         end
       end
-      H.state.bufnr = event.buf
+      H.bufnr = event.buf
       H.get_highlight_refers(event.buf)
-      -- todo: consider put this to bufenter or bufleave?
-      vim.uv.timer_start(H.state.timer, 200, 0,
+      vim.uv.timer_start(H.timer, 200, 0,
         vim.schedule_wrap(function()
-          if vim.uv.is_active(H.state.timer) then
-            vim.uv.timer_stop(H.state.timer)
+          if vim.uv.is_active(H.timer) then
+            vim.uv.timer_stop(H.timer)
           end
-          M.highlight(event.buf)
+          H.highlight(event.buf, H.ranges)
         end)
       )
     end
@@ -41,11 +38,11 @@ end
 
 
 H.get_highlight_refers = function(bufnr)
-  if H.state.cancel_fn ~= nil then
-    pcall(H.state.cancel_fn)
+  if H.cancel_fn ~= nil then
+    pcall(H.cancel_fn)
   end
-  local id = H.state.request_id + 1
-  H.state.request_id = id
+  local id = H.request_id + 1
+  H.request_id = id
   local winid = vim.api.nvim_get_current_win()
   local params = function(client)
     return vim.lsp.util.make_position_params(winid, client.offset_encoding)
@@ -53,7 +50,7 @@ H.get_highlight_refers = function(bufnr)
 
   local cancel_fn = vim.lsp.buf_request_all(bufnr, 'textDocument/documentHighlight', params,
     function(results, context, config)
-      if bufnr ~= H.state.bufnr or H.state.request_id ~= id then
+      if bufnr ~= H.bufnr or H.request_id ~= id then
         return
       end
 
@@ -61,19 +58,17 @@ H.get_highlight_refers = function(bufnr)
         local result = resultObj["result"]
         if result == nil then return end
         for _, res in ipairs(result) do
-          table.insert(H.state.ranges, res)
+          table.insert(H.ranges, res)
         end
       end
-      H.state.bufnr = bufnr
+      H.bufnr = bufnr
     end)
-  H.state.cancel_fn = cancel_fn
+  H.cancel_fn = cancel_fn
 end
 
-M.highlight = function(bufnr)
-  for _, range in ipairs(H.state.ranges) do
-    local actual_col = vim.api.nvim_buf_get_lines(bufnr, range["range"]["start"]["line"],
-      range["range"]["start"]["line"] + 1, false)[1]
-    vim.api.nvim_buf_set_extmark(bufnr, H.state.ns, range["range"]["start"]["line"],
+H.highlight = function(bufnr, ranges)
+  for _, range in ipairs(ranges) do
+    vim.api.nvim_buf_set_extmark(bufnr, H.ns_id, range["range"]["start"]["line"],
       range["range"]["start"]["character"],
       {
         end_line = range["range"]["end"]["line"],
@@ -84,7 +79,7 @@ M.highlight = function(bufnr)
 end
 
 H.is_in_range = function(pos, range)
-  if range == nil then
+  if vim.tbl_isempty(range) then
     return false
   end
   local line, col = pos[1], pos[2]
@@ -100,16 +95,15 @@ end
 
 
 H.is_in_any_range = function(pos, ranges)
-  if H.state.current_range and H.is_in_range(pos, H.state.current_range.range) then
+  if not vim.tbl_isempty(H.current_range) and H.is_in_range(pos, H.current_range.range) then
     return true
   else
     for _, range in ipairs(ranges) do
       if H.is_in_range(pos, range.range) then
-        H.state.current_range = range
+        H.current_range = range
         return true
       end
     end
-    H.state.current_range = nil
     return false
   end
 end
@@ -120,11 +114,11 @@ H.get_cursor_pos = function()
   return { pos[1] - 1, pos[2] }
 end
 H.clearHighlight = function(bufnr)
-  if bufnr and vim.api.nvim_buf_is_valid(bufnr) then
-    vim.api.nvim_buf_clear_namespace(bufnr, H.state.ns, 0, -1)
+  if vim.api.nvim_buf_is_valid(bufnr) then
+    vim.api.nvim_buf_clear_namespace(bufnr, H.ns_id, 0, -1)
   end
-  H.state.ranges = {}
-  H.state.current_range = nil
+  H.ranges = {}
+  H.current_range = {}
 end
 
 return M
