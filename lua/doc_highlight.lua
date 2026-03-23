@@ -20,6 +20,8 @@ M.setup = function()
       if has_highlight then
         if event.event == "TextChanged" or event.event == "TextChangedI" or H.bufnr ~= event.buf or not H.is_in_any_range(H.get_cursor_pos(), H.ranges) then
           H.clearHighlight(H.bufnr)
+        else
+          return
         end
       end
       H.bufnr = event.buf

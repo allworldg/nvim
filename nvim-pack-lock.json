@@ -18,7 +18,7 @@
       "src": "git@github.com:rafamadriz/friendly-snippets.git"
     },
     "fzf-lua": {
-      "rev": "6e41ba7505f35a6f054ca682b043aa0cea36c2ef",
+      "rev": "8a79ee54d6216d10b2f153921a12b152be0c1a20",
       "src": "git@github.com:ibhagwan/fzf-lua.git"
     },
     "gitsigns.nvim": {
@@ -42,21 +42,17 @@
       "src": "git@github.com:kylechui/nvim-surround.git"
     },
     "nvim-tree.lua": {
-      "rev": "b3772adec8db61ba9098c5624a0823a77be3a23d",
+      "rev": "f37ebac81164e1445c499cdd6de86e6d8e5d57e4",
       "src": "git@github.com:nvim-tree/nvim-tree.lua.git"
     },
     "nvim-treesitter": {
-      "rev": "ebc3201290b8372df2b3a1c23b71b9f007d972ff",
+      "rev": "875515255192864c33981c3ed66ad94e561b904a",
       "src": "git@github.com:nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "nvim-ts-autotag": {
       "rev": "8e1c0a389f20bf7f5b0dd0e00306c1247bda2595",
       "src": "git@github.com:windwp/nvim-ts-autotag"
-    },
-    "vim-illuminate": {
-      "rev": "0d1e93684da00ab7c057410fecfc24f434698898",
-      "src": "git@github.com:RRethy/vim-illuminate"
     }
   }
 }

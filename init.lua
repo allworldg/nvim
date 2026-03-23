@@ -18,3 +18,4 @@ vim.iter(vim.api.nvim_get_runtime_file("lua/plugin/*.lua", true)):each(
     end
   end
 )
+
