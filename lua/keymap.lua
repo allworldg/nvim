@@ -46,3 +46,7 @@ map("v", "p", 'P', opt)
 vim.keymap.set("n", "<c-h>", ":tabp<CR>", { silent = true })
 vim.keymap.set("n", "<c-l>", ":tabn<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ta", ":tabnew<CR>", { silent = true })
+vim.keymap.set("n", "<esc>",function ()
+  vim.cmd("noh")
+  return "<esc>"
+end,{expr=true, silent=true})

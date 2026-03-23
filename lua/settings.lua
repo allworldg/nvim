@@ -24,7 +24,7 @@ vim.opt.smartcase = true
 vim.opt.helpheight=12
 
 -- do not highlight except the incsearch result
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.showmode = false
 vim.opt.cmdheight = 1

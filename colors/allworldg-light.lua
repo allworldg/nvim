@@ -14,7 +14,7 @@ local palette = {
   black = '#1f1f1f',
   blue = '#0857b5',
   red = '#d1242f',
-  green='#026B0A',
+  green = '#026B0A',
   cyan = '#216f86',
   yellow = '#9a6700',
   white = '#f3f3f3',
@@ -42,7 +42,7 @@ local ui = {
 ---@type table<string, vim.api.keyset.highlight>
 local groups = vim.tbl_extend('error', {}, {
   ---===BaseUI===
-  Added = {fg= palette.green},
+  Added = { fg = palette.green },
   Normal = { fg = ui.fg, bg = ui.bg },
   NormalFloat = { fg = ui.fg, bg = ui.bg_float },
   NormalNc = { fg = ui.fg, bg = ui.bg },
@@ -64,11 +64,12 @@ local groups = vim.tbl_extend('error', {}, {
   -- StatusLineNC = { fg = colors.bright_black, bg = colors.bright_white, cterm = { reverse = true } },
 
   Visual = { bg = palette.bright_blue },
+  Search = { bg = palette.bright_black,fg=palette.bg},
   IncSearch = { fg = ui.fg, bg = palette.bg_select },
   MoreMsg = { fg = ui.fg },
   ErrorMsg = { fg = palette.red },
   WarningMsg = { fg = palette.yellow },
-  OkMsg = {fg=palette.green},
+  OkMsg = { fg = palette.green },
   Question = { fg = palette.fg },
 
   --===Builtin Syntax===
@@ -79,7 +80,7 @@ local groups = vim.tbl_extend('error', {}, {
   Identifier = { fg = palette.fg },
   Keyword = { fg = palette.purple, bold = false, cterm = { bold = false } },
   Operator = { fg = palette.fg },
-  PreProc = {fg=palette.blue},
+  PreProc = { fg = palette.blue },
   String = { fg = palette.fg_string },
   Statement = { fg = palette.purple, bold = false },
   Special = { fg = palette.fg },
@@ -122,11 +123,11 @@ local groups = vim.tbl_extend('error', {}, {
   StatuslinePercentage = { fg = palette.blue, bg = palette.bright_blue },
   StatuslineLocation = { fg = palette.bg, bg = palette.blue },
   StatuslineInactive = { bg = palette.bright_white },
-  StatuslineDisabled = {bg=palette.bg},
+  StatuslineDisabled = { bg = palette.bg },
 
   ---Tabline
   TabLine = { bg = palette.white },
-  TabLineSel={bg=palette.bg,bold=true},
+  TabLineSel = { bg = palette.bg, bold = true },
 
 
   ---Blink.cmp
