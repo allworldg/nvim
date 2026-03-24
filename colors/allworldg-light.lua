@@ -17,7 +17,7 @@ local palette = {
   green = '#026B0A',
   cyan = '#216f86',
   yellow = '#9a6700',
-  white = '#f3f3f3',
+  white = '#ececec',
 
   bright_blue = '#dae9f9',
   bright_black = '#8c8c8c',
@@ -63,8 +63,8 @@ local groups = vim.tbl_extend('error', {}, {
   -- StatusLine = { fg = colors.bg, bg = colors.statusLineBg, cterm = { reverse = true } },
   -- StatusLineNC = { fg = colors.bright_black, bg = colors.bright_white, cterm = { reverse = true } },
 
-  Visual = { bg = palette.bright_blue },
-  Search = { bg = palette.bright_black,fg=palette.bg},
+  Visual = { bg = palette.white },
+  Search = { bg = palette.bright_black, fg = palette.bg },
   IncSearch = { fg = ui.fg, bg = palette.bg_select },
   MoreMsg = { fg = ui.fg },
   ErrorMsg = { fg = palette.red },
@@ -145,6 +145,8 @@ local groups = vim.tbl_extend('error', {}, {
   FzfLuaHeaderText = { fg = palette.blue },
   FzfLuaLivePrompt = { fg = palette.black, bold = true },
   FzfLuaBufNr = { fg = palette.yellow },
+  --DocHighlight---
+  DocHighlight = { bg = palette.bright_blue }
 
 })
 

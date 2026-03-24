@@ -8,11 +8,11 @@ H.bufnr = vim.api.nvim_get_current_buf()
 H.timer = vim.uv.new_timer()
 H.cancel_fn = nil
 
-H.ns_id = vim.api.nvim_create_namespace("allworldg/doc_highlight")
+H.ns_id = vim.api.nvim_create_namespace("allworldg/doc-highlight")
 
 M.setup = function()
   H.timer = vim.uv.new_timer()
-  local group = vim.api.nvim_create_augroup("allworldg/doc_highlight", { clear = true })
+  local group = vim.api.nvim_create_augroup("allworldg/doc-highlight", { clear = true })
   vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufEnter", "TextChanged", "TextChangedI" }, {
     group = group,
     callback = function(event)
@@ -75,7 +75,7 @@ H.highlight = function(bufnr, ranges)
       {
         end_line = range["range"]["end"]["line"],
         end_col = range["range"]["end"]["character"],
-        hl_group = "Visual",
+        hl_group = "DocHighlight",
       })
   end
 end
