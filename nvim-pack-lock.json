@@ -9,6 +9,10 @@
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "git@github.com:stevearc/conform.nvim.git"
     },
+    "doc-highlight": {
+      "rev": "690d4e16e0649e7957a5211f39260919da236735",
+      "src": "git@github.com:allworldg/doc-highlight.git"
+    },
     "fidget.nvim": {
       "rev": "7fa433a83118a70fe24c1ce88d5f0bd3453c0970",
       "src": "git@github.com:j-hui/fidget.nvim.git"
@@ -32,6 +36,10 @@
     "mini.comment": {
       "rev": "597d32ed2c9fbfbf9a250bec7c6b9035f71214f5",
       "src": "git@github.com:nvim-mini/mini.comment"
+    },
+    "mini.doc": {
+      "rev": "16ca2739889f1d567ea23955247d9d4cd7b141b1",
+      "src": "git@github.com:nvim-mini/mini.doc.git"
     },
     "nvim-autopairs": {
       "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
