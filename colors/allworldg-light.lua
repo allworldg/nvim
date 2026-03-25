@@ -24,7 +24,7 @@ local palette = {
   bright_white = '#f6f8fa',
 
   boolean = '#0c40d2',
-  bg_select = '#f8d700',
+  bright_yellow = '#fce094',
   fg_function = '#795e26',
   fg_string = '#a31515',
 }
@@ -64,8 +64,8 @@ local groups = vim.tbl_extend('error', {}, {
   -- StatusLineNC = { fg = colors.bright_black, bg = colors.bright_white, cterm = { reverse = true } },
 
   Visual = { bg = palette.white },
-  Search = { bg = palette.bright_black, fg = palette.bg },
-  IncSearch = { fg = ui.fg, bg = palette.bg_select },
+  Search = { bg = palette.bright_yellow,fg=ui.fg },
+  IncSearch = { fg = ui.fg, bg = palette.bright_yellow },
   MoreMsg = { fg = ui.fg },
   ErrorMsg = { fg = palette.red },
   WarningMsg = { fg = palette.yellow },

@@ -16,16 +16,15 @@ M.setup = function()
   vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufEnter", "TextChanged", "TextChangedI" }, {
     group = group,
     callback = function(event)
-      local has_highlight = not vim.tbl_isempty(H.ranges)
-      if has_highlight then
+      if vim.tbl_isempty(H.ranges) then
         if event.event == "TextChanged" or event.event == "TextChangedI" or H.bufnr ~= event.buf or not H.is_in_any_range(H.get_cursor_pos(), H.ranges) then
           H.clearHighlight(H.bufnr)
-        else
-          return
         end
       end
+
       H.bufnr = event.buf
-      H.get_highlight_refers(event.buf)
+      H.request_id = H.update_id(H.request_id)
+      H.get_highlight_refers(event.buf, H.request_id)
       vim.uv.timer_start(H.timer, 200, 0,
         vim.schedule_wrap(function()
           if vim.uv.is_active(H.timer) then
@@ -38,13 +37,23 @@ M.setup = function()
   })
 end
 
+H.update_id = function(id)
+  if id == 1e9 then
+    id = 0
+  end
+  id = id + 1
+  return id
+end
 
-H.get_highlight_refers = function(bufnr)
+H.has_highlight = function(ranges)
+  return vim.tbl_isempty(ranges)
+end
+
+
+H.get_highlight_refers = function(bufnr, id)
   if H.cancel_fn ~= nil then
     pcall(H.cancel_fn)
   end
-  local id = H.request_id + 1
-  H.request_id = id
   local winid = vim.api.nvim_get_current_win()
   local params = function(client)
     return vim.lsp.util.make_position_params(winid, client.offset_encoding)
@@ -59,11 +68,15 @@ H.get_highlight_refers = function(bufnr)
       for client_id, resultObj in pairs(results) do
         local result = resultObj["result"]
         if result == nil then return end
+        local ranges = {}
         for _, res in ipairs(result) do
-          table.insert(H.ranges, res)
+          table.insert(ranges, res)
         end
+        H.ranges = ranges
       end
-      H.bufnr = bufnr
+
+      -- should render the latest ranges
+      H.is_rendered = false
     end)
   H.cancel_fn = cancel_fn
 end
@@ -121,6 +134,7 @@ H.clearHighlight = function(bufnr)
   end
   H.ranges = {}
   H.current_range = {}
+  H.is_rendered = false
 end
 
 return M
