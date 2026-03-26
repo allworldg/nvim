@@ -1,2 +1,0 @@
--- vim.pack.add({"git@github.com:allworldg/doc-highlight.git"},{confirm=false})
--- require("doc-highlight").setup()
