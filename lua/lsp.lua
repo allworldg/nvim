@@ -26,7 +26,7 @@ vim.diagnostic.config({
   },
 })
 
-vim.lsp.document_color.enable(true, 0, {
+vim.lsp.document_color.enable(true, {}, {
   style = 'virtual'
 })
 
