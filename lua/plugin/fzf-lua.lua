@@ -18,19 +18,27 @@ require("fzf-lua").setup({
     }
   },
   keymap = {
-    builtin = {
-      ["<C-j>"] = "preview-down",
-      ["<C-k>"] = "preview-up",
+    fzf = {
+      ["up"] = "prev-history",
+      ["down"] = "next-history",
+      ["ctrl-n"] = "down",
+      ["ctrl-p"] = "up",
     },
   },
   files = {
     cwd_prompt = false,
     no_ignore = false,
-    hidden = true
+    hidden = true,
+    fzf_opts = {
+      ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
+    },
   },
   grep = {
     hidden = true,
     no_ignore = false,
+    fzf_opts = {
+      ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-grep-history",
+    },
   },
 
 })
@@ -61,9 +69,9 @@ vim.keymap.set("n", "gr",
       {
         winopts = {
           height = 0.6,
-          width=1,
+          width = 1,
           relative = 'cursor',
-          preview = { layout = 'horizontal', horizontal = "left:50%",scrollbar=false }
+          preview = { layout = 'horizontal', horizontal = "left:50%", scrollbar = false }
         },
       }
     )
@@ -78,4 +86,3 @@ vim.keymap.set("n", "gd", function() require 'fzf-lua'.lsp_definitions() end)
 vim.keymap.set("n", "<leader>sw", function() require 'fzf-lua'.diagnostics_workspace() end)
 vim.keymap.set("n", "<leader>sD", function() require 'fzf-lua'.diagnostics_document() end)
 vim.keymap.set("n", "gD", function() require 'fzf-lua'.lsp_declarations() end)
-
