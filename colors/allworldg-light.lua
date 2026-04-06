@@ -1,5 +1,5 @@
 vim.cmd.highlight 'clear'
-if vim.fn.exists 'syntax_on' then
+if vim.fn.exists 'syntax_on' == 0 then
   vim.cmd.syntax 'reset'
 end
 
@@ -64,7 +64,7 @@ local groups = vim.tbl_extend('error', {}, {
   -- StatusLineNC = { fg = colors.bright_black, bg = colors.bright_white, cterm = { reverse = true } },
 
   Visual = { bg = palette.white },
-  Search = { bg = palette.bright_yellow,fg=ui.fg },
+  Search = { bg = palette.bright_yellow, fg = ui.fg },
   IncSearch = { fg = ui.fg, bg = palette.bright_yellow },
   MoreMsg = { fg = ui.fg },
   ErrorMsg = { fg = palette.red },
