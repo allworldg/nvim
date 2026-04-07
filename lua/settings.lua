@@ -6,8 +6,6 @@ vim.opt.number = true
 vim.opt.signcolumn = "no"
 vim.wo.cursorline = true
 vim.wo.cursorlineopt = "number"
--- lineNr左侧图标指示列
-vim.opt.winblend = 0
 -- 1 tab == 2 blackspace
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -71,6 +69,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end
 })
 
+
 require('vim._core.ui2').enable({
   enable = true, -- Whether to enable or disable the UI.
   msg = {        -- Options related to the message module.
@@ -80,3 +79,21 @@ require('vim._core.ui2').enable({
     timeout = 4000, -- Time a message is visible in the message window.
   },
 })
+
+vim.filetype.add {
+    filename = {
+        ['.eslintrc.json'] = 'jsonc',
+    },
+    pattern = {
+        ['tsconfig*.json'] = 'jsonc',
+        ['.*/%.vscode/.*%.json'] = 'jsonc',
+        ['.*'] = function(path, bufnr)
+            return vim.bo[bufnr]
+                    and vim.bo[bufnr].filetype ~= 'bigfile'
+                    and path
+                    and vim.fn.getfsize(path) > (1024 * 500) -- 500 KB
+                    and 'bigfile'
+                or nil
+        end,
+    },
+}
