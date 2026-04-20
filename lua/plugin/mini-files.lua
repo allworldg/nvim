@@ -7,7 +7,14 @@ local minifiles_toggle = function()
   if not MiniFiles.close() then MiniFiles.open() end
 end
 
-vim.keymap.set("n", "<A-m>", minifiles_toggle, { silent = true })
+vim.keymap.set("n", "<A-m>",
+  function()
+    if not MiniFiles.close() then
+      MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+      MiniFiles.reveal_cwd()
+    end
+  end,
+  { silent = true })
 vim.api.nvim_create_autocmd('User', {
   pattern = 'MiniFilesExplorerOpen',
   group = vim.api.nvim_create_augroup("minifilesKeymap", { clear = true }),
