@@ -3,15 +3,12 @@ local M = {}
 M.disabled_filetypes = { 'NvimTree' }
 
 function M.git()
-  local git_info = vim.b.gitsigns_status_dict
-  if not git_info or git_info.head == "" then
+  local git_info = vim.b.gitinfo or {}
+  if not git_info or git_info.branch == "" then
     return ""
   end
-  local head = git_info.head
-  local added = git_info.added and ("+" .. git_info.added) or ""
-  local changed = git_info.changed and ("~" .. git_info.changed) or ""
-  local removed = git_info.removed and ("-" .. git_info.removed) or ""
-  return table.concat({ " ", head, added, changed, removed, " " })
+  local branch = git_info.branch
+  return table.concat({ " ", branch, " " })
 end
 
 function M.active()
@@ -33,6 +30,7 @@ end
 
 function M.is_disabled_statusline()
   if vim.api.nvim_win_get_config(0).relative ~= "" then
+    -- print("yes will be disalbed") //todo
     return true
   end
   for _, filetype in pairs(M.disabled_filetypes) do
@@ -41,6 +39,34 @@ function M.is_disabled_statusline()
     end
   end
   return false
+end
+
+function M.getGitBranch(bufnr)
+  coroutine.wrap(function()
+    local running_co = coroutine.running()
+    vim.system({ "git", "branch", "--show-current" }, { text = true }, function(res)
+      local out = (res.code == 0 and res.stdout) and vim.trim(res.stdout) or nil
+      ---@diagnostic disable-next-line: param-type-mismatch
+      coroutine.resume(running_co, out)
+    end)
+    local branch = coroutine.yield()
+    if not branch or branch == "" then
+      vim.system({ "git", "rev-parse", "--short", "HEAD" }, { text = true }, function(res)
+        local out = (res.code == 0 and res.stdout) and vim.trim(res.stdout) or ""
+        ---@diagnostic disable-next-line: param-type-mismatch
+        coroutine.resume(running_co, out)
+      end)
+      branch = coroutine.yield()
+    end
+    vim.schedule(function()
+      if vim.api.nvim_buf_is_valid(bufnr) then
+        local gitinfo = vim.b[bufnr].gitinfo or {}
+        gitinfo.branch =branch
+        vim.b[bufnr].gitinfo = gitinfo
+        vim.cmd("redrawstatus")
+      end
+    end)
+  end)()
 end
 
 local group = vim.api.nvim_create_augroup("Statusline", { clear = true })
@@ -67,5 +93,13 @@ vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
     end
     vim.opt_local.statusline = "%!v:lua.require'statusline'.inactive()"
   end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  group = group,
+  desc = "get git status",
+  callback = function(event)
+    M.getGitBranch(event.buf)
+  end
 })
 return M
