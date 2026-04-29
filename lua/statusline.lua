@@ -75,7 +75,7 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   desc = "Activate statusline on focus",
   callback = function()
     if M.is_disabled_statusline() then
-      vim.opt_local.statusline = " "
+      vim.opt_local.statusline = "%#StatuslineDisabled#"
       return
     end
     vim.opt_local.statusline = "%!v:lua.require'statusline'.active()"
